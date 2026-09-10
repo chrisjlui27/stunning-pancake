@@ -1,0 +1,7 @@
+.DS_Store
+Thumbs.db
+*.tmp
+.venv/
+__pycache__/
+node_modules/
+scratch/
