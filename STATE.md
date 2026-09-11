@@ -4,7 +4,7 @@
 > Keep it short — if a section is growing past a screen, the detail belongs in
 > `synthesis/` and this file should link to it instead.
 
-**Last updated:** 2026-09-11 — nine papers read; both literature threads closed; five errata logged.
+**Last updated:** 2026-09-11 — nine papers read; both threads closed; errata pass complete (ERRATA.md).
 
 ## Subject
 
@@ -30,7 +30,8 @@ next: the contribution depends on it, though the mathematics does not.
 
 | Thread | Status | Next step |
 |---|---|---|
-| **Apply the v2 errata** | **open, highest priority** | Five items in `synthesis/mirror-sedenions.md` §Errata: the P₁ᵀ→P₂ᵀ fix, citing Bales's 2011 catalog for the 32/24/8 census, adding Moreno 2005 and Wilmot, and keeping Question 2's quaternionic-line qualifier. |
+| **Apply the v2 errata** | **ready — needs one check** | Six items compiled at `papers/mirror-sedenions/ERRATA.md`. E1 (§3.2's reversed transpose subscripts) is the only real correction and is **blocked on confirming the AACA 2016 numbering** — the comparison was against arXiv:1707.07318v4. Everything else is additions. |
+| **Confirm AACA 26 (2016) numbering** | open, blocks E1 | Ref [2] is the journal version; the errata compare against the arXiv version. If AACA numbers the transposes as the paper does, E1 is void and the fix is a footnote instead. |
 | ~~Aryapoor–Bäck–Pautrel~~ | **closed** | Read. No threat — they vary the scalar µ, not the product, and their isomorphisms extend the identity where Theorem 3.6's extend conjugation. |
 | ~~Bales 2011 catalog~~ | **closed, with an action** | Read. No threat to novelty, but it *is* the source of the 32/24/8 census the paper presents as its own. Must cite. |
 | ~~Wilmot gap~~ | **closed** | Read. Uses the standard product throughout. Split sedenions also ruled out computationally. Cite for the 8+7 subalgebra split and the 84→7 reduction. |
@@ -58,9 +59,9 @@ next: the contribution depends on it, though the mathematics does not.
 ## Known gaps
 
 - **The novelty claim now holds**, on nine papers read (2026-09-11). Both threads
-  closed; no prior description of S′'s structure found. Five errata to apply —
-  the largest being that the 32/24/8 doubling-product census is **Bales's**, not
-  the paper's own.
+  closed; no prior description of S′'s structure found. Six errata items compiled,
+  of which exactly one (E1, §3.2's transpose subscripts) is a correction rather
+  than an addition — and it is blocked on checking the AACA text.
 - Reference [16] (own working notes) is outside the vault.
 - **Twenty of the 23 original bibliography entries remain `read: not-read`** —
   they record what the paper says about the literature, not what the literature

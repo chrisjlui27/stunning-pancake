@@ -128,8 +128,14 @@ Cite as adjacent work if at all; it does not need defending against.
 
 That is precisely the census the paper's Appendix A and our check5/check12
 reproduce — the 32 candidates, the 24 rejected by the quaternion-line condition,
-the 8 survivors. **This paper is not cited and should be.** Right now the paper
-presents that census as its own computation; it is a rediscovery of Bales 2011.
+the 8 survivors. **This paper is not cited and probably should be.**
+
+*Correction to my first pass:* I initially wrote that the paper presents the
+census as its own computation. **Wrong** — §3.2 attributes it ("Bales [2] shows
+that among thirty-two candidate doubling formulas…") and Appendix A says "the
+thirty-two Bales candidates". The attribution is there. The open question is only
+whether [2] (AACA 2016) carries the census, or whether this 2011 catalog is the
+right citation for it.
 
 Bales's Table 11 lists the eight explicitly, and two of them are the paper's own
 formulas verbatim:
@@ -159,22 +165,30 @@ acknowledge that the product itself is catalogued there.
 
 ## 5. ERRATUM — the wrong Bales product is named
 
-§1 states that formula (2) "is Bales's product P₁ᵀ". Using the numbering of
-arXiv:1707.07318 (*The Cayley–Dickson doubling products*, v4), implemented and
-run:
+*Correction to my first pass:* I claimed "formula (2) is P₂ᵀ, not P₁ᵀ" before
+reading §3.2. The paper prints **its own list** of the eight there, and in that
+list P₁ᵀ **is** formula (2) — so §1 is internally consistent. The defect is real
+but different.
 
-| Bales 2017 | identical to | class |
+Comparing the paper's §3.2 list with Bales arXiv:1707.07318 formula by formula:
+the **unprimed P0–P3 match exactly**, and the eight match **as a set**, but the
+**transposes are subscript-reversed** — the paper's Pᵢᵀ is Bales's P₍₃₋ᵢ₎ᵀ.
+
+| paper | Bales | |
 |---|---|---|
-| **P0ᵀ** | **S** | S |
-| **P2ᵀ** | **S′** | S′ |
-| P1ᵀ | neither (isomorphic to S′, not equal) | S′ |
+| P0ᵀ | P3ᵀ | |
+| P1ᵀ | **P2ᵀ** | = formula (2), mirror |
+| P2ᵀ | P1ᵀ | |
+| P3ᵀ | **P0ᵀ** | = formula (1), standard |
 
-**Formula (2) is P₂ᵀ, not P₁ᵀ.**
+Bales defines Pᵀ(x,y) = P(y,x), so the paper's "P0ᵀ" is the transpose of **P3** —
+the superscript does not mean what the notation says, and a reader consulting [2]
+for P₁ᵀ finds a different formula.
 
-Theorem 3.6's *class* assignment is exactly right and needs no change — S for
-{P0, P3, P0ᵀ, P3ᵀ}, S′ for {P1, P2, P1ᵀ, P2ᵀ} — reproduced exactly. It is only
-the single identifying sentence in §1 that names the wrong member. P₁ᵀ *is* in
-the S′ class, so the error is invisible to the theorem; it is a one-word fix.
+**Theorem 3.6 survives under either labelling**, by a symmetry: the reversal maps
+{0,3} → {3,0} and {1,2} → {2,1}, preserving the sets {P0ᵀ,P3ᵀ} and {P1ᵀ,P2ᵀ}.
+Verified computationally in both. Only §1's identifying sentence and Remark 3.8's
+two references to "P₁ᵀ" need changing.
 
 <!-- UNVERIFIED: ref [2] is cited as AACA 26 (2016). arXiv:1707.07318v4 is titled
      "The Cayley-Dickson doubling products" (2023); v3 was titled "The eight

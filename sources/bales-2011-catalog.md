@@ -15,7 +15,27 @@ status: READ — verdict below
 
 ## Verdict — 2026-09-11
 
-**RESOLVED — no threat to novelty, but MUST BE CITED.** This is the source of the 32-candidate / 24-rejected / 8-surviving census that Appendix A and check5/check12 reproduce; the paper currently presents it as its own computation. Table 11 lists the eight, including **P27 = (ca − d\*b, da + bc\*) = the paper's formula (2) verbatim** and **P31 = the paper's (1)**. Verified bit-for-bit against our `Sm` and `S`. Classifying all eight: S-class {P0, P7, P24, P31}, S′-class {P3, P4, P27, P28}, and the four ac/ca partner pairs each split one to each class — Theorem 3.6's mechanism in Bales's numbering. The catalog does **not** apply a variant once on top of standard O, nor observe that the eight give two non-isomorphic 16-dimensional algebras, so the *construction* claim survives; §1's wording should acknowledge the product is catalogued.
+**RESOLVED — no threat; a citation refinement, not a correction.**
+
+*Correcting my own earlier note here:* I first wrote that the paper presents the
+32/24/8 census as its own computation. **That was wrong.** §3.2 says "Bales [2]
+shows that among thirty-two candidate doubling formulas … exactly eight produce …"
+and Appendix A says "the thirty-two Bales candidates". The attribution is already
+present and correct.
+
+The refinement is *which* Bales paper. The 32 / 24 / 8 result is the explicit
+subject of this one, which is uncited: "A catalog of all **32** … Only **eight**
+of these are true Cayley-Dickson doubling products, since **24** of them do not
+satisfy the quaternion properties." Suggest citing it alongside [2] at that
+sentence; check whether AACA 2016 also carries the census.
+
+Table 11 gives the eight in a third numbering: the standard product is **P31**,
+the mirror is **P27** — verified bit-for-bit against our `S` and `Sm`. Classifying
+all eight: S-class {P0, P7, P24, P31}, S′-class {P3, P4, P27, P28}, forming four
+ac/ca partner pairs each split one to each class — Theorem 3.6's mechanism in a
+third independent numbering. The catalog never applies a variant once on top of
+standard O, nor observes that the eight give two non-isomorphic 16-dimensional
+algebras, so the **construction** claim is untouched.
 
 ## Why this source matters
 

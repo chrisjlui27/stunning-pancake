@@ -15,7 +15,37 @@ status: READ — verdict below
 
 ## Verdict — 2026-09-11
 
-**ERRATUM FOUND.** §1 says formula (2) 'is Bales's product P₁ᵀ'. Implemented and run against this paper's numbering: **P0ᵀ is identical to S** and **P2ᵀ is identical to S′**. Formula (2) is **P₂ᵀ**, not P₁ᵀ. Theorem 3.6's *class* assignment reproduces exactly — S for {P0, P3, P0ᵀ, P3ᵀ}, S′ for {P1, P2, P1ᵀ, P2ᵀ} — so the theorem is untouched and P₁ᵀ is genuinely in the S′ class; only the identifying sentence names the wrong member. One-word fix. <!-- UNVERIFIED: ref [2] cites AACA 26 (2016); this is arXiv:1707.07318v4 (2023), retitled from v3's 'The eight Cayley-Dickson doubling products'. Numbering assumed stable across versions — confirm against the AACA text. -->
+**ERRATUM FOUND — but narrower than I first stated.**
+
+*Correcting my own earlier note:* I first said "formula (2) is P₂ᵀ, not P₁ᵀ,"
+implying §1 was simply wrong. It is more subtle. The paper's §3.2 prints its own
+list of the eight, and **in that list P₁ᵀ is indeed formula (2)** — so §1 is
+internally consistent with §3.2. I had not read §3.2 when I made the claim.
+
+The actual defect: the paper's §3.2 **unprimed P0–P3 match Bales exactly**, and
+the eight match **as a set**, but the **transposes are subscript-reversed** —
+the paper's Pᵢᵀ is Bales's P₍₃₋ᵢ₎ᵀ:
+
+| paper | Bales |
+|---|---|
+| P0ᵀ | P3ᵀ |
+| P1ᵀ | **P2ᵀ** (= formula (2), mirror) |
+| P2ᵀ | P1ᵀ |
+| P3ᵀ | **P0ᵀ** (= formula (1), standard) |
+
+Since Bales defines Pᵀ(x,y) = P(y,x), the paper's "P0ᵀ" is the transpose of **P3**,
+so the superscript does not mean what the notation says, and a reader consulting
+[2] for P₁ᵀ finds a different formula.
+
+**Theorem 3.6 survives under either labelling** — the reversal maps {0,3}→{3,0}
+and {1,2}→{2,1}, preserving the sets {P0ᵀ,P3ᵀ} and {P1ᵀ,P2ᵀ}. Verified in both.
+Only §1's identification and Remark 3.8's references to "P₁ᵀ" need changing.
+Full fix in `papers/mirror-sedenions/ERRATA.md` §E1.
+
+<!-- UNVERIFIED: compared against arXiv:1707.07318v4 (2023). Ref [2] cites AACA 26
+     (2016), whose title matches arXiv v3. Numbering assumed stable across
+     versions — confirm against the AACA text; if AACA numbers the transposes as
+     the paper does, the erratum is void. -->
 
 ## Why this source matters
 

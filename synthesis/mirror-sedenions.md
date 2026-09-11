@@ -130,34 +130,39 @@ Ranked by how much damage each would do.
 
 ## Errata for v2
 
-Found 2026-09-11 by reading the sources and re-running the products. See
-`notes/2026-09-11-literature-pass.md`.
+Compiled in full at `papers/mirror-sedenions/ERRATA.md`. Nothing here affects a
+theorem — every mathematical statement checked so far reproduces.
 
-1. **§1 names the wrong Bales product.** Formula (2) is stated to be "Bales's
-   product P₁ᵀ". Implemented against arXiv:1707.07318's numbering and run:
-   **P0ᵀ is identical to S, P2ᵀ is identical to S′.** Formula (2) is **P₂ᵀ**.
-   Theorem 3.6's class assignment reproduces exactly and needs no change — P₁ᵀ
-   *is* in the S′ class — so this is a one-word fix in a single sentence.
-   <!-- UNVERIFIED: confirm against the AACA 26 (2016) text, which is what [2] cites. -->
+1. **§3.2's four transposed products carry reversed subscripts.** The unprimed
+   P0–P3 match Bales exactly and the eight match as a set, but the paper's Pᵢᵀ is
+   Bales's P₍₃₋ᵢ₎ᵀ. Since Bales defines Pᵀ(x,y) = P(y,x), the paper's "P0ᵀ" is the
+   transpose of **P3** — the superscript does not mean what it says, and a reader
+   consulting [2] for P₁ᵀ finds a different formula. **Theorem 3.6 survives under
+   either labelling** (the reversal preserves the sets {P0ᵀ,P3ᵀ} and {P1ᵀ,P2ᵀ});
+   only §1's "formula (2) is Bales's product P₁ᵀ" and Remark 3.8's two references
+   need changing, to P₂ᵀ.
+   <!-- UNVERIFIED: compared against arXiv:1707.07318v4; [2] cites AACA 26 (2016).
+        Confirm against the AACA text — if it numbers transposes as the paper
+        does, the erratum is void. -->
 
-2. **The 32/24/8 census is Bales's, not ours.** Bales, *A catalog of
-   Cayley–Dickson-like products* (arXiv:1107.1301), catalogs all 32 CD-like
-   doubling products and shows exactly 8 satisfy the quaternion properties, 24
-   failing. That is precisely what Appendix A presents as its own computation.
-   **Must be cited.** Its Table 11 lists the mirror product verbatim as **P27**
-   and the standard as **P31**. The *construction* claim survives — the catalog
-   never applies a variant once on top of standard O, nor notices the eight give
-   two non-isomorphic algebras.
+2. **Consider citing Bales's 2011 catalog** (arXiv:1107.1301) for the
+   32-candidate enumeration. The census *is* already attributed to Bales in §3.2
+   and Appendix A — the only question is whether [2] carries it or whether the
+   catalog, whose abstract states the 32 / 24 / 8 result outright, is the right
+   citation.
 
-3. **Add Moreno 2005** (*Constructing zero divisors in the higher dimensional
-   Cayley–Dickson algebras*, arXiv:math/0512517) — a sequel to [18] relating
-   zero-divisor sets to Stiefel manifolds. The natural entry point for Question 3.
+3. **§9 Question 2: keep the quaternionic-line qualifier explicit.** The claim is
+   false without it — four further candidates have eight octaves *and*
+   dim Der = 14 without being S or S′, excluded only by that condition.
 
-4. **Add Wilmot 2025**, and consider the 84 / 112 remark below.
+4. **Add Moreno 2005** (arXiv:math/0512517), a sequel to [18] relating
+   zero-divisor sets to Stiefel manifolds — the entry point for Question 3.
 
-5. **Question 2's qualifier.** Eight octaves plus dim Der = 14 does not
-   characterise S and S′ — four other Bales products share both. The
-   quaternionic-line condition is what excludes them. Keep it explicit.
+5. **Add Wilmot 2025**, and consider the 84 / 112 remark below.
+
+6. **[9] citation details:** cite the γ form (their bullet list typos it as Sδ),
+   and note that their uniqueness is at the level of loops where claim (A) is at
+   the level of algebras.
 
 ## Literature position — resolved 2026-09-11
 
