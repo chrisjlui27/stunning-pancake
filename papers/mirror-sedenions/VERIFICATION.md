@@ -76,7 +76,7 @@ The 6-dimensional stratum occurs exactly where b₂ = 0, i.e. b ∈ span{1, a} =
 - dim ker alt_x generic: **S: 8, S′: 4** ✓
 - dim Der: O 14, S 14, S′ 14, M(H) **6** ✓
 
-### check4 — cocycle and graded isomorphisms ✅ (partial: 32-product census still running)
+### check4 — cocycle and graded isomorphisms ✅
 |GL(4,2)| = 20160. Both algebras: associator +1 on 168 of 420 independent basis
 triples; all dependent triples associate. **φ_S and φ_S′ are both non-trilinear**
 ✓ (χ is not a 2-cocycle, Prop. 7.3).
@@ -99,7 +99,8 @@ to pin down S and S′. Open Question 2 states the census claim over sign
 functions *with quaternionic lines*, and Appendix A notes the quaternion-line
 condition fails for "the twenty-four rejected formulas" — consistent, since
 32 − 8 = 24. The qualifier is doing real work and should not be dropped when
-the question is restated. <!-- UNVERIFIED: pending check12 confirming these four fail the line condition. -->
+the question is restated. **Confirmed by check12 below:** those four products have
+28 failing quaternionic-line pairs each, so they are among the 24 rejected.
 
 ### check6 — embedding and spectrum ✅
 - `PASS` Φ(a,b) = ā + (be)e′ is an algebra isomorphism S′ → O ⊕ (Oe)e′ ⊂ T ✓ (Thm 3.3), with ee′ = e₂₄
@@ -137,13 +138,96 @@ Symbolic characteristic polynomials of alt_x in normal form:
   (max diff 0.669) ✓ — confirming Open Question 1's assertion that the metric is
   G2-invariant but *not* a Riemannian product.
 
-### checks 9–12 — pending
-Still running at the time of writing: `check9_final`, `check10_tree`,
-`check11_tree_iso`, `check12_lines`, `sym_spectrum`. check4's 32-product census
-section is also still running.
+### check9 — final structural checks ✅ (after one fix — see below)
+- `PASS` alt_x on M(Q) and on M(Q)^⊥, the two block formulas (5), (6) ✓
+- `PASS` L_x preserves the splitting M(Q) + M(Q)^⊥
+- `PASS` ker alt_x = C_a + (b C_a)ℓ, 4-dimensional for generic x, and **is a
+  composition subalgebra (= H)** ✓
+- `PASS` S′: xy = 0 ⟹ yx = 0 — annihilation is two-sided ✓ (Remark 5.3)
+- `PASS` M(H): (a,b) ↦ (a, qb) is an automorphism; in S′ it is **not** ✓ (Thm 8.1(3))
+- dim nucleus = 1 and dim centre = 1 for both
+- Uniform P1^T tower: dimension-8 stage is **not** a composition algebra, Der = 6
+  at both dimensions 8 and 16 (against 14 for S′) ✓ (Remark 3.8)
+- For x ∈ Z(S): dim Ann_S = 4, dim Ann_S′ = 2, **intersection 0**
+
+#### Second bug found — again in the check, not the paper
+
+    FAIL  Sm: l is alternative; S: l is not
+
+The assertion is wrong. ℓ = 0 + 1·ℓ lies in **R + Oℓ**, which Table 1 lists as
+alternative for **both** algebras — so ℓ is alternative in both, as direct
+computation confirms. The element that actually separates them is a, b ∈ C_u with
+Im a ≠ 0 and b ≠ 0: it lies in S's larger alternative set ⋃_u(C_u + C_uℓ) but
+outside S′'s O ∪ (R + Oℓ). Verified:
+
+| element | alternative in S | alternative in S′ |
+|---|---|---|
+| ℓ | True | True |
+| R + Oℓ, generic b | True | True |
+| O, generic a | True | True |
+| **u + uℓ** (u an imaginary unit) | **True** | **False** |
+| a imaginary, b generic | False | False |
+
+Replaced with the two correct assertions; both pass. **Table 1's alternative-element
+rows are confirmed** — the original check simply tested the wrong element.
+
+### check10 — the orientation tree ✅
+Reproduces the 32-product census independently, in agreement with check5.
+
+### check11 — tree isomorphism ✅
+- **CD(M(H))** (standard double of the quasi-octonions) is graded-isomorphic to **S**
+- **M(M(H))** (mirror double of them) is graded-isomorphic to **neither S nor S′**
+
+This is the third dimension-16 algebra of Open Question 2, confirmed distinct.
+
+### check12 — the quaternionic-line condition ✅
+Failing ordered basis pairs per product. **Exactly 8 of the 32 have zero
+failures**, and they are precisely the S-class and the S′-class:
+
+    zero failures:  (0,0) (3,1) (4,2) (7,3)   = S
+                    (1,1) (2,0) (5,3) (6,2)   = S′
+    the four 8-octave, Der-14 "neither" products:
+                    (1,3) (2,2) (5,1) (6,0)   = 28 failing pairs each
+
+So 32 − 8 = **24 rejected formulas** ✓, matching Appendix A, and the precision
+point raised under check5 is settled: the four extra products with eight octaves
+and dim Der = 14 are excluded precisely by the quaternionic-line condition.
+
+Also: `S: ker alt_x (dim 8) is a subalgebra: True; composition: True` ✓
+
+### sym_spectrum — symbolic eigenvalues ✅
+alt_x is symmetric. Characteristic polynomial
+
+    λ⁴ (4a₁²b₀² + 4a₁²b₁² − λ²)⁴ (4a₁²b₀² + 4a₁²b₁² + 4a₁²b₂² − λ²)²
+
+with roots
+
+| eigenvalue | multiplicity | Theorem 4.1 |
+|---|---|---|
+| ±2\|a₁\|√(b₀²+b₁²+b₂²) | 2 each | ±2\|Im a\|\|b\| |
+| ±2\|a₁\|√(b₀²+b₁²) | 4 each | ±2\|Im a\|\|b∥\| |
+| 0 | 4 | N(x) |
+
+**Exactly Theorem 4.1**, symbolically. ✓
 
 ## Summary
 
-Every completed check reproduces the paper's claim. **No mathematical error was
-found.** The one discrepancy traced to a typo in a verification script, now
-fixed, and the corrected check verifies Theorem 4.1 to machine precision.
+**Every check reproduces the paper's claim. No mathematical error was found.**
+
+Two discrepancies surfaced, and both were errors in the verification scripts
+rather than in the mathematics:
+
+1. `check7_misc.py` computed τ with \|a\| instead of \|Im a\| — masked at
+   check6's sample points because they all have Re a = 0. Fixed; Theorem 4.1
+   now verifies at 2.4e-15 over 2000 random points.
+2. `check9_final.py` asserted that ℓ is alternative in S′ but not in S. ℓ is
+   alternative in **both**; the discriminating element is u + uℓ. Fixed; Table 1
+   is confirmed.
+
+Both fixes are marked in the source with a dated comment. The scripts now run
+clean — no `FAIL` lines anywhere.
+
+One substantive note for v2, under check5/check12: eight octaves together with
+dim Der = 14 does **not** characterise S and S′ among the Bales products; four
+others share both invariants. The quaternionic-line condition is what excludes
+them, and Open Question 2's phrasing should keep that qualifier explicit.

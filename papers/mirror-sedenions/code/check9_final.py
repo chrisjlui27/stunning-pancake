@@ -56,7 +56,17 @@ ok('the chart C_a + (b C_a) l is a composition subalgebra (= H)', comp)
 # alternative elements of Sm : alt_x = 0 iff x in O or x in R + O l
 def is_alt(name, x):
     A = np.column_stack([assoc(name, x, x, basis(16, i)) for i in range(16)]); return np.allclose(A, 0, atol=1e-9)
-ok('Sm: l is alternative; S: l is not', is_alt('Sm', basis(16, 8)) and not is_alt('S', basis(16, 8)))
+# FIX 2026-09-11: the old assertion was `is_alt('Sm', l) and not is_alt('S', l)`,
+# which FAILed because l = 0 + 1*l lies in R + O.l and is therefore alternative in
+# BOTH algebras (Table 1 lists R + O.l as alternative for S as well). The element
+# that actually separates them is a,b in C_u with Im a != 0 and b != 0: that lies in
+# S's larger alternative set  union_u (C_u + C_u l)  but outside S''s  O u (R + O.l).
+ok('l is alternative in both S and Sm (l in R + O.l)',
+   is_alt('Sm', basis(16, 8)) and is_alt('S', basis(16, 8)))
+_u = rng.standard_normal(8); _u[0] = 0; _u = unit(_u)
+_x = np.concatenate([_u, _u])          # u + u*l : a, b in C_u, Im a != 0, b != 0
+ok('S: u + u.l is alternative; Sm: it is not  (Table 1, alternative elements)',
+   is_alt('S', _x) and not is_alt('Sm', _x))
 ok('Sm: (a0, b) alternative for any b', all(is_alt('Sm', pair(rng.random() * basis(8, 0), rand(8, rng))) for _ in range(5)))
 ok('Sm: (a, b) with Im a != 0 and b != 0 is not alternative', not any(is_alt('Sm', pair(rand(8, rng), rand(8, rng))) for _ in range(5)))
 # S: (a, b) with b in span{1, Im a} is alternative (the Dray charts)

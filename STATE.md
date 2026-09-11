@@ -18,8 +18,13 @@ doubling of the octonions and the geometry of its zero divisors*, working draft
 v1 (September 2026). Result summary and comparison table in
 `synthesis/mirror-sedenions.md`.
 
-The mathematics is machine-verified (`papers/mirror-sedenions/VERIFICATION.md`).
-**The literature position is not.** That asymmetry is the thing to fix next.
+The mathematics is machine-verified — all twelve checks re-executed 2026-09-11,
+every claim reproduced, **no mathematical error found**
+(`papers/mirror-sedenions/VERIFICATION.md`). Two check-script bugs found and
+fixed; the scripts now run clean.
+
+**The literature position is not verified.** That asymmetry is the thing to fix
+next: the contribution depends on it, though the mathematics does not.
 
 ## Open threads
 
@@ -29,7 +34,8 @@ The mathematics is machine-verified (`papers/mirror-sedenions/VERIFICATION.md`).
 | **Own notes not in vault** | open | Import JS-1–41 and JS-LANDSCAPE-II, plus the sign-function census code. Reference [16] is load-bearing and currently unreachable. `sources/lui-js-notes.md` |
 | **Cawagas et al. 2009 priority check** | open | Read it; confirm S′ ≅ Sγ is genuinely "noticed but not studied". Nearest prior art. |
 | **Bibliography is second-hand** | open, ongoing | All 23 `sources/` files are `read: not-read` — claims are what the paper cites them for, not what the sources say. Promote as read. |
-| Open Question 2 (orientation tree) | open | Most tractable of the four: a finite classification, not a geometry problem. Needs the census code first. |
+| **v2 fix: Q2 qualifier** | ready to apply | Eight octaves + dim Der = 14 does *not* characterise S and S′ — four other Bales products share both. The quaternionic-line qualifier is load-bearing and must stay explicit when Q2 is restated. Verified. |
+| Open Question 2 (orientation tree) | open | Most tractable of the four: a finite classification, not a geometry problem. Needs the census code from [16]. |
 | Open Question 1 (metric on P(S′)) | open | Reggiani's treatment of P(S) is the template. |
 
 ## Decisions made
@@ -40,7 +46,9 @@ The mathematics is machine-verified (`papers/mirror-sedenions/VERIFICATION.md`).
   from a citation is not a claim from the source. Nothing gets promoted to
   settled without an actual reading.
 - **2026-09-11** — Computed claims get **run**, not trusted. Verification output
-  is committed with the date and environment.
+  is committed with the date and environment. This paid for itself immediately:
+  both discrepancies found were script bugs that a reading pass would have missed,
+  and one of them (`check7`'s τ) was invisible at every sample point check6 used.
 
 ## Known gaps
 

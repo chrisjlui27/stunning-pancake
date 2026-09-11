@@ -31,9 +31,11 @@ mirror double as a *construction*, (ii) the observation that Bales's eight
 doubling products applied once to O yield exactly two algebras — S and S′ — and
 (iii) a complete structural determination of S′.
 
-Confidence: **high on the computed structure** (every numerical claim is
-machine-verified, see `papers/mirror-sedenions/VERIFICATION.md`); **medium on
-novelty**, which rests on a literature search that has a known gap (see below).
+Confidence: **high on the computed structure** — every numerical claim was
+re-executed on 2026-09-11 and reproduced, including the symbolic spectrum; two
+discrepancies surfaced and both were bugs in the check scripts, not in the
+mathematics (`papers/mirror-sedenions/VERIFICATION.md`). **Medium on novelty**,
+which rests on a literature search with a known gap (see below).
 
 ## The structural result
 
@@ -108,10 +110,17 @@ Ranked by how much damage each would do.
    cross terms do not vanish (verified numerically). Is it Einstein for some
    rescaling, as Reggiani's deformations of P(S) are? → `sources/reggiani-2024.md`
 2. **The orientation tree.** Each word in {CD, M} applied to O gives an algebra
-   with diagonal G2; at dimension 16 the three are S, S′, M(M(H)). Which of the
-   2^(n−3) words give non-isomorphic algebras at dimension 2ⁿ, and which have
-   Der = g₂? Numerical census suggests S and S′ are the only two with eight
-   octaves and 14-dimensional Der. **A proof is wanted.**
+   with diagonal G2; at dimension 16 the three are S, S′, M(M(H)) — confirmed
+   distinct (CD(M(H)) ≅ S; M(M(H)) ≅ neither). Which of the 2^(n−3) words give
+   non-isomorphic algebras at dimension 2ⁿ, and which have Der = g₂? **A proof is
+   wanted.**
+
+   ⚠️ **Keep the qualifier.** The census claim is that S and S′ are the only two
+   with eight octaves and dim Der = 14 *among sign functions with quaternionic
+   lines*. Without that restriction it is **false**: four further Bales products —
+   (1,3), (2,2), (5,1), (6,0) — also have eight octaves and dim Der = 14. They are
+   excluded by the quaternionic-line condition (28 failing pairs each), which is
+   exactly what makes 32 − 8 = 24 rejected formulas. Verified 2026-09-11.
 3. **Higher mirrors.** M(S) and M(S′) sit inside the 64-dimensional CD algebra.
    Do the Biss–Dugger–Isaksen large-annihilator results have mirror analogues?
    Is dim Ann ≡ 0 (mod 2), rather than (mod 4), the general pattern?
