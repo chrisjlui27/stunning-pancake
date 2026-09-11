@@ -128,17 +128,49 @@ Ranked by how much damage each would do.
    S as a Cayley frame. Is there a similarly intrinsic description of the
    trivialization P(S′) ≅ V₂(R⁷) × S³ — e.g. via the fibration over G2/SO(4)?
 
-## Known gap in the literature search
+## Known gaps in the literature search
 
-<!-- UNVERIFIED: Wilmot is named as a key starting point but appears nowhere in
-     the bibliography of v1. Either the search missed him, or he was considered
-     and dropped without a note. Resolve before any novelty claim goes out. -->
+Updated 2026-09-11 after one search pass. **The novelty claim in §1 is the
+weakest part of the paper and should not ship as written.**
 
-**Wilmot is not in the v1 bibliography.** He is cited in conversation as one of
-the three good starting points alongside Reggiani and Moreno, and the latter two
-are references [19] and [18]. This is the single most likely place for a prior
-description of S′ to be hiding, and the novelty claim in §1 ("We found no prior
-description of the zero divisors, annihilators, spectrum, automorphisms, or
-subalgebra geometry of S′") is exposed until it is closed.
+### Seven references not in the v1 bibliography
 
-See `sources/wilmot-GAP.md`.
+A single search pass surfaced seven items absent from v1, two of them on the
+paper's own territory. Full list and links in `papers/library/MANIFEST.md`.
+
+| Risk | Source | Why |
+|---|---|---|
+| **High** | Aryapoor–Bäck–Pautrel 2026, *Involutions in the CD construction* | Classifies **all algebra isomorphisms between Cayley doubles extending the identity**, and hence the resulting \*-algebras up to isomorphism. That is result (B)'s exact question, published this year. |
+| **Moderate** | Bales 2011, *A catalog of Cayley–Dickson-like products* | Sets out to **catalog all variants of the doubling product**. The most likely place for "no prior formulation of the mirror double as a construction" to fail. |
+| Low | Bales 2016, *An alternate Cayley–Dickson product* | Title is close, but the product is "different from yet **equivalent to**" the standard one — a change of presentation, not a new algebra. Confirm and set aside. |
+| Low | Moreno 2005, *Constructing zero divisors in higher CD algebras* | A **second Moreno paper**, uncited. Bears on Open Question 3. |
+| Low | Bales 2017/2016 twist and doubling-product papers, Bales 2011 twisted group algebras | Background for §7; one is a version-matching issue for [2]'s P_i numbering. |
+
+### Wilmot — identified, not closed
+
+**G. P. Wilmot, *Structure of the Cayley–Dickson algebras*, arXiv:2505.11747
+(2025).** Named as a key starting point alongside Reggiani and Moreno (references
+[19] and [18]); absent from v1.
+
+On the abstract the risk looks **low** — Wilmot treats the standard CD algebras
+(graded construction, associativity types, power-associative subalgebras), with
+no sign of alternative doubling products. But it has not been read.
+
+One thing to look at while reading: Wilmot reduces the sedenions' **84**
+two-term zero divisors to **seven** primary pairs via cycles and modes. S′ has
+**112**. Both are multiples of seven; 112 is not a multiple of 84. Since S′ is
+not a CD algebra it sits outside the hypothesis rather than contradicting it —
+but stating that boundary precisely could make a good remark in v2.
+
+See `sources/wilmot-2025.md`.
+
+### Cawagas priority — half resolved
+
+The **uniqueness** half is now independently corroborated: our own run finds T's
+31 basis hyperplanes falling into four classes — 16 are S, leaving three non-S
+classes of sizes 7, 1, 7, of which only functional 24 (= Sγ) has eight octaves.
+That matches both Table 1 and the reported "three of the 31 sedenion-type loops
+are distinct".
+
+The **"noticed but not studied"** half is a claim about what that paper does not
+prove, and can only be settled by reading it. See `sources/cawagas-et-al-2009.md`.
