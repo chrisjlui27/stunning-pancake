@@ -22,10 +22,18 @@ the session ends, even for work in progress.
 | `sources/` | One file per source, with the claims taken from it | Grows, rarely edited |
 | `synthesis/` | The actual output — argued, structured documents | Revised over time |
 | `templates/` | Starting points for the three above | Stable |
+| `papers/` | Own papers: PDF, sources, verification code, run logs | Per-paper dir |
 
 Rule of thumb: `notes/` is input, `sources/` is evidence, `synthesis/` is the
 product. Never let a synthesis document assert something without a source file
 behind it.
+
+## Domain
+
+The vault's subject is **hypercomplex algebras** — Cayley–Dickson constructions,
+octonions and beyond, zero-divisor geometry, and the automorphism/derivation
+theory around them. Own papers live in `papers/<slug>/` with the PDF, the
+verification code, and a `VERIFICATION.md` recording an actual run.
 
 ## Conventions
 
@@ -34,6 +42,19 @@ behind it.
 - Cite sources by their filename: `[[sources/some-paper.md]]`.
 - Mark uncertainty inline as `<!-- UNVERIFIED: ... -->` rather than deleting it.
   Unresolved uncertainty is information; silently dropping it is not.
+- Every `sources/` file carries a **`read:`** field. `not-read (known only via
+  X)` means the claims recorded are what X cites it for — **not** what the source
+  says. Never promote such a claim to settled without reading the source. This
+  distinction is the difference between a bibliography and a game of telephone.
+
+## Verification
+
+Numerical and structural claims get **run**, not trusted. This is the one thing
+this environment does that a chat surface cannot. Before asserting a computed
+result in `synthesis/`, execute the code and record the output under
+`papers/<slug>/VERIFICATION.md` with the date and the environment. `numpy` and
+`sympy` are not preinstalled — `pip install numpy sympy` first. There is no
+`pdftotext`; use `pymupdf` for PDF text extraction.
 
 ## Maintaining memory
 

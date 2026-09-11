@@ -1,0 +1,1003 @@
+--- p1 ---
+THE MIRROR SEDENIONS:
+A SECOND G2-SYMMETRIC DOUBLING OF THE OCTONIONS
+AND THE GEOMETRY OF ITS ZERO DIVISORS
+LUI
+Abstract. The Cayley–Dickson double of the octonions may be formed with the product of
+the founding copy of O written backwards:
+(a, b)(c, d) = (ca −d b, da + b c).
+For a commutative base this changes nothing; over H it already produces the quasi-octonions
+instead of O; over O it produces a 16-dimensional real algebra S′, the mirror sedenions, which is
+flexible, quadratic, carries the diagonal action of G2, and is not isomorphic to the sedenions S.
+We prove that S′ is the subalgebra O + O (ee′) of the 32-dimensional Cayley–Dickson algebra
+spanned by O and the composite unit ee′ (the algebra noticed but not studied by Cawagas et
+al.), that Bales’s eight admissible doubling products applied to O yield exactly the two algebras
+S and S′, and we determine the structure of S′ completely. The stretch operator L¯xLx has the
+five-level spectrum N(x) ± 2| Im a| |b|, N(x) ± 2| Im a| |b∥|, N(x) with multiplicities 2, 2, 4, 4, 4,
+where x = a + bℓand b∥is the projection of b to the complex line R + R Im a. Consequently
+the norm-one zero divisors of S′ form the product of round spheres S6 × S7 (a 13-manifold,
+against the Stiefel manifold V2(R7) of Moreno and Biss–Dugger–Isaksen for S), annihilators are
+2-dimensional except on a 7-dimensional locus where they are 6-dimensional, and the manifold
+of norm-one zero-divisor pairs is diffeomorphic to V2(R7) × S3, the trivial S3-bundle over the
+Stiefel manifold, whereas for S it is G2, the principal SU(2)-bundle over the same base. The
+eight octonion subalgebras spanned by basis hyperplanes are the eight hyperplanes of PG(3, 2)
+avoiding the doubling point, whereas for S they are the founding octave and the seven hyperplanes
+through the doubling point; the seven remaining hyperplanes are quasi-octonion algebras in both
+cases. Aut(S′) = G2 × Z/2, in contrast with Brown’s G2 × S3 for S. The difference between the
+two algebras is a single sign function χ on F4
+2 × F4
+2 which is not a 2-cocycle: the “orientation bit”
+of the fourth doubling.
+Contents
+1.
+Introduction
+2
+Relation to the literature
+3
+Verification
+4
+2.
+Conventions and octonion facts
+4
+2.1.
+Cayley–Dickson algebras
+4
+2.2.
+Octonion identities
+4
+2.3.
+Facts about G2
+4
+2.4.
+Quadratic algebras and the stretch operator
+5
+3.
+The mirror double
+5
+3.1.
+The embedding theorem
+5
+3.2.
+Bales’s eight products give two algebras
+6
+4.
+The stretch operator
+7
+5.
+Zero divisors
+8
+5.1.
+The dead set
+8
+Date: September 2026 — working draft v1.
+1
+
+--- p2 ---
+2
+LUI
+5.2.
+Annihilators
+9
+5.3.
+The manifold of zero-divisor pairs
+10
+6.
+Octaves
+10
+7.
+Symmetry
+12
+7.1.
+Graded automorphisms and the sign function
+12
+8.
+The mirror octonions
+13
+9.
+Questions
+13
+Appendix A.
+Verification
+14
+References
+14
+1. Introduction
+Let O be the real octonions with conjugation x 7→¯x and norm N(x) = x¯x. The Cayley–Dickson
+double of O is the sedenion algebra S = O ⊕Oℓwith
+(1)
+(a + bℓ)(c + dℓ) = (ac −¯db) + (da + b¯c)ℓ.
+The literature contains many conventions for this formula. Bales [2] lists eight “doubling products”
+that yield a Cayley–Dickson algebra when applied at every level starting from R, and notes that
+the four “transposed” products give the opposite algebras of the other four. The present paper
+begins with a different question: what happens when one of these eight products is applied once,
+on top of the standard octonions? The answer is that exactly two algebras arise. Four of Bales’s
+products give S. The other four give the algebra
+(2)
+(a + bℓ)(c + dℓ) = (ca −¯db) + (da + b¯c)ℓ,
+which differs from (1) in a single slot: the product of the two octonions from the founding copy
+of O is taken backwards. We call this algebra the mirror sedenions and denote it S′. For any
+base algebra A we write M(A) for the algebra A ⊕A with product (2) and call it the mirror
+double of A; thus S′ = M(O).
+If A is commutative, M(A) = CD(A). If A is associative but not commutative the two doubles
+are already different: M(H) is not a composition algebra. Over the octonions the change of
+a single letter produces a genuinely new object with a rich and very clean geometry, which is
+the subject of this paper. Our main results, all proved by hand and independently verified by
+computer, are the following. Throughout, x = a + bℓ∈S′ with a, b ∈O, N(x) = |a|2 + |b|2, and
+b∥denotes the orthogonal projection of b onto the complex line Ca = R + R Im a.
+(A) Embedding (Theorem 3.3).
+For every unital ∗-algebra A, the mirror double M(A) is
+isomorphic to the subalgebra A + A (ee′) of the double double CD(CD(A)) spanned by
+A and the product ee′ of the two doubling units, via a + bℓ7→¯a + (be)e′. Hence M(H)
+is the quasi-octonion algebra H + H(εℓ) ⊂S (ε ⊥H a unit octonion) of Cawagas [8]
+and Chan–¯Dokovi´c [10], and S′ is the 16-dimensional subalgebra Sγ = O + O(ee′) of the
+trigintaduonions which Cawagas et al. [9] found to be the unique basis hyperplane of T with
+eight octonion subalgebras not isomorphic to S.
+(B) The two doublings (Theorem 3.6).
+Applied to O, Bales’s eight products give S (for
+P0, P3, P T
+0 , P T
+3 ) or S′ (for P1, P2, P T
+1 , P T
+2 ), with explicit isomorphisms of the form a + bℓ7→
+a(¯) + (±b(¯))ℓ. The two classes are exchanged by reversing the first product ac ↔ca.
+(C) Spectral theorem (Theorem 4.1). The eigenvalues of L¯xLx on S′ are
+N(x) ± 2| Im a| |b| (multiplicity 2 each),
+N(x) ± 2| Im a| |b∥| (4 each),
+N(x) (4).
+
+--- p3 ---
+THE MIRROR SEDENIONS
+3
+For S the analogous spectrum [5] has three levels N ± 2| Im a × Im b|, N with multiplicities
+4, 4, 8.
+(D) Zero divisors (Theorems 5.1, 5.2). x is a zero divisor if and only if Re a = 0 and |a| = |b|.
+The norm-one zero divisors form the Riemannian product S6( 1
+√
+2) × S7( 1
+√
+2), a 13-manifold.
+For u ∈S6 ⊂Im O and b ∈S7 ⊂O,
+Ann(u + bℓ) = { nu + (bn)ℓ: n ∈Im O, n ⊥u, [b, n, u] = 0 },
+which has dimension 2 unless b ∈Cu, when it has dimension 6.
+(E) The pair manifold (Theorem 5.5). The set P(S′) of pairs (x, y) of norm-one elements with
+xy = 0 is a smooth closed 14-manifold, G2-equivariantly diffeomorphic to V2(R7) × S3 with
+G2 acting on the first factor; every stabilizer is SU(2) and the orbit space is S3. It fibres
+over the Grassmannian G2/SO(4) of quaternion subalgebras with fibre SO(3) × S3. It is
+not homotopy equivalent to Moreno’s P(S) ∼= G2.
+(F) Octaves (Theorem 6.1). Of the fifteen 8-dimensional subalgebras spanned by basis hyper-
+planes of F4
+2, the eight that are octonion algebras are exactly the hyperplanes not containing
+the doubling point ℓ; for S they are O together with the seven hyperplanes through ℓ. The
+seven others are quasi-octonion algebras M(H) in both cases.
+(G) Symmetry (Theorem 7.1). Aut(S′) = G2 × Z/2 and Der(S′) = g2, acting diagonally; the
+order-three automorphism of S found by Brown [7] does not survive. The alternative
+elements of S′ are O ∪(R + Oℓ).
+(H) The orientation bit (Propositions 7.3, 7.4). As twisted group algebras of F4
+2, the sign
+functions of S and S′ differ by the function χ which is −1 on pairs of distinct nonzero points
+of the founding F3
+2 and +1 elsewhere; χ is not a 2-cocycle, and no signed relabelling of the
+sixteen basis units carries S to S′.
+The picture that emerges is a precise duality. Both algebras contain eight octonion subalgebras
+and seven quasi-octonion subalgebras among their basis hyperplanes, both have derivation algebra
+g2, both have a 14-dimensional manifold of zero-divisor pairs fibring over V2(R7) with fibre S3;
+but in S the frame (u, v) ∈V2(R7) is carried by the zero divisor x = u + vℓitself and the S3 by
+its annihilator, so that P(S) is the principal bundle G2 →G2/SU(2), while in S′ the frame (u, n)
+is split between x = u + bℓand its partner y = nu + (bn)ℓ, the S3 is the quaternion coordinate of
+b in the chart H(u, n), and the bundle is trivial. Moreno’s theorem that the zero-divisor pairs of
+S form a G2-torsor [18] is, in this light, a statement about the alignment of the orientation of the
+founding octave with the doubling twist, not about G2 alone: S′ has the same G2 and no torsor.
+Relation to the literature. The formula (2) is Bales’s product P T
+1 [2]; Bales considers only
+towers in which one product is used at every level, and the uniform P T
+1 tower is a different
+algebra (its dimension-8 stage is already M(H) rather than O, and its dimension-16 stage has a
+6-dimensional derivation algebra; Remark 3.8). The algebra S′ itself appears, as the subalgebra
+Sγ ⊂T, in the loop-theoretic census of Cawagas et al. [9], who record that it has eight octonion
+and seven quasi-octonion subloops and is not isomorphic to S, and prove nothing further. The
+zero-divisor theory of S is due to Moreno [18], Biss–Dugger–Isaksen [3, 4] and Biss–Christensen–
+Dugger–Isaksen [5]; its Riemannian geometry to Reggiani [19]; the automorphism group to Brown
+[7] (see also Eakin–Sathaye [13]); the derivation algebra to Schafer [22]; the finite geometry of
+its multiplication table to Saniga–Holweck–Pracna [21], Cawagas [8] and de Marrais [11]; the
+twisted-group-algebra viewpoint to Albuquerque–Majid [1]. We found no prior description of the
+zero divisors, annihilators, spectrum, automorphisms, or subalgebra geometry of S′, and no prior
+formulation of the mirror double as a construction.
+
+--- p4 ---
+4
+LUI
+Verification. Every numerical statement in this paper (dimensions of kernels and tangent
+spaces, the census of the thirty-two products, the graded isomorphism search over GL(4, 2), the
+symbolic characteristic polynomials) was checked with the scripts listed in Appendix A. The
+proofs themselves do not depend on the computer.
+2. Conventions and octonion facts
+2.1. Cayley–Dickson algebras. A ∗-algebra is a unital real algebra A with a linear involution
+x 7→¯x satisfying xy = ¯y¯x and ¯1 = 1. Its Cayley–Dickson double is CD(A) = A ⊕Ae with
+the product (1) (with ℓreplaced by e) and involution a + be = ¯a −be. Starting from R with
+the trivial involution one obtains C, H, O, S, T, . . . ; we write O = CD(H) with doubling unit e4,
+S = CD(O) with doubling unit ℓ= e8, and T = CD(S) with doubling unit e′ = e16.
+Convention 2.1. The basis of O is e0 = 1, e1, . . . , e7 with egeh = ±eg⊕h (⊕= bitwise XOR), e1
+the imaginary unit of C, e2 the doubling unit of H, e4 that of O. With (1) the oriented lines of
+the Fano plane are
+e1e2 = e3,
+e1e4 = e5,
+e2e4 = e6,
+e3e4 = e7,
+e1e7 = e6,
+e2e5 = e7,
+e3e6 = e5.
+In S and S′ we write eg+8 = egℓfor 0 ≤g ≤7, so that both algebras have basis e0, . . . , e15
+indexed by F4
+2, and egeh = ±eg⊕h in both. Note that inside S′ the founding copy of O carries the
+opposite product: e1e2 = −e3 in S′. We identify the subspace O = {a + 0ℓ} with the octonions
+via a 7→¯a when an algebra isomorphism is needed, and otherwise simply regard a, b in x = a + bℓ
+as octonions multiplied in O.
+For x = a + bℓin S or S′ put ¯x = ¯a −bℓ, N(x) = x¯x = |a|2 + |b|2 and ⟨x, y⟩= 1
+2(N(x +
+y) −N(x) −N(y)), the standard inner product of R16. We write Lx, Rx for left and right
+multiplication, [x, y, z] = (xy)z −x(yz) for the associator, and altx = [x, x, · ] for the alternator
+of x.
+2.2. Octonion identities. We use freely: O is alternative, so any two elements generate an
+associative subalgebra (Artin) which is contained in a quaternion subalgebra; the Moufang
+identities; xy = ¯y¯x; x¯x = |x|2; the adjoint identity ⟨xy, z⟩= ⟨y, ¯xz⟩= ⟨x, z¯y⟩; the associator
+[x, y, z] is alternating and orthogonal to 1, x, y, z; and (xy)¯y = |y|2x, ¯x(xy) = |x|2y. For x ∈O
+we write x = x0 + x′ with x0 = Re x ∈R and x′ = Im x ∈Im O, and Cx = R + Rx′ for the
+complex line through x. For u ∈Im O a unit, an element y satisfies yu = −uy if and only if
+y ∈Im O and y ⊥u.
+Lemma 2.2. Let u, b ∈O with b /∈Cu and u /∈R. Then { n ∈O :
+[b, n, u] = 0 } is the
+quaternion subalgebra Q = H(u, b) generated by u and b.
+Proof. Q ⊆ker by Artin. Write O = Q ⊕Qε with ε ⊥Q a unit, so that O = CD(Q) with the
+product (1). For q ∈Q one computes from (1): b(qε) = (qb)ε, (qε)u = (q¯u)ε, hence
+[b, qε, u] =
+ (qb)¯u −(q¯u)b
+
+ε = q (b¯u −¯ub) ε.
+Since b¯u −¯ub = −(bu −ub) = −2 b′ × u′ is a nonzero quaternion when b /∈Cu, this vanishes only
+for q = 0. As the map n 7→[b, n, u] is linear and O = Q ⊕Qε, the kernel is Q.
+□
+2.3. Facts about G2. G2 = Aut(O) acts on Im O ∼= R7 preserving the inner product and the
+cross product. It acts transitively on the unit sphere S6 with stabilizer SU(3), transitively on the
+Stiefel manifold V2(R7) of orthonormal pairs in Im O with stabilizer SU(2), and transitively on
+the set GrH(O) ∼= G2/SO(4) of quaternion subalgebras [14, 20]. The stabilizer of an orthonormal
+pair (u, n) fixes the quaternion algebra H(u, n) = R + Ru + Rn + R un pointwise. Given a, b ∈O
+there is g ∈G2 with ga ∈R + Re1 and gb ∈R + Re1 + Re2; we call this the normal form of the
+pair.
+
+--- p5 ---
+THE MIRROR SEDENIONS
+5
+2.4. Quadratic algebras and the stretch operator. An algebra A is quadratic if every x
+satisfies x2 −2t(x)x + N(x) = 0 with t(x), N(x) ∈R, and flexible if (xy)x = x(yx). In a flexible
+quadratic algebra with ¯x = 2t(x) −x one has
+(3)
+L¯xLx = N(x) Id + altx,
+because ¯x(xy) = (¯xx)y −[¯x, x, y] = N(x)y + [x, x, y]. When the adjoint identity ⟨xy, z⟩= ⟨y, ¯xz⟩
+holds, L¯x = LT
+x and altx is symmetric. We call L¯xLx/N(x) the stretch operator of x (it is the
+operator Ma of [5]); x is a zero divisor exactly when it has the eigenvalue 0, and dim Ann(x) is
+its multiplicity, where Ann(x) = ker Lx = {y : xy = 0}.
+3. The mirror double
+Definition 3.1. For a ∗-algebra A the mirror double M(A) is A ⊕Aℓwith the product (2) and
+the involution a + bℓ= ¯a −bℓ. The mirror octonions are M(H) and the mirror sedenions are
+S′ = M(O).
+Proposition 3.2. Let A be a ∗-algebra with x¯x = ¯xx = N(x) ∈R for all x. Then M(A) is unital
+with unit 1, its involution is an anti-automorphism, x¯x = ¯xx = N(x) = N(a) + N(b), and M(A)
+is quadratic with x2 = 2a0x −N(x) where a0 = Re a. If A is commutative then M(A) = CD(A).
+The maps ε: a + bℓ7→a −bℓand, for φ ∈Aut(A) commuting with the involution, φ ⊕φ, are
+automorphisms of M(A).
+Proof. Direct substitution in (2): (a + bℓ)(¯a −bℓ) = (¯aa + ¯bb) + (−ba + b¯¯a)ℓ= N(x), and
+symmetrically. For the quadratic identity, (a + bℓ)2 = (a2 −¯bb) + (ba + b¯a)ℓ= (2a0a −N(a) −
+N(b)) + 2a0bℓ. The rest is immediate from the shape of (2).
+□
+3.1. The embedding theorem.
+Theorem 3.3. Let A be a ∗-algebra, CD(A) = A ⊕Ae and CD2(A) = CD(A) ⊕CD(A)e′. The
+subspace A ⊕(Ae)e′ is a subalgebra of CD2(A), and
+Φ: M(A) −→CD2(A),
+Φ(a + bℓ) = ¯a + (be)e′
+is an isomorphism of ∗-algebras onto it. Moreover (be)e′ = ¯b (ee′), so the subalgebra is A + A j
+with j = ee′, and in these coordinates
+(a + bj)(c + dj) = (ac −b ¯d) + (ad + ¯cb)j.
+Proof. Write elements of CD(A) as pairs (p, q) = p + qe and of CD2(A) as pairs of pairs. With
+p = (a, 0), q = (0, b), r = (c, 0), s = (0, d) the product (1) in CD2(A) gives
+(p, q)(r, s) = (pr −¯sq, sp + q¯r),
+pr = (ac, 0),
+¯sq = (0, −d)(0, b) = (¯bd, 0),
+sp = (0, d)(a, 0) = (0, d¯a),
+q¯r = (0, b)(¯c, 0) = (0, bc),
+so that
+(4)
+ a + (be)e′ c + (de)e′
+= (ac −¯bd) +
+ (d¯a + bc)e
+
+e′.
+Replacing a, c by ¯a, ¯c in (4), the product of Φ(a + bℓ) and Φ(c + dℓ) is (¯a¯c −¯bd) + ((da + b¯c)e)e′,
+while Φ of the mirror product (2) is ca −¯db + ((da + b¯c)e)e′ = (¯a¯c −¯bd) + ((da + b¯c)e)e′. So Φ is
+multiplicative; it is visibly injective, linear, and compatible with the involutions. Finally ee′ =
+(e, 0)(0, 1) = (0, e) and ¯b (ee′) = (¯b, 0)(0, e) = (0, e¯b); in CD(A), e¯b = (0, 1)(¯b, 0) = (0, b) = be, so
+¯b (ee′) = (0, be) = (be)e′. Substituting b 7→¯b, d 7→¯d in (4) and conjugating the j-coefficient gives
+the stated formula in the coordinates a + bj.
+□
+
+--- p6 ---
+6
+LUI
+Corollary 3.4. (1) M(H) is isomorphic to the subalgebra H + H(εℓ) of S, for any quaternion
+subalgebra H ⊂O and unit ε ⊥H in O (take A = H, e = ε, e′ = ℓ; this is H + H(ℓe) in the
+notation of [10]): this is the quasi-octonion algebra ˜O of Cawagas [8] and the algebra S8 of
+Chan–¯Dokovi´c [10, Thm. 8.1], the unique conjugacy class of 8-dimensional subalgebras of S
+with zero divisors.
+(2) S′ is isomorphic to the subalgebra O + O(ℓe16) of T = CD(S) (take A = O, e = ℓ, e′ = e16),
+spanned by e0, . . . , e7, e24, . . . , e31: this is the algebra Sγ of Cawagas et al. [9].
+(3) S′ is flexible and power-associative, satisfies the adjoint identity ⟨xy, z⟩= ⟨y, ¯xz⟩= ⟨x, z¯y⟩,
+and L¯xLx = N(x) + altx with altx symmetric.
+Proof. (1),(2) are Theorem 3.3 for A = H, O. (3): every Cayley–Dickson algebra is flexible and
+power-associative [22] and satisfies the adjoint identity ⟨xy, z⟩= ⟨y, ¯xz⟩(see [18, 3]); Φ is an
+isometry, so these properties pass to the subalgebra.
+□
+Remark 3.5. The theorem explains the reversal in (2): j = ee′ behaves like a doubling unit
+(ja = ¯aj, j2 = −1) but the associator [a, e, e′] does not vanish, and it is this associator that
+reverses every product in which two “j-halves” meet. Iterating, M(S) ⊂CD3(O), and in general
+each of the 2n−3 words of length n −3 in {CD, M} applied to O produces a 2n-dimensional
+subalgebra of CD2(n−3)(O).
+3.2. Bales’s eight products give two algebras. Bales [2] shows that among thirty-two
+candidate doubling formulas (a, b)(c, d) = (f, g), with f one of ca −¯bd, ca −d¯b, ac −¯bd, ac −
+d¯b, ca−b ¯d, ca−¯db, ac−b ¯d, ac−¯db and g one of d¯a+bc, ¯ad+cb, ad+ ¯cb, da+b¯c, exactly eight
+produce, at each level of a uniform tower, an algebra in which every basis triple {ep, eq, epeq}
+spans a quaternion algebra. They are
+P0 = (ca −¯bd, d¯a + bc),
+P1 = (ca −d¯b, ¯ad + cb),
+P2 = (ac −¯bd, d¯a + bc),
+P3 = (ac −d¯b, ¯ad + cb),
+P T
+0 = (ca −b ¯d, ad + ¯cb),
+P T
+1 = (ca −¯db, da + b¯c),
+P T
+2 = (ac −b ¯d, ad + ¯cb),
+P T
+3 = (ac −¯db, da + b¯c).
+P T
+3 is (1) and P T
+1 is (2).
+Theorem 3.6. Let P be one of the eight products and let P(O) denote O ⊕Oℓwith the product
+P, the octonions being multiplied in the standard O. Then
+P0(O) ∼= P3(O) ∼= P T
+0 (O) ∼= P T
+3 (O) = S,
+P1(O) ∼= P2(O) ∼= P T
+2 (O) ∼= P T
+1 (O) = S′,
+with isomorphisms a + bℓ7→¯a + bℓ(P T
+3 →P0), a + ¯bℓ(P T
+3 →P3), ¯a + ¯bℓ(P T
+3 →P T
+0 ), and
+a + ¯bℓ(P T
+1 →P1), ¯a + bℓ(P T
+1 →P2), ¯a + ¯bℓ(P T
+1 →P T
+2 ). The two classes are not isomorphic.
+Each of the twenty-four remaining formulas, applied to O, gives a unital algebra with x¯x = N(x),
+anticommuting basis units squaring to −1 and derivation algebra of dimension 14, but in every
+case some basis line {ep, eq, epeq} not contained in V fails to be a quaternion algebra; twenty of
+them have only the founding octave among their basis hyperplanes, and four have eight octonion
+hyperplanes (in the configuration of S′) but are not graded-isomorphic to S or S′.
+Proof. Each isomorphism is checked by substituting into the formulas and using xy = ¯y¯x; for
+instance under ψ(a + bℓ) = ¯a + bℓthe P0-product of ψ(x), ψ(y) is (¯c¯a −¯bd) + (da + b¯c)ℓwhile ψ
+of the P T
+3 -product (ac −¯db) + (da + b¯c)ℓis (¯c¯a −¯bd) + (da + b¯c)ℓ. The other five are identical
+computations. Non-isomorphism of the two classes follows from Theorem 5.1 (the norm-one
+zero divisors of S form an 11-manifold [3], those of S′ a 13-manifold), or from Theorem 7.1. The
+statements about the other twenty-four formulas are the computer census of Appendix A; the
+14-dimensional derivation algebra is in every case the diagonal g2.
+□
+
+--- p7 ---
+THE MIRROR SEDENIONS
+7
+Remark 3.7 (The orientation bit). In the list above, P1 and P3 differ only in the order of the
+first product, and likewise P0/P2, P T
+0 /P T
+2 , P T
+1 /P T
+3 ; each such swap exchanges the two classes.
+Inside either class the choice of product is a gauge (an isomorphism of the simple form above),
+but between the classes it is a genuine bit: the orientation of the founding octave relative to the
+doubling twist. Since O ∼= Oop via conjugation, the bit is invisible on O alone and appears only
+when the two halves are coupled.
+Remark 3.8 (Uniform towers). Bales applies each product at every level from R upward. For
+P T
+1 this is not the mirror sedenions: the dimension-8 stage of the uniform P T
+1 tower fails to be
+a composition algebra (it is M(H), with 2-dimensional annihilators and Der of dimension 6),
+and its dimension-16 stage has Der of dimension 6, not 14. The algebra S′ requires the mixed
+recipe: standard products up to O, then (2). In the same vein, the standard double CD(M(H))
+of the quasi-octonions is again S (a signed relabelling of the sixteen basis units carries one to the
+other; Appendix A), while the double mirror M(M(H)) has no octonion subalgebra among its
+basis hyperplanes and Der of dimension 6. Thus at dimension 16 the four words in {CD, M} give
+exactly three algebras: S (twice), S′, and M(M(H)).
+4. The stretch operator
+Theorem 4.1. Let x = a + bℓ∈S′, N = N(x) = |a|2 + |b|2, and let b∥be the orthogonal
+projection of b onto Ca = R + Ra′. The symmetric operator altx = L¯xLx −N has eigenvalues
+±2|a′| |b| (multiplicity 2 each),
+±2|a′| |b∥| (multiplicity 4 each),
+0 (multiplicity 4).
+Equivalently, the stretch operator L¯xLx/N has spectrum {1 ± σ, 1 ± τ, 1} with multiplicities
+2, 2, 4, 4, 4 where
+σ =
+2|a′| |b|
+|a|2 + |b|2 ,
+τ = 2|a′| |b∥|
+|a|2 + |b|2 ,
+0 ≤τ ≤σ ≤1.
+If a′̸ = 0 and b∦ = 0 then ker altx = Ca + (b Ca)ℓ, a quaternion subalgebra of S′ containing x.
+Proof. By Artin’s theorem a and b lie in a quaternion subalgebra Q ⊂O; write O = Q ⊕Qε
+with ε ⊥Q a unit, so O = CD(Q) via (1). Then S′ = M(Q) ⊕M(Q)⊥with M(Q) = Q + Qℓand
+M(Q)⊥= Qε + (Qε)ℓ. We claim Lx preserves both summands. On M(Q) this is because M(Q)
+is a subalgebra. For c, d ∈Q, using (1) in O = CD(Q), (cε)a = (c¯a)ε, (dε)b = (d¯b)ε, cε = −cε,
+and b(cε) = (cb)ε, so (2) gives
+(5)
+x
+ cε + (dε)ℓ
+
+= (c¯a + d¯b)ε +
+ (d¯a −cb)ε
+
+ℓ,
+which lies in M(Q)⊥. Hence altx is block diagonal, and we compute the two blocks.
+The block on M(Q)⊥. By (5), in the coordinates (c, d) ∈Q2, Lx is right multiplication by the
+quaternionic matrix X =
+
+¯a −b
+¯b
+¯a
+
+(row vectors, (c, d) 7→(c¯a + d¯b, −cb + d¯a)), and L¯x is right
+multiplication by X′ =
+
+a b
+−¯b a
+
+. Since Q is associative,
+XX′ =
+
+N
+¯ab −ba
+¯ba −¯a¯b
+N
+
+=
+
+N
+w
+¯w
+N
+
+,
+w := ¯ab −ba = 2
+ ⟨a, b⟩−b0 a
+
+,
+so on this block altx(c, d) = (d ¯w, cw) and alt2
+x = |w|2. Thus altx has eigenvalues ±|w| there, each
+with multiplicity 4: it is symmetric, and it exchanges the two slots Qε and (Qε)ℓ, so its trace on the
+block vanishes. Finally |w|2 = 4(⟨a, b⟩2 −2a0b0⟨a, b⟩+ b2
+0|a|2) = 4(⟨a′, b′⟩2 + b2
+0|a′|2) = 4|a′|2|b∥|2,
+since |b∥|2 = b2
+0 + ⟨b′, a′⟩2/|a′|2.
+The block on M(Q). For c, d ∈Q put y = c + dℓ. From (2) with Q associative,
+xy = (ca −¯db) + (da + b¯c)ℓ,
+x(xy) =
+ ca2 −¯dba −¯a ¯db −|b|2c
+
++
+ da2 + b¯ca + b¯a¯c −|b|2d
+
+ℓ,
+
+--- p8 ---
+8
+LUI
+and x2y = (x2)y with x2 = (a2−|b|2)+2a0bℓgives x2y = (ca2−|b|2c−2a0 ¯db)+(da2−|b|2d+2a0b¯c)ℓ.
+Subtracting and using ¯a −2a0 = −a,
+(6)
+altx(c + dℓ) = [ ¯db, a] +
+ b [¯c, ¯a]
+
+ℓ,
+where [p, q] = pq −qp. Applying (6) twice and using [¯c, ¯a] = [a, c], [ ¯db, a] = [¯a,¯bd],
+alt2
+x(c + dℓ) = |b|2 [[a, c], a] +
+ b [[¯a,¯bd], ¯a]
+
+ℓ.
+In Q ∼= H, [[a, q], a] = −ad2
+a(q) = 4|a′|2 q′
+⊥, where q′
+⊥is the component of q orthogonal to Ca; the
+same holds for ¯a. Hence alt2
+x acts on the c-slot as 4|a′|2|b|2 times the orthogonal projection onto
+C⊥
+a ∩Q, and on the d-slot as 4|a′|2|b|2 times the orthogonal projection onto b (C⊥
+a ∩Q) (the map
+d 7→¯bd is |b| times an isometry). So on M(Q) the operator alt2
+x has eigenvalue 4|a′|2|b|2 with
+multiplicity 4 and 0 with multiplicity 4; by symmetry and vanishing trace ((6) again exchanges
+the two slots), altx has eigenvalues ±2|a′||b| with multiplicity 2 each and 0 with multiplicity 4,
+with kernel Ca + (bCa)ℓwhenever |a′||b|̸ = 0.
+Combining the blocks gives the spectrum. The inequalities τ ≤σ ≤1 are |b∥| ≤|b| and
+2|a′||b| ≤|a|2 + |b|2. When |w|̸ = 0 the kernel of altx is the kernel on M(Q), namely Ca + (bCa)ℓ;
+identifying z + (bz′)ℓ↔(z, z′) for z, z′ ∈Ca and |b| = 1, the product (2) becomes (z1z2 −¯z′
+2z′
+1) +
+(z′
+2z1 + z′
+1¯z2)ℓ, which is CD(Ca) ∼= H.
+□
+Remark 4.2. In the normal form a = a0 + a1e1, b = b0 + b1e1 + b2e2 the characteristic polynomial
+of altx is
+λ4  4a2
+1(b2
+0 + b2
+1) −λ24  4a2
+1(b2
+0 + b2
+1 + b2
+2) −λ22,
+as computer algebra confirms directly (Appendix A). For S the same computation gives λ8(4a2
+1b2
+2−
+λ2)4, i.e. eigenvalues ±2|a′ × b′| of multiplicity 4 and 0 of multiplicity 8, recovering [5, Thm. 7.2]
+and extending it to non-imaginary a, b. Thus the “private” subalgebra ker altx of a generic
+element is a quaternion algebra in S′ and an octonion algebra in S (for S the 8-dimensional kernel
+is again a composition subalgebra; Appendix A).
+Corollary 4.3 (Alternative elements). x = a + bℓsatisfies [x, x, y] = 0 for all y if and only
+if a ∈R or b = 0. Thus the set of alternative elements of S′ is the union O ∪(R + Oℓ) of
+two 8-dimensional subspaces meeting in R, exactly one of which, O, is a subalgebra. In S the
+alternative elements are {a + bℓ: a′ × b′ = 0} = (R + Oℓ) ∪S
+u∈S6(Cu + Cuℓ).
+Proof. altx = 0 iff all eigenvalues vanish iff |a′||b| = 0 (then automatically |a′||b∥| = 0). The
+statement for S is the analogous reading of λ8(4a2
+1b2
+2 −λ2)4.
+□
+5. Zero divisors
+5.1. The dead set.
+Theorem 5.1. x = a + bℓ∈S′ is a zero divisor if and only if Re a = 0 and |a| = |b|̸ = 0. The
+set of zero divisors of norm one is
+Z(S′) =
+n
+u + bℓ: u ∈Im O, |u| = |b| =
+1
+√
+2
+o
+= S6  1
+√
+2
+
+× S7  1
+√
+2
+
+,
+a 13-dimensional Riemannian product of round spheres in the induced metric, and the cone over
+it is the full set of zero divisors. Left and right zero divisors coincide, and xy = 0 implies yx = 0.
+Proof. By Theorem 4.1, 0 is an eigenvalue of L¯xLx = LT
+xLx iff N = 2|a′||b| (since τ ≤σ), i.e.
+|a|2 + |b|2 = 2|a′||b|, i.e. a2
+0 + (|a′| −|b|)2 = 0. The set {|a| = |b| = 1/
+√
+2, a0 = 0} ⊂O × O is the
+product of the two spheres, and the inner product of R16 = O × O is the product metric. Since ¯x
+is again of the form u′ + b′ℓwith u′ imaginary and |u′| = |b′|, and yx = 0 ⇐⇒¯x¯y = 0, left and
+right zero divisors coincide. Two-sidedness of annihilation is verified after Theorem 5.2.
+□
+
+--- p9 ---
+THE MIRROR SEDENIONS
+9
+We give a second, direct proof of necessity, because it isolates the mechanism. Suppose
+(a + bℓ)(c + dℓ) = 0 with x̸ = 0, i.e.
+(7)
+ca = ¯db,
+da = −b¯c.
+Taking norms, |c||a| = |d||b| and |d||a| = |b||c|; if y̸ = 0 then c, d̸ = 0 and |a| = |b|, and
+a̸ = 0. From the first equation c = ( ¯db)a−1 and ¯c = (a(¯bd))/|a|2; inserting into the second,
+|a|2 da = −b(a(¯bd)). Pair both sides with d using the adjoint identity: ⟨da, d⟩= |d|2a0 and
+⟨b(a(¯bd)), d⟩= ⟨a(¯bd),¯bd⟩= |b|2|d|2a0. Hence |d|2a0(|a|2 + |b|2) = 0 and a0 = 0.
+5.2. Annihilators.
+Theorem 5.2. Let x = u + bℓwith u ∈Im O, |u| = |b|̸ = 0. Then
+Ann(x) = { nu + (bn)ℓ: n ∈Im O, n ⊥u, [b, n, u] = 0 }.
+Consequently dim Ann(x) = 6 if b ∈Cu and dim Ann(x) = 2 otherwise; in the latter case the
+admissible n form the plane Rb⊥+ R ub⊥, where b⊥= b −b∥, and Ann(x) is the plane spanned
+by b⊥u + (bb⊥)ℓand (ub⊥)u + (b(ub⊥))ℓ.
+Proof. By homogeneity assume |u| = |b| = 1. Given y = c + dℓput n = ¯bd, so d = bn. The first
+equation of (7) reads cu = ¯db = (¯n¯b)b = ¯n, i.e. c = −¯nu; conversely this c satisfies it. With
+c = −¯nu we have ¯c = un and the second equation of (7) becomes
+(8)
+(bn)u + b(un) = 0.
+Pair (8) with b: ⟨(bn)u, b⟩= ⟨bn, b¯u⟩= ⟨n, ¯u⟩= −⟨n′, u⟩and ⟨b(un), b⟩= ⟨un, 1⟩= −⟨n′, u⟩, so
+n′ ⊥u. Pair it with bu: ⟨(bn)u, bu⟩= ⟨bn, b⟩= n0 and ⟨b(un), bu⟩= ⟨un, u⟩= n0, so n0 = 0.
+Thus n ∈Im O, n ⊥u, hence un = −nu and ¯n = −n, and (8) becomes (bn)u−b(nu) = [b, n, u] = 0.
+Conversely, if n ∈Im O, n ⊥u and [b, n, u] = 0, then c = nu, d = bn satisfy (7). This proves the
+description. If b = β0 + β1u ∈Cu then [b, n, u] = β1[u, n, u] = 0 for every n by flexibility, giving
+the 6-dimensional space {n ∈Im O : n ⊥u}. If b /∈Cu, Lemma 2.2 says n ∈H(u, b) = Cu +Cub⊥,
+and n ∈Im O, n ⊥u forces n ∈Rb⊥+ Rub⊥.
+□
+Remark 5.3 (Two-sidedness). For y = nu + (bn)ℓ∈Ann(x) one computes yx = (u(nu) −¯b(bn)) +
+(b(nu) −(bn)u)ℓ= (n −n) −[b, n, u] ℓ= 0, using u(nu) = −(uu)n = n for n ⊥u. So annihilation
+in S′ is two-sided, as in S.
+Proposition 5.4 (Basis zero divisors). For 1 ≤i ≤7 and 8 ≤j ≤15, both ei + ej and ei −ej
+are zero divisors of S′: there are 56 such index pairs and 112 two-term zero divisors, against
+de Marrais’ 42 “assessors” and 84 two-term zero divisors of S [11], which are the pairs with
+j̸ = i + 8. Both algebras have exactly 336 ordered pairs (ei ± ej, ek ± el) of two-term elements
+with product zero. In the conventions of 2.1:
+Ann(e1 + e9) = span{ ek −ek+8 : 2 ≤k ≤7 },
+(e1 + e8)(e10 −e3) = 0,
+(e1 + e10)(e2 + e9) = 0 = (e1 + e10)(e3 + e8).
+Proof. ei + ej = ei + ej−8ℓhas imaginary first component and equal norms, so Theorem 5.1
+applies; the annihilators are Theorem 5.2 with u = ei, b = ej−8 (for e1 + e9: b = u, n ranges over
+e2, . . . , e7, and nu + (un)ℓ= nu −(nu)ℓ). The counts are a finite check (Appendix A).
+□
+In the colour vocabulary of [16], where e1, . . . , e7 are hues and ei+8 is the ultraviolet of ei: in
+S′ a hue with its own ultraviolet, or with the bare ultraviolet ℓ, is not innocent, and it is killed
+by every other hue minus that hue’s ultraviolet.
+
+--- p10 ---
+10
+LUI
+5.3. The manifold of zero-divisor pairs. Let P(S′) = {(x, y) ∈S15 × S15 : xy = 0}.
+Theorem 5.5. The map
+Ψ: V2(R7) × S3 −→P(S′),
+Ψ(u, n, q) =
+
+u+bℓ
+√
+2 ,
+nu+(bn)ℓ
+√
+2
+
+,
+b = q0 + q1u + q2n + q3 un,
+is a diffeomorphism. Hence P(S′) is a smooth closed 14-manifold, the trivial S3-bundle over the
+Stiefel manifold. The diagonal action of G2 corresponds to its action on V2(R7) alone: every
+stabilizer is SU(2), the orbits are copies of V2(R7), and the orbit space is S3. The projection
+P(S′) →Z(S′), (x, y) 7→x, is surjective with fibre S1 over u + bℓwith b /∈Cu and fibre S5
+over the 7-dimensional locus b ∈Cu. The map (x, y) 7→H(u, n) is a G2-equivariant fibre bundle
+P(S′) →GrH(O) = G2/SO(4) with fibre V2(R3) × S3 ∼= SO(3) × S3. Finally, P(S′) is not
+homotopy equivalent to G2 ∼= P(S).
+Proof. By Theorems 5.1 and 5.2, (x, y) ∈P(S′) iff x = (u + bℓ)/
+√
+2 with u ∈S6, b ∈S7, and y =
+(nu+(bn)ℓ)/
+√
+2 with n ∈Im O, |n| = 1 (because |nu| = |bn| = |n|), n ⊥u and [b, n, u] = 0. For an
+orthonormal pair (u, n) the last condition reads [n, b, u] = 0 (the associator is alternating), and by
+Lemma 2.2 applied to the pair (n, u) with b as the variable it is b ∈H(u, n) = R+Ru+Rn+Run,
+i.e. b = q0 + q1u + q2n + q3un with q ∈S3. So Ψ is a bijection. Its inverse (x, y) 7→(u, n, q) with
+u =
+√
+2 xO, b =
+√
+2 xOℓ, n = −(
+√
+2 yO)u, q = (⟨b, 1⟩, ⟨b, u⟩, ⟨b, n⟩, ⟨b, un⟩), is the restriction of
+a smooth map on R32; hence Ψ is a smooth embedding and P(S′) an embedded submanifold
+diffeomorphic to V2(R7) × S3. For g ∈G2, g(un) = (gu)(gn), so gΨ(u, n, q) = Ψ(gu, gn, q).
+The stabilizer of (u, n) in G2 is SU(2) and G2 acts transitively on V2(R7); the invariant q
+parametrizes the orbits. The fibre of (x, y) 7→x = (u, b) is {n ∈S5
+u : b ∈H(u, n)}: all of
+S5
+u = {n ∈Im O : |n| = 1, n ⊥u} if b ∈Cu, and the unit circle of Rb⊥+ Rub⊥otherwise. The
+map to GrH(O) is G2-equivariant onto a homogeneous space, hence a fibre bundle; its fibre over
+Q is {(u, n, q) : u, n ∈Im Q} = V2(Im Q) × S3, and V2(R3) ∼= SO(3).
+For the last claim, H∗(G2; F2) = F2[x3]/(x4
+3) ⊗Λ(x5) [6, 17], so the cup square H3 →H6 is
+nonzero. On the other hand V2(R7) is the unit tangent bundle of S6, whose Euler class is 2, so
+H∗(V2(R7); F2) = Λ(x5, x6) and H∗(V2(R7) × S3; F2) = Λ(x5, x6) ⊗Λ(y3), in which y2
+3 = 0. Both
+H3 are one-dimensional, so the rings are not isomorphic.
+□
+Remark 5.6 (Comparison with the sedenions). For S, Z(S) = {u + vℓ: u, v ∈Im O, u ⊥v, |u| =
+|v| = 1/
+√
+2} ∼= V2(R7) is an 11-manifold [3, Thm. 1.3], all annihilators are 4-dimensional ([18,
+Cor. 1.17] gives dim Ann ≡0 mod 4; exactness is [3, Prop. 12.1]), and P(S) ∼= G2 [18, Cor. 2.14],
+the principal SU(2)-bundle G2 →G2/SU(2) = V2(R7). Reggiani [19] shows that P(S) with
+the induced metric is isometric to G2 with a naturally reductive left-invariant metric and fibres
+over G2/SO(4) with fibres locally isometric to S3 × S3; the fibre SO(4) = (S3 × S3)/{±1} of
+P(S) and the fibre SO(3) × S3 = (S3/{±1}) × S3 of P(S′) over the same Grassmannian are two
+different Z/2-quotients of S3 × S3. Table 1 collects the comparison.
+6. Octaves
+The basis eg, g ∈F4
+2, of S′ satisfies egeh = ±eg⊕h, so every linear subspace of F4
+2 spans a
+subalgebra. The fifteen hyperplanes of F4
+2 are the kernels of the nonzero functionals f ∈(F4
+2)∗;
+identifying (F4
+2)∗with F4
+2 by the dot product, the hyperplane Hf = f⊥contains the doubling
+point ℓ= 8 = (0, 0, 0, 1) iff f4 = 0. Write V = F3
+2 × 0 for the founding octave (f = 8).
+Theorem 6.1. Let H ⊂F4
+2 be a hyperplane and let AH ⊂S′, BH ⊂S be the 8-dimensional
+subalgebras it spans.
+
+--- p11 ---
+THE MIRROR SEDENIONS
+11
+S = CD(O)
+S′ = M(O)
+norm-one zero divisors Z
+V2(R7), dim 11
+S6 × S7, dim 13
+condition on x = a + bℓ
+a, b ∈Im O, a ⊥b, |a| = |b|
+a ∈Im O, |a| = |b|
+dim Ann(x)
+4
+2; 6 when b ∈Ca
+pair manifold P
+G2 (a G2-torsor)
+V2(R7) × S3 (stabilizers SU(2))
+P →G2/SO(4), fibre
+SO(4)
+SO(3) × S3
+stretch spectrum, multiplicities
+1 ± s (4, 4), 1 (8)
+1 ± σ (2, 2), 1 ± τ (4, 4), 1 (4)
+dim ker altx, generic x
+8 (an octonion subalgebra)
+4 (a quaternion subalgebra)
+alternative elements
+(R + Oℓ) ∪S
+u(Cu + Cuℓ)
+O ∪(R + Oℓ)
+octonion basis hyperplanes
+O and the 7 through ℓ
+the 8 avoiding ℓ
+quasi-octonion basis hyperplanes
+the 7 avoiding ℓexcept O
+the 7 through ℓ
+two-term basis zero divisors
+84 (de Marrais)
+112
+Der
+g2
+g2
+Aut
+G2 × S3 (Brown)
+G2 × Z/2
+graded automorphisms
+order 2688 = 168 · 16 [15]
+order 2688
+inside T = CD(S)
+S (16 basis hyperplanes)
+Sγ = O + O(ee′) (1 hyperplane)
+Table 1. The sedenions and the mirror sedenions.
+Here s = 2|a′ × b′|/N,
+σ = 2|a′||b|/N, τ = 2|a′||b∥|/N.
+(1) AH is a composition algebra, hence isomorphic to O, if and only if ℓ/∈H. These are V
+and the seven hyperplanes H−
+L = L ∪(Lc + ℓ), L a line of the Fano plane V \ 0, spanning
+HL + H⊥
+Lℓ.
+(2) BH is a composition algebra if and only if H = V or ℓ∈H; the latter are the seven
+H+
+L = L ∪(L + ℓ), spanning HL + HLℓ.
+(3) The remaining seven subalgebras, HL + HLℓ⊂S′ and HL + H⊥
+Lℓ⊂S, are isomorphic to the
+mirror octonions M(H), contain zero divisors, and have derivation algebras of dimension 6.
+Proof. (1) V spans Oop ∼= O. Let L be a line, H = HL, and H⊥= Hε for a unit ε ⊥H. For
+a, c ∈H and bε, dε ∈H⊥the mirror product is, using (1) in O = CD(H),
+(a + (bε)ℓ)(c + (dε)ℓ) = (ca −dε (bε)) +
+ (dε)a + (bε)¯c
+
+ℓ= (ca −¯bd) +
+ (d¯a + bc)ε
+
+ℓ.
+Its norm is |ca −¯bd|2 + |d¯a + bc|2 = (|a|2 + |b|2)(|c|2 + |d|2) −2 Re(ca ¯d b) + 2 Re(d¯a ¯c¯b), and in
+the associative H, Re(d¯a¯c¯b) = Re(bca ¯d) = Re(bca ¯d) = Re( ¯d bca) = Re(ca ¯d b) by cyclicity of Re;
+hence the norm is multiplicative and AH−
+L is an 8-dimensional composition algebra, i.e. O. For
+HL + HLℓthe mirror product is that of M(HL), and M(H) has zero divisors by Theorem 8.1
+below. (2) HL + HLℓ⊂S is CD(HL) = O; and HL + H⊥
+Lℓ⊂S is the quasi-octonion algebra of
+Corollary 3.4(1), which has zero divisors. (3) follows from Theorem 8.1.
+□
+Thus the two algebras share the founding octave and exchange the roles of the seven hyperplanes
+through ℓand the seven avoiding it: in PG(3, 2), the octonion planes of S′ are “all planes avoiding
+a point”, those of S “all planes through a point, plus one more”. The two configurations are not
+projectively equivalent: ℓis the unique nonzero point on none of the eight hyperplanes avoiding
+it, so the stabilizer in GL(4, 2) of S′’s configuration is the full stabilizer of the point ℓ(order
+1344), which permutes the eight hyperplanes transitively; the stabilizer of S’s configuration fixes
+both ℓ(the intersection of the seven) and V (the odd one out) and has order 168. Nevertheless
+the graded automorphism groups coincide (Proposition 7.4): the transvections moving V to
+another H−
+L do not preserve the signs.
+
+--- p12 ---
+12
+LUI
+Proposition 6.2. Let (x, y) = Ψ(u, n, q) ∈P(S′). Then x and y lie in the quasi-octonion
+subalgebra M(Q) = Q + Qℓ, Q = H(u, n). In contrast, for a zero-divisor pair x = a + bℓ,
+y = c + dℓof S the octonions a, b, c, d generate all of O: every zero-divisor pair of S is special
+[18, Cor. 2.12], and for special pairs the span is an octonion algebra [18, Thm. 2.13].
+Proof. u, n ∈Q, b ∈Q by Theorem 5.5, hence nu, bn ∈Q.
+□
+7. Symmetry
+Theorem 7.1. Aut(S′) = {φ⊕±φ : φ ∈G2} ∼= G2 ×Z/2 and Der(S′) = {D⊕D : D ∈g2} ∼= g2.
+Proof. The maps listed are automorphisms by Proposition 3.2. Conversely let θ ∈Aut(S′). Since
+S′ is quadratic and for x /∈R the polynomial X2 −2t(x)X + N(x) is the minimal polynomial
+of x, θ preserves t and N, hence the involution ¯x = 2t(x) −x and the inner product. It also
+preserves the set Alt of alternative elements, which by Corollary 4.3 is the union of the subspaces
+O and R + Oℓ. A linear subspace contained in a union of two subspaces lies in one of them,
+so θ permutes the two maximal subspaces of Alt; since O is a subalgebra and R + Oℓis not
+((e1ℓ)(e2ℓ) = e2e1 /∈R + Oℓ), θ(O) = O and hence θ(Oℓ) = Oℓ. Write θ(a + bℓ) = φ(a) + ψ(b)ℓ.
+Restricting to O (with the opposite product) gives φ ∈Aut(Oop) = Aut(O) = G2. From
+a(dℓ) = (da)ℓwe get ψ(da) = ψ(d)φ(a); with d = 1, ψ(a) = qφ(a) where q = ψ(1), |q| = 1; then
+qφ(da) = (qφ(d))φ(a) for all a, d, i.e. q(yz) = (qy)z for all y, z ∈O, which forces q ∈R since the
+nucleus of O is R. So q = ±1 and θ = φ ⊕±φ. The statement on derivations follows because
+Der(S′) is the Lie algebra of the Lie group Aut(S′).
+□
+Remark 7.2. For S, Brown [7] proved Aut(S) = G2 × S3; a generator of order three is the
+simultaneous rotation by 2π/3 in each plane Rq + R qℓ, q ∈Im O (fixing 1 and ℓ) [12]. This
+map is not an automorphism of S′ (a direct check, Appendix A), consistent with Theorem 7.1:
+it moves O to another alternative subspace, and in S′ there is none to move it to. The two
+images of O under the order-three element are octonion subalgebras of S consisting of alternative
+elements; in S′ the only 8-dimensional subalgebra consisting of alternative elements is O itself.
+7.1. Graded automorphisms and the sign function. Both algebras are twisted group
+algebras of G = F4
+2: egeh = F(g, h)eg⊕h with F : G × G →{±1}.
+A graded isomorphism
+RF [G] →RF ′[G] is a map eg 7→λ(g)eσg with σ ∈GL(4, 2) and λ: G →{±1}; it exists iff
+F ′(σg, σh)λ(g ⊕h) = F(g, h)λ(g)λ(h) for all g, h, a linear system over F2 for λ once σ is fixed.
+Proposition 7.3. Let FS, FS′ be the sign functions of S, S′ in the basis of Convention 2.1.
+Then FS′ = FS · χ where χ(g, h) = −1 if g, h are distinct nonzero elements of V = F3
+2 × 0 and
+χ(g, h) = 1 otherwise. The function χ is not a 2-cocycle: for g̸ = h nonzero in V and k /∈V ,
+χ(g, h)χ(g ⊕h, k) = −1̸ = 1 = χ(h, k)χ(g, h ⊕k). The associator functions ϕ = ∂F of the two
+algebras (defined by (egeh)ek = ϕ(g, h, k) eg(ehek)) are both trivial on linearly dependent triples
+and are +1 on exactly 168 of the 420 unordered independent triples; neither is trilinear.
+Proof. The first claim is the definition: (2) and (1) differ only in ac →ca, and egeh = −eheg for
+distinct nonzero g, h ∈F3
+2. The cocycle computation is displayed. The counts and non-trilinearity
+are the finite computation of Appendix A; note that if ϕS were trilinear it would equal det(v, ·, ·, ·)
+for some v, and the values ϕS(1, 2, 8) = −1, ϕS(1, 2, 12) = ϕS(1, 4, 10) = ϕS(2, 4, 9) = 1 force
+v = 15, contradicting ϕS(9, 10, 12) = −1.
+□
+Proposition 7.4. The group of graded automorphisms of S′ has order 2688 = 168 · 16; the
+permutation parts σ form the copy of GL(3, 2) fixing V and ℓ, and every graded automorphism
+preserves V . The same holds for S. There is no graded isomorphism S →S′: for each of the
+20160 elements σ ∈GL(4, 2) the linear system for λ is inconsistent.
+
+--- p13 ---
+THE MIRROR SEDENIONS
+13
+Proof. Computer search over GL(4, 2) (Appendix A). The 16 sign changes eg 7→(−1)µ(g)eg,
+µ ∈(F4
+2)∗, are automorphisms of every twisted group algebra of F4
+2, and the 168 · 8 graded
+automorphisms of O [15] extend diagonally, so 2688 = 168 · 16 is the expected lower bound and
+the search shows it is attained.
+□
+Corollary 7.5. S and S′ are not isomorphic, for each of the following independent reasons: (i)
+dim Z is 11 versus 13; (ii) generic annihilators have dimension 4 versus 2; (iii) Aut is G2 × S3
+versus G2 × Z/2; (iv) the alternative elements form a set with infinitely many maximal subspaces
+versus two.
+8. The mirror octonions
+Everything above has a smaller model over H, which is the quasi-octonion algebra of Cawagas
+and the algebra S8 of Chan–¯Dokovi´c.
+Theorem 8.1. Let M(H) = H + Hℓwith the product (2). Then:
+(1) M(H) is unital, quadratic, flexible, not alternative, not a composition algebra, with [x, x, y]
+given by (6); the spectrum of L¯xLx is N ± 2|a′||b| (multiplicity 2 each) and N (multiplicity
+4).
+(2) x = a+bℓis a zero divisor iff a ∈Im H and |a| = |b|; Z(M(H)) = S2 ×S3; every annihilator
+of a zero divisor is 2-dimensional, Ann(u + bℓ) = {nu + (bn)ℓ: n ∈Im H, n ⊥u}; and
+P(M(H)) ∼= V2(R3) × S3 ∼= SO(3) × S3 is a smooth 6-manifold.
+(3) Aut(M(H)) ⊇{a + bℓ7→φ(a) + (q φ(b))ℓ: φ ∈SO(3), q ∈S3}, a group of dimension
+6 = dim Der(M(H)); in particular the automorphism group acts transitively on S7 ∩Hℓ,
+unlike in S′, where a + bℓ7→a + (qb)ℓis an automorphism only for q = ±1.
+Proof. (1) and (2) are the block computation on M(Q) in the proof of Theorem 4.1 with Q = H,
+together with the proof of Theorem 5.2, in which the associator condition is vacuous. (3): with
+H associative, (a + (qb)ℓ)(c + (qd)ℓ) = (ca −¯d¯qqb) + (qda + qb¯c)ℓ= (ca −¯db) + (q(da + b¯c))ℓ.
+The dimension of Der is computed in Appendix A; that no q̸ = ±1 works in S′ is the nucleus
+argument of Theorem 7.1.
+□
+9. Questions
+(1) Riemannian geometry. Z(S′) is a product of round spheres; what is the induced metric on
+P(S′) ⊂S15 × S15 in the coordinates (u, n, q)? It is G2-invariant of cohomogeneity three
+and not a Riemannian product (the cross terms between the S3 and V2(R7) directions do
+not vanish). Is it Einstein for some rescaling, as Reggiani’s deformations of P(S) are?
+(2) The orientation tree. Each word in {CD, M} applied to O gives an algebra with the diagonal
+G2; at dimension 16 the three algebras are S, S′ and M(M(H)). Which of the 2n−3 words
+give non-isomorphic algebras at dimension 2n, and which of them have Der = g2? Numerical
+census in [16] over all sign functions on F4
+2 with quaternionic lines indicates that S and S′
+are the only two with eight octaves and 14-dimensional derivation algebra; a proof would be
+desirable.
+(3) Higher mirrors. By Theorem 3.3, M(S) and M(S′) are subalgebras of the 64-dimensional
+Cayley–Dickson algebra. Do the results of [3] on large annihilators have mirror analogues,
+and is dim Ann ≡0 (mod 2) rather than (mod 4) the general pattern?
+(4) A conceptual proof of Theorem 5.5. Moreno’s proof that P(S) ∼= G2 realizes a zero-divisor
+pair as a Cayley frame.
+Is there a similarly intrinsic description of the trivialization
+P(S′) ∼= V2(R7) × S3, e.g. via the fibration over G2/SO(4)?
+
+--- p14 ---
+14
+LUI
+Appendix A. Verification
+The computations referred to in the text were carried out in Python/NumPy/SymPy with the
+scripts accompanying this paper (cd.py, f2iso.py, check1–check12, and sym spectrum.py).
+They construct R, C, H, O, S, T by iterated doubling (1), S′ and M(H) by (2), and the thirty-two
+Bales candidates by the corresponding formulas, and verify:
+• unit, x¯x = N(x), flexibility, power-associativity up to degree 4, failure of alternativity and
+of the composition law, and the adjoint identity, for S and S′;
+• the annihilator dimensions of Theorem 5.2 on random and on structured points, the closed
+form of Ann(u + bℓ), and the 2/6 stratification on a grid in the (b0, b1) disc;
+• rank(dµ) = 16 at points of every stratum of P(S′) (µ(x, y) = xy), and tangent dimensions
+14 for P and 13 for Z (respectively 14 and 11 for S);
+• the composition property of each of the fifteen hyperplane subalgebras of S and S′ (Theo-
+rem 6.1) and of the thirty-one of T;
+• dim Der = 14 for S, S′ and all thirty-two candidates, 6 for M(H), the uniform P T
+1 tower, and
+M(M(H));
+• the symbolic characteristic polynomials of altx for S and S′ in normal form, and the two
+block formulas (5), (6);
+• the isomorphisms Φ of Theorem 3.3 for A = H, O, the six isomorphisms of Theorem 3.6, and
+the exhaustive graded-isomorphism search over GL(4, 2) (Propositions 7.3, 7.4, Remark 3.8);
+• the counts 84/112/336 of Proposition 5.4, Brown’s order-three map on S and its failure on
+S′, the automorphisms of Theorem 8.1(3), the failure of the quaternion-line condition for
+the twenty-four rejected formulas, the fact that ker altx is a composition subalgebra of S,
+and the non-vanishing of the cross terms of the induced metric on P(S′) in the coordinates
+(u, n, q) (Section 9, Question 1).
+References
+[1] H. Albuquerque and S. Majid, Quasialgebra structure of the octonions, J. Algebra 220 (1999), 188–224.
+[2] J. W. Bales, The eight Cayley–Dickson doubling products, Adv. Appl. Clifford Algebras 26 (2016), 529–551.
+[3] D. K. Biss, D. Dugger and D. C. Isaksen, Large annihilators in Cayley–Dickson algebras, Comm. Algebra 36
+(2008), 632–664.
+[4] D. K. Biss, J. D. Christensen, D. Dugger and D. C. Isaksen, Large annihilators in Cayley–Dickson algebras II,
+Bol. Soc. Mat. Mexicana (3) 13 (2007), 269–292.
+[5] D. K. Biss, J. D. Christensen, D. Dugger and D. C. Isaksen, Eigentheory of Cayley–Dickson algebras, Forum
+Math. 21 (2009), 833–851.
+[6] A. Borel, Sur l’homologie et la cohomologie des groupes de Lie compacts connexes, Amer. J. Math. 76 (1954),
+273–342.
+[7] R. B. Brown, On generalized Cayley–Dickson algebras, Pacific J. Math. 20 (1967), 415–422.
+[8] R. E. Cawagas, On the structure and zero divisors of the Cayley–Dickson sedenion algebra, Discuss. Math.
+Gen. Algebra Appl. 24 (2004), 251–265.
+[9] R. E. Cawagas, A. S. Carrascal, L. A. Bautista, J. P. Sta. Maria, J. D. Urrutia and B. Nobles, The basic
+subalgebra structure of the Cayley–Dickson algebra of dimension 32 (trigintaduonions), arXiv:0907.2047 (2009).
+[10] K.-C. Chan and D. ˇZ. ¯Dokovi´c, Conjugacy classes of subalgebras of the real sedenions, Canad. Math. Bull. 49
+(2006), 492–507.
+[11] R. P. C. de Marrais, The 42 assessors and the box-kites they fly, arXiv:math/0011260 (2000).
+[12] T. Dray and C. A. Manogue, The Geometry of the Octonions, World Scientific, 2015;
+see also
+books.physics.oregonstate.edu/GELG/cdaut.html.
+[13] P. Eakin and A. Sathaye, On automorphisms and derivations of Cayley–Dickson algebras, J. Algebra 129
+(1990), 263–278.
+[14] R. Harvey and H. B. Lawson, Calibrated geometries, Acta Math. 148 (1982), 47–157.
+[15] J. Kirshtein, Automorphism groups of Cayley–Dickson loops, J. Gen. Lie Theory Appl. 6 (2012).
+
+--- p15 ---
+THE MIRROR SEDENIONS
+15
+[16] Lui, JS: the sedenionic receipt calculus and its landscape (working notes, JS-1–41 and JS-LANDSCAPE-II),
+2026.
+[17] M. Mimura and H. Toda, Topology of Lie Groups, I and II, Transl. Math. Monogr. 91, Amer. Math. Soc.,
+1991.
+[18] G. Moreno, The zero divisors of the Cayley–Dickson algebras over the real numbers, Bol. Soc. Mat. Mexicana
+(3) 4 (1998), 13–28; arXiv:q-alg/9710013.
+[19] S. Reggiani, The geometry of sedenion zero divisors, arXiv:2411.18881 (2024).
+[20] D. A. Salamon and T. Walpuski, Notes on the octonions, Proc. G¨okova Geom.-Topol. Conf. 2016, 1–85 (2017).
+[21] M. Saniga, F. Holweck and P. Pracna, From Cayley–Dickson algebras to combinatorial Grassmannians,
+Mathematics 3 (2015), 1192–1221.
+[22] R. D. Schafer, On the algebras formed by the Cayley–Dickson process, Amer. J. Math. 76 (1954), 435–446.
+Quitman, Texas
