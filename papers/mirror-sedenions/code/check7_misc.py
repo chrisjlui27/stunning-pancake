@@ -27,7 +27,10 @@ for _ in range(200):
     # projection of b on span{1, a}
     e0 = basis(8, 0); e1 = unit(ima)
     bpar = (b @ e0) * e0 + (b @ e1) * e1
-    tau = 2 * np.sqrt(norm2(a)) * np.sqrt(norm2(bpar)) / N
+    # FIX 2026-09-11: was norm2(a); Thm 4.1 gives tau = 2|Im a||b_par|/N.
+    # The two agree only when Re a = 0, which is why check6's sample points
+    # (a imaginary) passed while this random test showed a 0.45 deviation.
+    tau = 2 * np.sqrt(norm2(ima)) * np.sqrt(norm2(bpar)) / N
     pred = np.sort(np.array([1 - sigma] * 2 + [1 - tau] * 4 + [1] * 4 + [1 + tau] * 4 + [1 + sigma] * 2))
     worst = max(worst, np.max(np.abs(w - pred)))
 print('  max deviation between computed spectrum and closed form over 200 random x:', worst)
