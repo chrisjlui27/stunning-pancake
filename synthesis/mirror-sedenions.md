@@ -128,28 +128,24 @@ Ranked by how much damage each would do.
    S as a Cayley frame. Is there a similarly intrinsic description of the
    trivialization P(S′) ≅ V₂(R⁷) × S³ — e.g. via the fibration over G2/SO(4)?
 
-## Errata for v2
+## Additions for v2
 
-Compiled in full at `papers/mirror-sedenions/ERRATA.md`. Nothing here affects a
-theorem — every mathematical statement checked so far reproduces.
+Compiled at `papers/mirror-sedenions/ERRATA.md`. **No corrections** — the one
+claimed erratum was retracted (see below). What follows are suggested additions.
 
-1. **§3.2's four transposed products carry reversed subscripts.** The unprimed
-   P0–P3 match Bales exactly and the eight match as a set, but the paper's Pᵢᵀ is
-   Bales's P₍₃₋ᵢ₎ᵀ. Since Bales defines Pᵀ(x,y) = P(y,x), the paper's "P0ᵀ" is the
-   transpose of **P3** — the superscript does not mean what it says, and a reader
-   consulting [2] for P₁ᵀ finds a different formula. **Theorem 3.6 survives under
-   either labelling** (the reversal preserves the sets {P0ᵀ,P3ᵀ} and {P1ᵀ,P2ᵀ});
-   only §1's "formula (2) is Bales's product P₁ᵀ" and Remark 3.8's two references
-   need changing, to P₂ᵀ.
-   <!-- UNVERIFIED: compared against arXiv:1707.07318v4; [2] cites AACA 26 (2016).
-        Confirm against the AACA text — if it numbers transposes as the paper
-        does, the erratum is void. -->
+1. **~~§3.2 transpose subscripts~~ — RETRACTED.** I claimed the paper's Pᵢᵀ
+   labels disagreed with Bales's. They do not: Bales prints all eight explicitly
+   on p. 8 of arXiv:1707.07318, and §3.2 matches **label for label**. Formula (2)
+   **is** Bales's P₁ᵀ, as §1 says. My error — I missed the printed transposes
+   (a grep that required the formula on one line, against a PDF that splits the
+   label `P ⊤ / 1 :` across two) and reconstructed them from a wrong assumption
+   about what ᵀ denotes. Bales's ᵀ marks a second set whose *product matrices*
+   are transposes, not the argument-swap.
 
 2. **Consider citing Bales's 2011 catalog** (arXiv:1107.1301) for the
-   32-candidate enumeration. The census *is* already attributed to Bales in §3.2
-   and Appendix A — the only question is whether [2] carries it or whether the
-   catalog, whose abstract states the 32 / 24 / 8 result outright, is the right
-   citation.
+   32-candidate enumeration. The census is already correctly attributed to Bales
+   in §3.2 and Appendix A; the only question is whether [2] carries it or whether
+   the catalog, whose abstract states 32 / 24 / 8 outright, is the better cite.
 
 3. **§9 Question 2: keep the quaternionic-line qualifier explicit.** The claim is
    false without it — four further candidates have eight octaves *and*

@@ -47,6 +47,22 @@ verification code, and a `VERIFICATION.md` recording an actual run.
   says. Never promote such a claim to settled without reading the source. This
   distinction is the difference between a bibliography and a game of telephone.
 
+## Reading PDFs
+
+Text extraction drops things silently. Two rules, both learned the hard way:
+
+- **Count every extracted list against its stated size** before building on it.
+  A grep for a paper's eight formulas that returns four has failed, not found
+  four. This produced a full day's false erratum against a correct paper.
+- **Never reconstruct what the source prints.** If an enumeration looks absent,
+  it is far more likely the extraction missed it than that the author omitted it.
+  Re-extract with a looser pattern, or read the page. Deriving a "missing" item
+  from your own assumption about the notation turns a gap into a fabricated
+  finding.
+
+Corollary for citations: a discrepancy between a paper and your reconstruction of
+a source is not evidence about the paper.
+
 ## Verification
 
 Numerical and structural claims get **run**, not trusted. This is the one thing

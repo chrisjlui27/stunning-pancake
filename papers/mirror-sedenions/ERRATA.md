@@ -11,79 +11,53 @@ No LaTeX source in the vault, so this is a change list against the v1 PDF, keyed
 by section. Each item states the current text, the replacement, and why.
 
 **Nothing here affects a theorem.** Every mathematical statement checked so far
-reproduces. The items are citation accuracy, attribution, and one qualifier.
+reproduces. After E1's retraction there is **no correction to the paper at all** —
+what remains is four suggested additions and one qualifier to keep explicit.
 
 ---
 
-## E1 — §3.2: the four transposed products carry reversed subscripts
+## E1 — RETRACTED. The paper is correct; the error was mine.
 
-**Severity: real, and the one a referee would catch.**
+**Status: withdrawn 2026-09-11, same day, after reading arXiv:1707.07318v3.**
 
-### Current text (§3.2)
+I claimed §3.2's four transposed products carried reversed subscripts, and that
+§1's "formula (2) is Bales's product P₁ᵀ" named the wrong member. **Both claims
+were false.** Bales prints all eight explicitly on p. 8 of v3 (and identically in
+v4):
 
-    P0 = (ca − b̄d, dā + bc),      P0ᵀ = (ca − bd̄, ad + c̄b),
-    P1 = (ca − db̄, ād + cb),      P1ᵀ = (ca − d̄b, da + bc̄),
-    P2 = (ac − b̄d, dā + bc),      P2ᵀ = (ac − bd̄, ad + c̄b),
-    P3 = (ac − db̄, ād + cb),      P3ᵀ = (ac − d̄b, da + bc̄).
+    P0ᵀ : (a,b)(c,d) = (ca − bd*, ad + c*b)
+    P1ᵀ : (a,b)(c,d) = (ca − d*b, da + bc*)      ← formula (2), the mirror
+    P2ᵀ : (a,b)(c,d) = (ac − bd*, ad + c*b)
+    P3ᵀ : (a,b)(c,d) = (ac − d*b, da + bc*)      ← formula (1), the standard
 
-### What is wrong
+This matches §3.2 **label for label**, and confirms §1: formula (2) **is** Bales's
+P₁ᵀ. Verified computationally against the printed formulas — Bales's P1ᵀ is
+identical to our `Sm`, his P3ᵀ identical to our `S`.
 
-The unprimed P0–P3 **match Bales exactly** — verified formula by formula against
-arXiv:1707.07318. The eight as a set also match Bales's eight exactly.
+### How I got it wrong
 
-But the **transposes are subscript-reversed**: the paper's Pᵢᵀ is Bales's P₍₃₋ᵢ₎ᵀ.
+Two compounding mistakes, both mine:
 
-| paper | is actually Bales's | |
-|---|---|---|
-| P0ᵀ | **P3ᵀ** | |
-| P1ᵀ | **P2ᵀ** | = formula (2), the mirror |
-| P2ᵀ | **P1ᵀ** | |
-| P3ᵀ | **P0ᵀ** | = formula (1), the standard |
+1. **I derived what was printed.** My grep for the product list required
+   `(a, b)(c, d)` on a single line. PDF extraction splits the transpose labels
+   across lines as `P ⊤` / `0 :`, so the pattern matched P0–P3 and silently
+   missed all four transposes. I did not notice the list was half-length.
+2. **I then reconstructed them from an assumption.** I took Pᵢᵀ to mean the
+   argument-swap P(y, x). It does not. Bales writes: *"The 'transpose' symbol is
+   used for the second set of four doubling products since … the corresponding
+   product matrices of unit vectors are transposes of each other."* Under
+   argument-swap the pairing is actually Pᵢᵀ = swap(P₍₃₋ᵢ₎) — which is precisely
+   the "reversal" I mistook for the paper's error.
 
-Bales defines the transpose by Pᵀ(x, y) = P(y, x). Under that definition the
-paper's "P0ᵀ" is the transpose of **P3**, not of P0 — so the superscript does not
-mean what the notation says, and a reader going to [2] to look up P1ᵀ will find a
-different formula from the one the paper calls P1ᵀ.
+So the discrepancy was between the paper and **my reconstruction**, never between
+the paper and Bales.
 
-### Consequences, and what survives
+### Lesson recorded
 
-**Theorem 3.6 is correct under either labelling**, by a lucky symmetry: the
-subscript reversal maps {0,3} → {3,0} and {1,2} → {2,1}, so the *sets*
-{P0ᵀ, P3ᵀ} and {P1ᵀ, P2ᵀ} are preserved. The class statement — S for
-(P0, P3, P0ᵀ, P3ᵀ), S′ for (P1, P2, P1ᵀ, P2ᵀ) — reproduces exactly under both.
-Verified computationally in both labellings. **No change needed to Theorem 3.6.**
-
-What does not survive is the identification in §1.
-
-### Fix
-
-Preferred — relabel §3.2 to match [2], swapping the two transpose pairs:
-
-    P0ᵀ = (ac − d̄b, da + bc̄),     P1ᵀ = (ac − bd̄, ad + c̄b),
-    P2ᵀ = (ca − d̄b, da + bc̄),     P3ᵀ = (ca − bd̄, ad + c̄b).
-
-Then in §1 "Relation to the literature":
-
-> **current:** The formula (2) is Bales's product P₁ᵀ [2]
-> **replace with:** The formula (2) is Bales's product P₂ᵀ [2]
-
-and in Remark 3.8, "For P₁ᵀ this is not the mirror sedenions" → "For P₂ᵀ …",
-and likewise "the uniform P₁ᵀ tower" → "the uniform P₂ᵀ tower" (two occurrences
-in §1 and Remark 3.8).
-
-Alternative — keep the current subscripts but stop attributing them to Bales:
-state the eight formulas as the paper's own enumeration, and in §1 identify (2)
-by its formula rather than by a Bales label. Less good: it loses the link to [2].
-
-<!-- UNVERIFIED: this comparison is against arXiv:1707.07318v4 (2023), titled
-     "The Cayley-Dickson doubling products". Reference [2] cites Adv. Appl.
-     Clifford Algebras 26 (2016) 529-551, "The eight Cayley-Dickson doubling
-     products" — the title of arXiv v3. The numbering is assumed stable across
-     versions. CONFIRM AGAINST THE AACA TEXT before publishing this correction;
-     if AACA numbers the transposes as the paper does, the erratum is void and
-     the right fix is a footnote naming which version's numbering is in use. -->
-
----
+A missing-data failure that looked like a finding. The check that would have
+caught it immediately: **the extracted list had four entries where the text says
+eight.** Any enumeration taken from a PDF should be counted against its stated
+size before anything is built on it. Added to `CLAUDE.md`.
 
 ## E2 — Add Bales's 2011 catalog for the thirty-two candidates
 

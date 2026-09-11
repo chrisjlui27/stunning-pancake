@@ -6,7 +6,7 @@ published: arXiv:1707.07318 (2017); cf. Adv. Appl. Clifford Algebras 26 (2016), 
 retrieved: 2026-09-11
 url: https://arxiv.org/abs/1707.07318
 kind: paper
-read: full (2026-09-11)
+read: full, v3 and v4 (2026-09-11)
 confidence: high
 status: READ — verdict below
 ---
@@ -15,37 +15,27 @@ status: READ — verdict below
 
 ## Verdict — 2026-09-11
 
-**ERRATUM FOUND — but narrower than I first stated.**
+**No erratum. The paper's §3.2 transcription of Bales is correct.**
 
-*Correcting my own earlier note:* I first said "formula (2) is P₂ᵀ, not P₁ᵀ,"
-implying §1 was simply wrong. It is more subtle. The paper's §3.2 prints its own
-list of the eight, and **in that list P₁ᵀ is indeed formula (2)** — so §1 is
-internally consistent with §3.2. I had not read §3.2 when I made the claim.
+I twice claimed otherwise and was twice wrong. Bales prints all eight products
+explicitly on p. 8 (identically in v3 and v4):
 
-The actual defect: the paper's §3.2 **unprimed P0–P3 match Bales exactly**, and
-the eight match **as a set**, but the **transposes are subscript-reversed** —
-the paper's Pᵢᵀ is Bales's P₍₃₋ᵢ₎ᵀ:
+    P0ᵀ = (ca − bd*, ad + c*b)     P1ᵀ = (ca − d*b, da + bc*)   ← eq. (2), mirror
+    P2ᵀ = (ac − bd*, ad + c*b)     P3ᵀ = (ac − d*b, da + bc*)   ← eq. (1), standard
 
-| paper | Bales |
-|---|---|
-| P0ᵀ | P3ᵀ |
-| P1ᵀ | **P2ᵀ** (= formula (2), mirror) |
-| P2ᵀ | P1ᵀ |
-| P3ᵀ | **P0ᵀ** (= formula (1), standard) |
+§3.2 matches **label for label**, and §1's "formula (2) is Bales's product P₁ᵀ" is
+correct. Verified: Bales's P1ᵀ is identical to our `Sm`, his P3ᵀ to our `S`.
 
-Since Bales defines Pᵀ(x,y) = P(y,x), the paper's "P0ᵀ" is the transpose of **P3**,
-so the superscript does not mean what the notation says, and a reader consulting
-[2] for P₁ᵀ finds a different formula.
+My error: a grep requiring the formula on one line missed the four transposes
+(PDF extraction splits the label as `P ⊤` / `1 :`), and I reconstructed them by
+argument-swap. Bales's ᵀ does **not** mean argument-swap — it marks a second set
+of four whose *product matrices of unit vectors* are transposes. Under
+argument-swap the pairing is Pᵢᵀ = swap(P₍₃₋ᵢ₎), which is the "reversal" I
+mistook for the paper's error. Full retraction in
+`papers/mirror-sedenions/ERRATA.md` §E1.
 
-**Theorem 3.6 survives under either labelling** — the reversal maps {0,3}→{3,0}
-and {1,2}→{2,1}, preserving the sets {P0ᵀ,P3ᵀ} and {P1ᵀ,P2ᵀ}. Verified in both.
-Only §1's identification and Remark 3.8's references to "P₁ᵀ" need changing.
-Full fix in `papers/mirror-sedenions/ERRATA.md` §E1.
-
-<!-- UNVERIFIED: compared against arXiv:1707.07318v4 (2023). Ref [2] cites AACA 26
-     (2016), whose title matches arXiv v3. Numbering assumed stable across
-     versions — confirm against the AACA text; if AACA numbers the transposes as
-     the paper does, the erratum is void. -->
+**Both v3 and v4 are in `papers/library/`.** v3 (`bales-2017-doubling-v3.pdf`) is
+the version whose title matches the AACA 26 (2016) citation in [2].
 
 ## Why this source matters
 

@@ -17,7 +17,7 @@ novelty claim survives, and one citation erratum was found.**
 |---|---|---|
 | Aryapoor–Bäck–Pautrel 2026 | **High** | **No threat.** Different axis entirely. |
 | Bales 2011 catalog | Moderate | **No threat to novelty — but must be cited.** It is the source of the 32/24/8 census. |
-| Bales 2017 doubling products | Low (editorial) | **Erratum found.** (2) is P₂ᵀ, not P₁ᵀ. |
+| Bales 2017 doubling products (v3 + v4) | Low (editorial) | **No erratum — retracted.** §3.2 matches Bales label for label. The discrepancy was my own bad extraction. |
 | Bales 2016 alternate product | Low | **No threat.** "Equivalent" = isomorphic, as suspected. |
 | Wilmot 2025 | Low | **No threat confirmed.** Uses the standard product throughout. |
 | Cawagas et al. 2009 | Priority check | **Passes.** Explicit and decisive. |
@@ -163,38 +163,29 @@ standard O, and it does not observe that the eight yield two non-isomorphic
 16-dimensional algebras. The construction claim survives. But §1's wording should
 acknowledge that the product itself is catalogued there.
 
-## 5. ERRATUM — the wrong Bales product is named
+## 5. RETRACTED — there was no erratum
 
-*Correction to my first pass:* I claimed "formula (2) is P₂ᵀ, not P₁ᵀ" before
-reading §3.2. The paper prints **its own list** of the eight there, and in that
-list P₁ᵀ **is** formula (2) — so §1 is internally consistent. The defect is real
-but different.
+I claimed §3.2's transpose subscripts disagreed with Bales's, then narrowed it,
+then withdrew it entirely once the right version was in hand. **The paper is
+correct.** Bales prints all eight on p. 8 of arXiv:1707.07318 (v3 and v4 alike):
 
-Comparing the paper's §3.2 list with Bales arXiv:1707.07318 formula by formula:
-the **unprimed P0–P3 match exactly**, and the eight match **as a set**, but the
-**transposes are subscript-reversed** — the paper's Pᵢᵀ is Bales's P₍₃₋ᵢ₎ᵀ.
+    P0ᵀ = (ca − bd*, ad + c*b)     P1ᵀ = (ca − d*b, da + bc*)   ← eq. (2), mirror
+    P2ᵀ = (ac − bd*, ad + c*b)     P3ᵀ = (ac − d*b, da + bc*)   ← eq. (1), standard
 
-| paper | Bales | |
-|---|---|---|
-| P0ᵀ | P3ᵀ | |
-| P1ᵀ | **P2ᵀ** | = formula (2), mirror |
-| P2ᵀ | P1ᵀ | |
-| P3ᵀ | **P0ᵀ** | = formula (1), standard |
+§3.2 matches label for label. §1's "formula (2) is Bales's product P₁ᵀ" is right.
 
-Bales defines Pᵀ(x,y) = P(y,x), so the paper's "P0ᵀ" is the transpose of **P3** —
-the superscript does not mean what the notation says, and a reader consulting [2]
-for P₁ᵀ finds a different formula.
+**Root cause, worth keeping.** My grep for the product list required
+`(a, b)(c, d)` on a single line; the PDF splits transpose labels across lines as
+`P ⊤` / `1 :`, so the pattern matched P0–P3 and silently dropped all four
+transposes. I did not notice I had four entries where the text says eight — and
+then *reconstructed* the missing four from an assumption that Pᵢᵀ means the
+argument-swap P(y,x). It does not: Bales's ᵀ marks a second set whose product
+matrices of unit vectors are transposes. Under argument-swap the pairing is
+Pᵢᵀ = swap(P₍₃₋ᵢ₎) — exactly the "reversal" I mistook for an error in the paper.
 
-**Theorem 3.6 survives under either labelling**, by a symmetry: the reversal maps
-{0,3} → {3,0} and {1,2} → {2,1}, preserving the sets {P0ᵀ,P3ᵀ} and {P1ᵀ,P2ᵀ}.
-Verified computationally in both. Only §1's identifying sentence and Remark 3.8's
-two references to "P₁ᵀ" need changing.
-
-<!-- UNVERIFIED: ref [2] is cited as AACA 26 (2016). arXiv:1707.07318v4 is titled
-     "The Cayley-Dickson doubling products" (2023); v3 was titled "The eight
-     Cayley-Dickson doubling products", matching the AACA title. Numbering is
-     assumed stable across versions. Confirm against the AACA text before
-     publishing the correction. -->
+The check that would have caught it in one line: **count the extracted list
+against the stated size.** A paper titled *The Eight Cayley–Dickson Doubling
+Products* should yield eight formulas. Now in `CLAUDE.md`.
 
 ## 6. Moreno 2005 — should be cited
 
@@ -206,8 +197,8 @@ is the natural starting point for Open Question 3 (higher mirrors).
 
 ## To follow up
 
-- [ ] Apply the P₁ᵀ → P₂ᵀ erratum, after checking the AACA text.
-- [ ] Cite Bales 2011 catalog for the 32/24/8 census; reword §1 to acknowledge
+- [x] ~~Apply the P₁ᵀ → P₂ᵀ erratum~~ — retracted, no change needed.
+- [ ] Consider citing Bales 2011 catalog for the 32/24/8 census; optionally note
       that the mirror product is catalogued as P27 there.
 - [ ] Cite Wilmot; consider the 84 → 7 / 112 = 16 × 7 remark.
 - [ ] Cite Moreno 2005 in Question 3.
