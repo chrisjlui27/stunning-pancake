@@ -6,12 +6,16 @@ published: arXiv:2606.27798 (2026)
 retrieved: 2026-09-11
 url: https://arxiv.org/abs/2606.27798
 kind: paper
-read: not-read (abstract only, via search — arxiv.org is egress-blocked in the container)
+read: full (2026-09-11)
 confidence: medium
-status: CANDIDATE — not in the v1 bibliography
+status: READ — verdict below
 ---
 
 # Aryapoor--Bäck--Pautrel 2026 --- involutions in the CD construction
+
+## Verdict — 2026-09-11
+
+**RESOLVED — no threat.** Their Cayley double has a *fixed* product (u,v)(x,y) = (ux + µy\*v, vx\* + yu); Theorem 2 classifies A-isomorphisms Cay(A,µ₁) → Cay(A,µ₂), i.e. same formula, different scalar µ. The mirror varies the *formula*. Additionally their isomorphisms extend the **identity** on A, while Theorem 3.6's extend **conjugation** — excluded by hypothesis. For A = O the classification is near-vacuous: N(O) = R has no nonzero skew element so c = 0, d ∈ N_l(O) = R, and (19) reduces to µ₁ = µ₂d². Cite as adjacent work or not at all.
 
 ## Why this source matters
 

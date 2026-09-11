@@ -6,12 +6,16 @@ published: arXiv:1707.07318 (2017); cf. Adv. Appl. Clifford Algebras 26 (2016), 
 retrieved: 2026-09-11
 url: https://arxiv.org/abs/1707.07318
 kind: paper
-read: not-read (abstract only, via search — arxiv.org is egress-blocked in the container)
+read: full (2026-09-11)
 confidence: high
-status: CANDIDATE — not in the v1 bibliography
+status: READ — verdict below
 ---
 
 # Bales --- the eight doubling products (arXiv version)
+
+## Verdict — 2026-09-11
+
+**ERRATUM FOUND.** §1 says formula (2) 'is Bales's product P₁ᵀ'. Implemented and run against this paper's numbering: **P0ᵀ is identical to S** and **P2ᵀ is identical to S′**. Formula (2) is **P₂ᵀ**, not P₁ᵀ. Theorem 3.6's *class* assignment reproduces exactly — S for {P0, P3, P0ᵀ, P3ᵀ}, S′ for {P1, P2, P1ᵀ, P2ᵀ} — so the theorem is untouched and P₁ᵀ is genuinely in the S′ class; only the identifying sentence names the wrong member. One-word fix. <!-- UNVERIFIED: ref [2] cites AACA 26 (2016); this is arXiv:1707.07318v4 (2023), retitled from v3's 'The eight Cayley-Dickson doubling products'. Numbering assumed stable across versions — confirm against the AACA text. -->
 
 ## Why this source matters
 

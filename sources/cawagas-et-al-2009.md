@@ -6,12 +6,16 @@ published: arXiv:0907.2047 (2009)
 retrieved: 2026-09-11
 url: arXiv:0907.2047
 kind: paper
-read: not-read (abstract + search summary only — arxiv.org is egress-blocked in the container)
+read: full (2026-09-11)
 confidence: high
 ref: "[9] in papers/mirror-sedenions/mirror-sedenions-v1.pdf"
 ---
 
 # Cawagas et al. 2009 --- subalgebras of the trigintaduonions
+
+## Verdict — 2026-09-11
+
+**PRIORITY CHECK PASSES.** Table 6 and the sentence beneath it are decisive: 'Note that the loop Sγ_L has the same subloop composition as S_L but analysis shows that they are not isomorphic.' Their four isomorphy classes of the 31 sedenion-type subloops have sizes **16, 7, 7, 1**, matching our check6 run exactly; Sγ_L is the singleton with basis ±{0..7, 24..31} = **O + O(ee′)**, exactly claim (A). Composition types: S_L and Sγ_L both **[8 octonion + 7 quasi-octonion]**, Sα [2+13], Sβ [0+15]. Non-isomorphism is asserted from a computer isomorphism test ('analysis shows'), with **nothing** on zero divisors, annihilators, spectrum, automorphisms, subalgebra geometry, or any construction. **'Noticed but not studied' is accurate and can stand.** Two citation details: their bullet list typos it as Sδ_L(#4) while Table 6 and the classes say Sγ_L(#4) — cite the γ form; and their uniqueness is at the level of **loops** where ours is at the level of **algebras**.
 
 ## Why this source matters
 

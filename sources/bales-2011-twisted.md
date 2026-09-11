@@ -6,9 +6,9 @@ published: arXiv:1107.1375 (2011)
 retrieved: 2026-09-11
 url: https://arxiv.org/abs/1107.1375
 kind: paper
-read: not-read (abstract only, via search — arxiv.org is egress-blocked in the container)
+read: not-read (PDF in papers/library/, not yet opened)
 confidence: low
-status: CANDIDATE — not in the v1 bibliography
+status: IN LIBRARY — not yet read
 ---
 
 # Bales 2011 --- CD and Clifford algebras as twisted group algebras

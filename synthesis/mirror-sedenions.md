@@ -128,49 +128,104 @@ Ranked by how much damage each would do.
    S as a Cayley frame. Is there a similarly intrinsic description of the
    trivialization P(S′) ≅ V₂(R⁷) × S³ — e.g. via the fibration over G2/SO(4)?
 
-## Known gaps in the literature search
+## Errata for v2
 
-Updated 2026-09-11 after one search pass. **The novelty claim in §1 is the
-weakest part of the paper and should not ship as written.**
+Found 2026-09-11 by reading the sources and re-running the products. See
+`notes/2026-09-11-literature-pass.md`.
 
-### Seven references not in the v1 bibliography
+1. **§1 names the wrong Bales product.** Formula (2) is stated to be "Bales's
+   product P₁ᵀ". Implemented against arXiv:1707.07318's numbering and run:
+   **P0ᵀ is identical to S, P2ᵀ is identical to S′.** Formula (2) is **P₂ᵀ**.
+   Theorem 3.6's class assignment reproduces exactly and needs no change — P₁ᵀ
+   *is* in the S′ class — so this is a one-word fix in a single sentence.
+   <!-- UNVERIFIED: confirm against the AACA 26 (2016) text, which is what [2] cites. -->
 
-A single search pass surfaced seven items absent from v1, two of them on the
-paper's own territory. Full list and links in `papers/library/MANIFEST.md`.
+2. **The 32/24/8 census is Bales's, not ours.** Bales, *A catalog of
+   Cayley–Dickson-like products* (arXiv:1107.1301), catalogs all 32 CD-like
+   doubling products and shows exactly 8 satisfy the quaternion properties, 24
+   failing. That is precisely what Appendix A presents as its own computation.
+   **Must be cited.** Its Table 11 lists the mirror product verbatim as **P27**
+   and the standard as **P31**. The *construction* claim survives — the catalog
+   never applies a variant once on top of standard O, nor notices the eight give
+   two non-isomorphic algebras.
 
-| Risk | Source | Why |
-|---|---|---|
-| **High** | Aryapoor–Bäck–Pautrel 2026, *Involutions in the CD construction* | Classifies **all algebra isomorphisms between Cayley doubles extending the identity**, and hence the resulting \*-algebras up to isomorphism. That is result (B)'s exact question, published this year. |
-| **Moderate** | Bales 2011, *A catalog of Cayley–Dickson-like products* | Sets out to **catalog all variants of the doubling product**. The most likely place for "no prior formulation of the mirror double as a construction" to fail. |
-| Low | Bales 2016, *An alternate Cayley–Dickson product* | Title is close, but the product is "different from yet **equivalent to**" the standard one — a change of presentation, not a new algebra. Confirm and set aside. |
-| Low | Moreno 2005, *Constructing zero divisors in higher CD algebras* | A **second Moreno paper**, uncited. Bears on Open Question 3. |
-| Low | Bales 2017/2016 twist and doubling-product papers, Bales 2011 twisted group algebras | Background for §7; one is a version-matching issue for [2]'s P_i numbering. |
+3. **Add Moreno 2005** (*Constructing zero divisors in the higher dimensional
+   Cayley–Dickson algebras*, arXiv:math/0512517) — a sequel to [18] relating
+   zero-divisor sets to Stiefel manifolds. The natural entry point for Question 3.
 
-### Wilmot — identified, not closed
+4. **Add Wilmot 2025**, and consider the 84 / 112 remark below.
 
-**G. P. Wilmot, *Structure of the Cayley–Dickson algebras*, arXiv:2505.11747
-(2025).** Named as a key starting point alongside Reggiani and Moreno (references
-[19] and [18]); absent from v1.
+5. **Question 2's qualifier.** Eight octaves plus dim Der = 14 does not
+   characterise S and S′ — four other Bales products share both. The
+   quaternionic-line condition is what excludes them. Keep it explicit.
 
-On the abstract the risk looks **low** — Wilmot treats the standard CD algebras
-(graded construction, associativity types, power-associative subalgebras), with
-no sign of alternative doubling products. But it has not been read.
+## Literature position — resolved 2026-09-11
 
-One thing to look at while reading: Wilmot reduces the sedenions' **84**
-two-term zero divisors to **seven** primary pairs via cycles and modes. S′ has
-**112**. Both are multiples of seven; 112 is not a multiple of 84. Since S′ is
-not a CD algebra it sits outside the hypothesis rather than contradicting it —
-but stating that boundary precisely could make a good remark in v2.
+Nine papers read. **The novelty claim survives.** Both open threads closed.
 
-See `sources/wilmot-2025.md`.
+### Cawagas priority check — PASSES
 
-### Cawagas priority — half resolved
+The decisive sentence, under their Table 6:
 
-The **uniqueness** half is now independently corroborated: our own run finds T's
-31 basis hyperplanes falling into four classes — 16 are S, leaving three non-S
-classes of sizes 7, 1, 7, of which only functional 24 (= Sγ) has eight octaves.
-That matches both Table 1 and the reported "three of the 31 sedenion-type loops
-are distinct".
+> "Note that the loop Sγ_L has the same subloop composition as S_L but analysis
+> shows that they are not isomorphic."
 
-The **"noticed but not studied"** half is a claim about what that paper does not
-prove, and can only be settled by reading it. See `sources/cawagas-et-al-2009.md`.
+Their four isomorphy classes of the 31 sedenion-type subloops have sizes
+**16, 7, 7, 1**, matching our own check6 run exactly. Sγ_L is the singleton, basis
+±{0,…,7, 24,…,31} = **O + O(ee′)** — exactly claim (A). Both S_L and Sγ_L are of
+type **[8 octonion + 7 quasi-octonion]**; Sα is [2+13], Sβ is [0+15].
+
+They record its existence, its subloop composition, and its non-isomorphism to S
+from a computer test. **Nothing on zero divisors, annihilators, spectrum,
+automorphisms, subalgebra geometry, or any construction.** "Noticed but not
+studied" is accurate as written.
+
+### Wilmot — no threat, but cite
+
+**G. P. Wilmot, arXiv:2505.11747.** Uses the **standard** product throughout;
+across 25 pages, two total occurrences of any of "doubling product", "transpose",
+"mirror", "variant", "Bales". Alternative doubling products are not his subject.
+
+Two substantive connections worth a remark in v2:
+
+- His "**eight octonion and seven power-associative subalgebras of sedenions**"
+  is Theorem 6.1's split in other vocabulary — his power-associative subalgebras
+  are the quasi-octonions M(H).
+- His zero-divisor count reduces **84 → 7** for the sedenions, attributing the
+  factor of seven to those seven subalgebras. S′ has **112 = 16 × 7** against S's
+  **84 = 12 × 7**, and seven quasi-octonion hyperplanes of its own. The mechanism
+  should carry over with 16 modes rather than 12. Checkable, and it would connect
+  the mirror to his framework instead of leaving the counts unrelated.
+
+**Split sedenions ruled out** (the neighbouring variant axis): no graded
+isomorphism to S or S′, and their norm is indefinite where S′'s is positive
+definite — an invariant needing no convention-matching.
+
+### Aryapoor–Bäck–Pautrel — no threat
+
+Their Cayley double has a **fixed** product parametrised by a scalar µ; Theorem 2
+classifies isomorphisms Cay(A,µ₁) → Cay(A,µ₂). Two independent reasons it misses
+the mirror: they vary **µ**, not the formula, and S′ is not Cay(O,µ) for any µ;
+and their isomorphisms extend the **identity** on A, while Theorem 3.6's extend
+**conjugation**. For A = O it is near-vacuous anyway — N(O) = R has no nonzero
+skew element, so c = 0, d ∈ R, and (19) collapses to µ₁ = µ₂d².
+
+### Bales's catalog corroborates Theorem 3.6
+
+Classifying Bales's eight catalog products by graded isomorphism:
+
+| class | Bales catalog numbering |
+|---|---|
+| **S** | P0, P7, P24, P31 |
+| **S′** | P3, P4, P27, P28 |
+
+The eight form four `ac`/`ca` partner pairs — (P31,P27), (P28,P24), (P4,P0),
+(P7,P3) — **each split one to each class**. That is Theorem 3.6's stated
+mechanism ("the two classes are exchanged by reversing the first product
+ac ↔ ca"), confirmed independently in Bales's own numbering.
+
+### Still outstanding
+
+- Bales 2011 *twisted group algebras* and 2016 *periodicity of the CD twists*:
+  in `papers/library/`, not yet read. Background for §7.
+- Twenty of the 23 original bibliography entries remain `read: not-read`.

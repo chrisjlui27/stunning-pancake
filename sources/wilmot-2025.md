@@ -6,11 +6,15 @@ published: arXiv:2505.11747 (2025)
 retrieved: 2026-09-11
 url: https://arxiv.org/abs/2505.11747
 kind: paper
-read: not-read (abstract only, via search — arxiv.org is egress-blocked in the Claude Code container)
+read: abstract + introduction + structure search (2026-09-11)
 confidence: medium
 ---
 
 # Wilmot 2025 — structure of the Cayley–Dickson algebras
+
+## Verdict — 2026-09-11
+
+**RESOLVED — low risk confirmed, and should be cited.** Wilmot uses the **standard** product throughout (his eq. (1), (a,b)(c,d) = (ac − εd\*b, da + bc\*)); across 25 pages there are two total occurrences of any of 'doubling product', 'transpose', 'mirror', 'variant', 'Bales'. He does not consider alternative doubling products. Substantively adjacent though: his 'eight octonion and seven **power-associative** subalgebras of sedenions' is Theorem 6.1's split in other vocabulary (his power-associative subalgebras are the quasi-octonions M(H)). **Split sedenions ruled out computationally** — indefinite norm, no graded isomorphism to S or S′. The **84 → 7** reduction against S′'s **112 = 16 × 7** now looks like a real connection rather than a coincidence: he attributes the factor of seven to the seven power-associative subalgebras, and S′ has seven quasi-octonion hyperplanes too.
 
 ## Status: gap **identified**, not yet closed
 

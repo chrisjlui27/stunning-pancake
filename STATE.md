@@ -4,7 +4,7 @@
 > Keep it short — if a section is growing past a screen, the detail belongs in
 > `synthesis/` and this file should link to it instead.
 
-**Last updated:** 2026-09-11 — vault seeded with the mirror sedenions work.
+**Last updated:** 2026-09-11 — nine papers read; both literature threads closed; five errata logged.
 
 ## Subject
 
@@ -30,12 +30,14 @@ next: the contribution depends on it, though the mathematics does not.
 
 | Thread | Status | Next step |
 |---|---|---|
-| **Read Aryapoor–Bäck–Pautrel 2026** | **open, highest priority** | Classifies algebra isomorphisms between Cayley doubles extending the identity — Theorem 3.6's exact question, published this year. Read before anything else. `sources/aryapoor-back-pautrel-2026.md` |
-| **Read Bales's 2011 catalog** | open, high | "Catalog all possible variants of the CD doubling product." Most likely place for the "no prior formulation of M(A)" claim to be wrong. `sources/bales-2011-catalog.md` |
-| **Wilmot gap** | identified, not closed | G. P. Wilmot, arXiv:2505.11747. Abstract read: treats standard CD algebras, so risk looks low — but unconfirmed. `sources/wilmot-2025.md` |
+| **Apply the v2 errata** | **open, highest priority** | Five items in `synthesis/mirror-sedenions.md` §Errata: the P₁ᵀ→P₂ᵀ fix, citing Bales's 2011 catalog for the 32/24/8 census, adding Moreno 2005 and Wilmot, and keeping Question 2's quaternionic-line qualifier. |
+| ~~Aryapoor–Bäck–Pautrel~~ | **closed** | Read. No threat — they vary the scalar µ, not the product, and their isomorphisms extend the identity where Theorem 3.6's extend conjugation. |
+| ~~Bales 2011 catalog~~ | **closed, with an action** | Read. No threat to novelty, but it *is* the source of the 32/24/8 census the paper presents as its own. Must cite. |
+| ~~Wilmot gap~~ | **closed** | Read. Uses the standard product throughout. Split sedenions also ruled out computationally. Cite for the 8+7 subalgebra split and the 84→7 reduction. |
 | **Own notes not in vault** | open | Import JS-1–41 and JS-LANDSCAPE-II, plus the sign-function census code. Reference [16] is load-bearing and currently unreachable. `sources/lui-js-notes.md` |
-| **Cawagas et al. 2009 priority check** | half resolved | Uniqueness **independently corroborated** by our own check6 run (31 hyperplanes → 16 are S, plus three non-S classes of sizes 7, 1, 7; only functional 24 = Sγ has eight octaves). "Noticed but not studied" still needs the text. `sources/cawagas-et-al-2009.md` |
-| **Library is empty** | open | `papers/library/MANIFEST.md` has the ranked download list. Nothing could be fetched in-container — every scholarly host is egress-blocked. Needs manual upload. |
+| ~~Cawagas priority check~~ | **PASSES** | Read. Their Table 6 records Sγ's existence, its [8+7] composition, and its non-isomorphism to S from a computer test — and nothing else. "Noticed but not studied" is accurate. Class sizes 16/7/7/1 match our check6 run exactly. |
+| **84 / 112 remark** | new, promising | Wilmot reduces S's 84 zero divisors to 7 primary pairs via the seven power-associative subalgebras. S′ has 112 = 16×7 and seven quasi-octonion hyperplanes. Mechanism should carry over with 16 modes. Checkable. |
+| Read Bales twisted + periodicity | open, low | In `papers/library/`, not yet opened. Background for §7. |
 | **Bibliography is second-hand** | open, ongoing | All 23 `sources/` files are `read: not-read` — claims are what the paper cites them for, not what the sources say. Promote as read. |
 | **v2 fix: Q2 qualifier** | ready to apply | Eight octaves + dim Der = 14 does *not* characterise S and S′ — four other Bales products share both. The quaternionic-line qualifier is load-bearing and must stay explicit when Q2 is restated. Verified. |
 | Open Question 2 (orientation tree) | open | Most tractable of the four: a finite classification, not a geometry problem. Needs the census code from [16]. |
@@ -55,14 +57,14 @@ next: the contribution depends on it, though the mathematics does not.
 
 ## Known gaps
 
-- The novelty claim in §1 is **unverified**, and the literature search now looks
-  thinner than it did: **seven references turned up in a single search pass that
-  are not in the v1 bibliography**, two of them squarely on the paper's own
-  territory. The mathematics does not depend on this; the contribution does.
+- **The novelty claim now holds**, on nine papers read (2026-09-11). Both threads
+  closed; no prior description of S′'s structure found. Five errata to apply —
+  the largest being that the 32/24/8 doubling-product census is **Bales's**, not
+  the paper's own.
 - Reference [16] (own working notes) is outside the vault.
-- **No source in `sources/` has been read.** All 30 are `read: not-read`. The
-  vault currently records what the paper says about the literature, not what the
-  literature says.
+- **Twenty of the 23 original bibliography entries remain `read: not-read`** —
+  they record what the paper says about the literature, not what the literature
+  says. The nine newly-read papers carry dated `read:` fields and verdicts.
 
 ## Environment constraint
 

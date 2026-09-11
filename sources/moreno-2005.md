@@ -6,12 +6,16 @@ published: arXiv:math/0512517 (2005)
 retrieved: 2026-09-11
 url: https://arxiv.org/abs/math/0512517
 kind: paper
-read: not-read (abstract only, via search — arxiv.org is egress-blocked in the container)
+read: abstract + introduction (2026-09-11)
 confidence: medium
-status: CANDIDATE — not in the v1 bibliography
+status: READ — verdict below
 ---
 
 # Moreno 2005 --- constructing zero divisors in higher CD algebras
+
+## Verdict — 2026-09-11
+
+**Not a threat; should be cited.** Gives methods to construct zero divisors in A_n for n > 4 and **relates the zero-divisor set to Stiefel manifolds** — the same apparatus Theorem 5.5 uses. Explicitly a sequel to [18]. Citing [18] but not this is an odd gap, and it is the natural starting point for Open Question 3 (higher mirrors).
 
 ## Why this source matters
 

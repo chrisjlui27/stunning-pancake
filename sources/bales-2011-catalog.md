@@ -6,12 +6,16 @@ published: arXiv:1107.1301 (2011)
 retrieved: 2026-09-11
 url: https://arxiv.org/abs/1107.1301
 kind: paper
-read: not-read (abstract only, via search — arxiv.org is egress-blocked in the container)
+read: full (2026-09-11)
 confidence: medium
-status: CANDIDATE — not in the v1 bibliography
+status: READ — verdict below
 ---
 
 # Bales 2011 --- a catalog of Cayley--Dickson-like products
+
+## Verdict — 2026-09-11
+
+**RESOLVED — no threat to novelty, but MUST BE CITED.** This is the source of the 32-candidate / 24-rejected / 8-surviving census that Appendix A and check5/check12 reproduce; the paper currently presents it as its own computation. Table 11 lists the eight, including **P27 = (ca − d\*b, da + bc\*) = the paper's formula (2) verbatim** and **P31 = the paper's (1)**. Verified bit-for-bit against our `Sm` and `S`. Classifying all eight: S-class {P0, P7, P24, P31}, S′-class {P3, P4, P27, P28}, and the four ac/ca partner pairs each split one to each class — Theorem 3.6's mechanism in Bales's numbering. The catalog does **not** apply a variant once on top of standard O, nor observe that the eight give two non-isomorphic 16-dimensional algebras, so the *construction* claim survives; §1's wording should acknowledge the product is catalogued.
 
 ## Why this source matters
 

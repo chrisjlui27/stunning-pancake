@@ -6,12 +6,16 @@ published: Missouri J. Math. Sci. 28 (2016), no. 1; arXiv:1602.02317
 retrieved: 2026-09-11
 url: https://arxiv.org/abs/1602.02317
 kind: paper
-read: not-read (abstract only, via search — arxiv.org is egress-blocked in the container)
+read: full (2026-09-11)
 confidence: medium
-status: CANDIDATE — not in the v1 bibliography
+status: READ — verdict below
 ---
 
 # Bales 2016 --- an alternate Cayley--Dickson product
+
+## Verdict — 2026-09-11
+
+**RESOLVED — no threat, as suspected.** The abstract's 'different from yet **equivalent to** the ones commonly used' means isomorphic: this is a change of presentation (shuffle basis, periodic twist, closed-form basis product), not a new algebra. Nothing to defend against. Worth one citation to pre-empt the obvious referee question about the title.
 
 ## Why this source matters
 
