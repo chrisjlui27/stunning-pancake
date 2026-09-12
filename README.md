@@ -1,48 +1,51 @@
-# Assistant
+# Math tutor
 
-An all-purpose chat assistant that lives inside Claude Code.
+A dedicated mathematics tutor that lives inside Claude Code.
 
-Claude Code is built for coding, but the machinery underneath it (a model, a
-shell, the web, connectors, git) is general. This branch adds a thin layer on
-top so a session can be a conversation rather than a coding task: a custom
-agent with its own instructions, a slash command to reach it, and a memory
-that survives between sessions.
+A chat window can explain mathematics. A Claude Code session can also run it:
+every derivative, identity, matrix, and counterexample the tutor states is
+computed with sympy or numpy before it is said, practice sets come with
+machine-checked answer keys, and the learner's record is a set of files in
+git that survive between sessions. The tutor teaches Socratically, hints
+before answers, and keeps track of what is solid, what is shaky, and what is
+due for review.
 
 ## Use it
 
 ```
-/chat what's a good way to structure a reading list for a new field?
-/chat draft a reply to the email from Sam about Thursday
-/chat I'm trying to decide between X and Y, talk me through it
+/tutor I don't see why the derivative of x^x is what it is
+/tutor give me five problems on eigenvalues, one hard
+/tutor here's my proof that sqrt(2) is irrational, check it
+/tutor review
 ```
 
-Or just talk. The agent definition is also registered as a subagent named
-`assistant`, so the main session can hand conversational requests to it.
+Or just ask a mathematics question. The tutor is also registered as a
+subagent named `tutor`, so the main session can hand it a question.
 
 ## What is here
 
 ```
-.claude/agents/assistant.md    the agent: who it is and how it works
-.claude/skills/chat/SKILL.md   the /chat command that puts a session in that mode
-assistant/PROFILE.md           who it is talking with and how they like to work
-assistant/MEMORY.md            what it has learned across conversations
+.claude/agents/tutor.md        the tutor: how it teaches, its standard of rigor
+.claude/skills/tutor/SKILL.md  the /tutor command that puts a session in that mode
+tutor/LEARNER.md               who is being taught, at what level, toward what
+tutor/PROGRESS.md              the record: solid, shaky, review queue, sessions
+tutor/exercises/               practice sets and plots the tutor writes
 ```
 
 ## Memory
 
-Sessions run in fresh containers with no memory of each other. The assistant
-reads `assistant/MEMORY.md` at the start of every conversation and appends to
-it at the end of any conversation that produced something worth keeping, then
-commits. Preferences about how it should behave go in `assistant/PROFILE.md`
-instead. Edit either file by hand whenever you like; the assistant treats them
-as the source of truth.
+Sessions run in fresh containers with no memory of each other. The tutor
+reads `tutor/LEARNER.md` and `tutor/PROGRESS.md` at the start of every
+session, opens with a review item when one is due, and appends a dated entry
+to `PROGRESS.md` before the session ends, then commits. Edit either file by
+hand whenever you like; the tutor treats them as the source of truth.
 
 ## Adjust it
 
-- **Change how it behaves:** edit the body of `.claude/agents/assistant.md`.
-- **Restrict or widen what it can do:** edit the `tools` line in that file's
-  frontmatter.
-- **Pin a model:** set `model:` in the frontmatter to `sonnet`, `opus`, or
-  `haiku` instead of `inherit`.
-- **Add a specialist:** drop another `.md` file in `.claude/agents/` with the
-  same frontmatter shape.
+- **Change how it teaches:** edit the body of `.claude/agents/tutor.md`.
+- **Change the level or goals:** edit `tutor/LEARNER.md`, or tell the tutor
+  and it will.
+- **Pin a model:** set `model:` in the agent's frontmatter to `sonnet`,
+  `opus`, or `haiku` instead of `inherit`.
+- **Add a specialist** (a proof checker, a problem generator): another `.md`
+  file in `.claude/agents/` with the same frontmatter shape.
