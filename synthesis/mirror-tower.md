@@ -92,108 +92,56 @@ Three distinct values = k + 1. CD(S′) matches T on **every** invariant compute
 identical basis-hyperplane census (16 S, 1 S′, 14 other), identical associator
 census (2184 / 2156 of 4340 independent triples), Der = g₂.
 
-### Level 3 — dimension 64 — all eight words, complete
+### Levels 3 and 4 — complete
 
-| leading M's (b) | words | 2-term ZD |
-|---|---|---|
-| **0** | CD·CD·CD, CD·M·CD, CD·CD·M, CD·M·M | **3036** |
-| **1** | M·CD·CD, M·CD·M | **3160** |
-| **2** | M·M·CD | **3280** |
-| **3** | M·M·M | **3392** |
+Recomputed with a fast sign-table recursion (`check20_tower_fast.py`): the sign
+table of a double is obtained from the base's in O(n²), and the zero-divisor count
+by the coset closed form, vectorised. Dimension 128 then takes seconds.
 
-**Eight words, exactly four classes** — k + 1 = 4, as predicted. Every collapse
-agreed on the full annihilator-dimension profile, not merely the count.
+| level | dim | words | distinct classes | partition by leading-M count |
+|---|---|---|---|---|
+| k = 1 | 16 | 2 | **2** | 1, 1 |
+| k = 2 | 32 | 4 | **3** | 2, 1, 1 |
+| k = 3 | 64 | 8 | **4** | 4, 2, 1, 1 |
+| k = 4 | 128 | 16 | **5** | 8, 4, 2, 1, 1 |
 
-And the invariant has a clean description: **the class is determined by the
-length of the leading (outermost) run of M's**, which is exactly what the normal
-form M^b ∘ CD^a says. The word counts per class — 4, 2, 1, 1 — are the numbers of
-length-3 words with exactly b leading M's.
+Exactly k + 1 classes at every level, and the multiplicities are the number of
+length-k words with b leading M's (2^(k−b−1) for b < k, and 1 for b = k) — precisely
+what the normal form M^b ∘ CD^(k−b) predicts. The counts:
 
-The same pattern at the lower levels:
+| dim | b=0 | b=1 | b=2 | b=3 | b=4 |
+|---|---|---|---|---|---|
+| 16 | 84 | 112 | | | |
+| 32 | 588 | 648 | 704 | | |
+| 64 | 3036 | 3160 | 3280 | 3392 | |
+| 128 | 13884 | 14136 | 14384 | 14624 | 14848 |
 
-| level | classes | counts |
-|---|---|---|
-| k = 1 (dim 16) | 2 | 84, 112 |
-| k = 2 (dim 32) | 3 | 588, 648, 704 |
-| k = 3 (dim 64) | 4 | 3036, 3160, 3280, 3392 |
+### A closed form for the mirror correction
 
-Successive differences within a level: 28 at k = 1; 60, 56 at k = 2;
-124, 120, 112 at k = 3.
+The counts are not arbitrary. Writing Z(k, b) for the signed two-term zero-divisor
+count and n = 2^(k+3) for the dimension, **all fourteen data points** satisfy
 
-## The split construction — a different kind of parameter
+> **Z(k, b) = Z(k, 0) + 2nb − 4(2^b − 1)**
 
-**Split is permanent; the mirror is not.** The two bits behave in opposite ways,
-and the reason is that they live in different places.
+equivalently, in index pairs rather than signed elements,
 
-### Signature is inherited forever
+> **the b-th leading mirror adds exactly n − 2^b⁺¹ new index pairs.**
 
-The norm N(x) = x x̄ has signature determined by the squares of the basis units,
-and it is an isomorphism invariant (N is fixed by the quadratic identity
-x² − 2t(x)x + N(x) = 0). Computed up the tower:
+| dim | mirror #1 | #2 | #3 | #4 |
+|---|---|---|---|---|
+| 16 | 14 | | | |
+| 32 | 30 | 28 | | |
+| 64 | 62 | 60 | 56 | |
+| 128 | 126 | 124 | 120 | 112 |
 
-| base | level 1 | level 2 |
-|---|---|---|
-| definite (S, S′) | **(16, 0)** | **(32, 0)** — CD and M alike |
-| split (CD₋(O), M₋(O)) | **(8, 8)** | **(16, 16)** — CD and M alike |
+The b = 1 case is the paper's own S′ count: the first mirror adds **n − 2 = 14**
+index pairs at dimension 16 — exactly the 14 of Prop. 5.4, (i, i+8) and (i, 8).
+So the proposition's list is the first instance of a general count.
 
-A split algebra is never isomorphic to a definite one, at any level, on an
-invariant that needs no search. **CD cannot repair a split**, and neither can M.
-Once ε = −1 is used, every descendant is split.
-
-### But the mirror is erased in the split branch too
-
-| dimension 16 | |
-|---|---|
-| split S vs split mirror | **not graded-isomorphic** |
-
-| dimension 32 | |
-|---|---|
-| CD(split S) → CD(split mirror) | **GRADED-ISOMORPHIC** |
-| M(split S) → M(split mirror) | **not graded-isomorphic** |
-
-Exactly the definite-branch pattern. The mirror bit is genuine at level 1 in both
-branches, and erased by the next CD in both branches. **So the two parameters are
-independent:** ε is permanent and inherited; the mirror survives only as the
-length of the leading run of M's.
-
-Note the counts are *not* a sufficient invariant here — split S and split mirror
-both have 112 two-term zero divisors and signature (8, 8), yet are not
-isomorphic. The search was needed.
-
-## Why the mirror is erased — it is Theorem 3.3, read one level up
-
-The erasure looks surprising until you extract the isomorphism. For
-CD(S′) → T the search returns
-
-    e₁ → e₁,   e₂ → e₂,   e₄ → e₄          (the founding O, fixed)
-    e₈ → e₂₄ = e₈ ⊕ e₁₆                    (ℓ ↦ ℓe′)
-    e₁₆ → e₁₆                              (the outer doubling unit, fixed)
-
-It fixes O and the outer unit e′, and sends the **inner doubling unit ℓ to the
-composite ℓe′**. That is precisely the content of **Theorem 3.3**:
-
-> M(A) ≅ A + A(ee′) ⊂ CD²(A)
-
-The mirror double is *already* a subalgebra of the double double — the one
-spanned by A and the composite unit ee′ rather than by A and e. So CD(M(A)) and
-CD(CD(A)) differ only in **which unit is called the doubling unit**, and once you
-double again the ambient algebra contains both, related by a relabelling.
-
-**The paper's own embedding theorem explains the erasure.** This should convert
-into a proof of the relation with modest work, rather than needing a new idea —
-which is the strongest argument for adding it to v1 rather than deferring it.
-
-Two cautions from the computation:
-
-- The erasure is **not** a pure sign relabelling. Tested directly: for every pair
-  above — S vs S′, CD(S) vs CD(S′), M(S) vs M(S′), split S vs split mirror — the
-  ratio of the two sign functions is **not a coboundary** with σ = identity. A
-  genuine σ ∈ GL(5,2) is required. The obstruction is not killed by sign freedom;
-  it is killed by the larger linear group (|GL(5,2)| = 9999360 against
-  |GL(4,2)| = 20160, and the exhaustive GL(4,2) search finds no S → S′).
-- Remark 3.8's dimension-16 case behaves the same: CD(M(H)) ≅ S via 168 σ's, and
-  **not** with σ = identity. So "signed relabelling" there must be read as
-  permutation-plus-signs.
+<!-- UNVERIFIED: this is an empirical fit to 14 points, not a proof. The
+     corresponding closed form for the base counts Z(k,0) = 84, 588, 3036, 13884
+     is NOT claimed -- a three-parameter fit to four points is underdetermined,
+     and those are the standard Cayley-Dickson counts, likely already known. -->
 
 ## Bales's proper twists
 
