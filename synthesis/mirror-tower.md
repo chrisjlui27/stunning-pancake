@@ -13,8 +13,28 @@ evidence: papers/mirror-sedenions/code/check13_wilmot_incidence.py, check14_tree
 
 **The mirror double is erased by a subsequent standard doubling:**
 
-> **Conjecture (the erasure relation).** For every ∗-algebra A in the tower,
+> **The erasure relation.** For every ∗-algebra A in the tower,
 > CD(M(A)) ≅ CD(CD(A)).
+
+**Status: verified at level 2 by explicit isomorphism; conjectural in general.**
+
+| case | status |
+|---|---|
+| CD(M(H)) ≅ CD(CD(H)) = S | **proved in the paper** — Remark 3.8's signed relabelling |
+| CD(M(O)) ≅ CD(CD(O)) = T | **verified 2026-09-12** — explicit graded isomorphism found by backtracking search over GL(5,2) |
+| level 3 (dimension 64) | invariants only — count and full annihilator profile |
+| general A | **conjecture** |
+
+The level-2 search also settles the negative direction, which matters just as much:
+
+    T  ->  CD(S′)     GRADED-ISOMORPHIC          (erasure holds)
+    T  ->  M(S)       not graded-isomorphic
+    M(S) -> M(S′)     not graded-isomorphic      (M does NOT erase)
+    Aut(T)            80 graded automorphism sigmas
+
+**M does not erase.** M(S) ≇ M(S′), so the tree is genuinely non-trivial: it is
+specifically the *outer* CD that destroys the mirror bit, and the normal form
+M^b ∘ CD^a is not a collapse to a single algebra per level.
 
 If it holds, the free monoid {CD, M}\* collapses: any word can be rewritten by
 pushing M's outward, and every word reduces to a normal form
@@ -208,10 +228,12 @@ norm), so they are a parallel branch rather than a complication.
 
 ## What would change my mind
 
-- **The erasure relation failing at some level.** It is verified on invariants at
-  k = 2 and k = 3, not proved, and not yet confirmed by an explicit graded
-  isomorphism. A single word that collapses on counts but is genuinely
-  non-isomorphic would break the normal form.
+- **The erasure relation failing at some level.** It is now confirmed by explicit
+  graded isomorphism at k = 2 (over O) and proved in the paper at k = 2 (over H),
+  but k = 3 rests on invariants alone — a word that collapses on counts and
+  annihilator profiles while being genuinely non-isomorphic would break the normal
+  form. The k = 3 search needs GL(6,2), which the current backtracking code will
+  not reach without better pruning.
 - **A composition subalgebra appearing somewhere above dimension 16.** That would
   mean Theorem 6.1 does generalise and the tower is richer than the counts
   suggest.
