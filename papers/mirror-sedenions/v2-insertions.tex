@@ -1,0 +1,131 @@
+% ============================================================================
+%  Insertions for v2 of "The mirror sedenions".  Notation follows the paper:
+%  CD(A) = A + Ae with (a+be)(c+de) = (ac - \bar d b) + (da + b\bar c)e,
+%  M(A)  = A + Al with (a+bl)(c+dl) = (ca - \bar d b) + (da + b\bar c)l,
+%  CD^2(A) = CD(A) + CD(A)e', elements (p,q) = p + qe'.
+% ============================================================================
+
+% ---------------------------------------------------------------- R2: erasure
+% Insert in section 3, replacing Remark 3.8; keep the uniform-tower observation
+% as a remark after it.
+
+\begin{lemma}\label{lem:doublingunit}
+Let $B$ be a $*$-algebra, $N\subseteq B$ a $*$-subalgebra, and $u\in B$ with
+$B=N\oplus Nu$. Suppose that for all $n,m,m_1,m_2\in N$
+\[
+  n(mu)=(mn)u,\quad (mu)n=(m\bar n)u,\quad (m_1u)(m_2u)=-\bar m_2m_1,
+\]
+and $u^2=-1$, $\bar u=-u$, $u\bar m=mu$. Then $\Psi(n,m)=n+mu$ is an isomorphism
+of $*$-algebras $\CD(N)\to B$.
+\end{lemma}
+
+\begin{proof}
+$\Psi$ is a linear bijection. Expanding and applying the three identities,
+\[
+ (n_1+m_1u)(n_2+m_2u)=(n_1n_2-\bar m_2m_1)+(m_2n_1+m_1\bar n_2)u,
+\]
+which is the Cayley--Dickson product of $(n_1,m_1)$ and $(n_2,m_2)$. Finally
+$\overline{mu}=\bar u\bar m=-u\bar m=-mu$, so $\Psi$ respects the involutions.
+\end{proof}
+
+\begin{theorem}[Erasure]\label{thm:erasure}
+For every $*$-algebra $A$, $\CD(\MM(A))\cong\CD(\CD(A))$ as $*$-algebras.
+\end{theorem}
+
+\begin{proof}
+Work in $B=\CD^2(A)$ and write $\langle a,b\rangle:=a+(be)e'$, so that by
+Theorem~3.3 the set $N=\{\langle a,b\rangle\}=A+A(ee')$ is a $*$-subalgebra
+isomorphic to $\MM(A)$. From the doubling formula,
+\[
+ \langle a_1,b_1\rangle\langle a_2,b_2\rangle
+  =\langle a_1a_2-\bar b_1b_2,\ b_2\bar a_1+b_1a_2\rangle,
+ \qquad
+ \overline{\langle a,b\rangle}=\langle\bar a,-b\rangle,
+\]
+and, writing $[a,b]:=\langle a,b\rangle e'$,
+\[
+ \langle a,b\rangle e'=\bigl((0,-b),(a,0)\bigr),
+ \qquad\text{in particular}\qquad (ee')e'=-e .
+\]
+Hence $N$ occupies the summands $A\oplus(Ae)e'$ and $Ne'$ the summands
+$Ae\oplus Ae'$, so $B=N\oplus Ne'$. Putting $u=e'$, direct computation gives
+\[
+\begin{aligned}
+ n(mu)&=[\,ca-\bar db,\ da+b\bar c\,]=(mn)u, &
+ (mu)n&=[\,c\bar a+\bar db,\ d\bar a-b\bar c\,]=(m\bar n)u,\\
+ (m_1u)(m_2u)&=\langle-\bar c_2c_1-\bar d_2d_1,\ d_2c_1-d_1c_2\rangle=-\bar m_2m_1,
+\end{aligned}
+\]
+for $n=\langle a,b\rangle$, $m=\langle c,d\rangle$, $m_i=\langle c_i,d_i\rangle$,
+together with $e'^2=-1$, $\bar e'=-e'$ and $e'\bar m=me'$. Lemma
+\ref{lem:doublingunit} gives $\CD(N)\cong B$, and $N\cong\MM(A)$.
+\end{proof}
+
+\begin{remark}
+The isomorphism fixes $A$ and $e'$ pointwise and sends the inner doubling unit
+$\ell$ to $ee'$. The identity $(ee')e'=-e$ is the mechanism: $\CD^2(A)$ contains
+both $A+Ae$ and $A+A(ee')$, which differ only in the choice of doubling unit, and
+a further doubling makes the two choices conjugate. The proof uses only the
+doubling formula and the involution axioms, so it is insensitive to the sign
+$\varepsilon$ in the split construction.
+\end{remark}
+
+\begin{corollary}
+Every word in $\{\CD,\MM\}$ of length $k$ applied to $A$ is isomorphic to
+$\MM^{b}(\CD^{k-b}(A))$, where $b$ is the length of its maximal leading run of
+$\MM$'s; hence at most $k+1$ isomorphism classes occur at level $k$.
+\end{corollary}
+
+% ------------------------------------------------------------- R3: incidence
+% Insert in section 5, after Proposition 5.4.
+
+\begin{proposition}\label{prop:incidence}
+In both $\Sed$ and $\Sed'$, each of the seven quasi-octonion basis hyperplanes
+contains exactly twelve two-term zero-divisor index pairs. The multiplicities
+differ: in $\Sed$ every two-term zero divisor lies in exactly two of the seven,
+while in $\Sed'$ the forty-two pairs that are also zero divisors of $\Sed$ lie in
+one and the fourteen pairs $(i,i+8)$, $(i,8)$ lie in three.
+\end{proposition}
+
+\begin{proof}
+Identify $\FF_2^4$ with its dual by the standard pairing $f\cdot g$ and write
+$H_f=f^{\perp}$. By Theorem~6.1 the quasi-octonion hyperplanes of $\Sed'$ are the
+seven containing $\ell=8$, that is $H_f$ with $f\in\{1,\dots,7\}$; those of
+$\Sed$ are the seven avoiding $\ell$ other than $\OO=H_8$, that is $H_f$ with
+$f=8+f'$, $f'\in\{1,\dots,7\}$.
+
+By Theorem~5.1 and Proposition~5.4 every two-term zero divisor of either algebra
+has one index $i\in\{1,\dots,7\}$ and one index $j=q+8$ with $q\in\{0,\dots,7\}$.
+Since $i<8$ and $f'\cdot 8=0$ for $f'<8$,
+\[
+  (i,j)\subset H_{f'} \iff f'\cdot i=0 \text{ and } f'\cdot q=0,
+  \qquad
+  (i,j)\subset H_{8+f'} \iff f'\cdot i=0 \text{ and } f'\cdot q=1 .
+\]
+
+For $\Sed'$: the number of nonzero $f'\in\FF_2^3$ orthogonal to both $i$ and $q$
+is $3$ if $q\in\{0,i\}$ (then $\operatorname{span}\{i,q\}$ is one-dimensional and
+its annihilator has four elements) and $1$ otherwise. By Theorem~5.1 all
+fifty-six such pairs are zero divisors of $\Sed'$, and by Proposition~5.4 the
+fourteen with $q\in\{0,i\}$ are exactly those not occurring in $\Sed$.
+
+For $\Sed$: the set $\{f'\,:\,f'\cdot i=0\}$ is a two-dimensional subspace. If
+$q\in\{0,i\}$ then $f'\cdot i=0$ forces $f'\cdot q=0$, so no $f'$ qualifies,
+consistent with those pairs not being zero divisors of $\Sed$. Otherwise
+$f'\mapsto f'\cdot q$ is a nonzero functional on that subspace, so exactly two of
+its four elements qualify, and $0$ is not among them.
+
+For the count per hyperplane: fixing $f'\neq0$, in $\Sed'$ there are three
+nonzero $i$ with $f'\cdot i=0$ and four $q$ with $f'\cdot q=0$, giving twelve
+pairs; in $\Sed$ there are three such $i$ and four $q$ with $f'\cdot q=1$, again
+twelve.
+\end{proof}
+
+\begin{remark}
+Wilmot accounts for the eighty-four two-term zero divisors of $\Sed$ as twelve
+per quasi-octonion subalgebra across seven such subalgebras. Proposition
+\ref{prop:incidence} shows that this local count is identical in $\Sed'$, and
+that the difference between $84$ and $112$ lies entirely in the incidence
+multiplicity, which is uniformly $2$ for $\Sed$ and takes the values $1$ and $3$
+for $\Sed'$.
+\end{remark}

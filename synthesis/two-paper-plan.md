@@ -140,7 +140,7 @@ Difficulty is my estimate; priority is for getting each paper submittable.
 
 | # | Gap | Difficulty | Priority |
 |---|---|---|---|
-| **1.1** | The incidence decomposition is **computational only**. Needs proof of: 12 pairs per quasi-octonion hyperplane in both; multiplicity 2 in S; multiplicity {1, 3} split in S′. | **Medium** — likely follows from Thm 8.1(2) plus Thm 6.1's hyperplane description and Prop 5.4 | High if included; or drop to a remark with "verified computationally" |
+| ~~1.1~~ | **CLOSED 2026-09-12.** Proved by a count in F₂³: the quasi-octonion hyperplanes of S′ are H_f with f ∈ {1..7} and of S are H_{8+f'}; the multiplicity of a pair (i, q+8) is the number of nonzero f' with f'·i = 0 and f'·q = 0 (resp. = 1), giving 3 or 1 (resp. 0 or 2) according as q ∈ {0,i} or not, and 3×4 = 12 per hyperplane either way. `check24`. | — | done |
 | 1.2 | Prop 3.2 as a corollary of Bales's proper twists: need M(A) proper whenever A is, in general (verified case-by-case only) | **Easy** | Medium |
 | 1.3 | Erasure placement | decision, not work | — |
 | 1.4 | Q1 (metric on P(S′)) stays open | — | — |
@@ -155,39 +155,26 @@ dodged by presenting the incidence result as a computational observation.
 
 | # | Gap | Difficulty | Priority |
 |---|---|---|---|
-| **2.1** | **Sharpness unproved** — that M^b CD^a, b = 0…k, are pairwise non-isomorphic. Verified to k = 4 on counts; k = 2 by explicit search. | **Hard alone, easy via 2.2** | **Blocking** |
-| **2.2** | **The increment theorem unproved.** First mirror: verified exactly to n = 128, with the explicit new-pair set. Higher b: 14 data points, no structural statement yet. | **Medium (b=0→1), Hard (general b)** | **Blocking — do this first** |
+| ~~2.1~~ | **CLOSED 2026-09-12.** Sharpness follows from Corollary 3 of the increment theorem: Z is an isomorphism invariant and is strictly increasing in b, so the k+1 normal forms are pairwise non-isomorphic and the class count at level k is **exactly** k+1. | — | done |
+| ~~2.2~~ | **CLOSED 2026-09-12.** The increment theorem is proved: dim Ann_M = (h−2) − dim Ann_CD on mixed pairs, every mixed pair is a zero divisor of M(A), and Z(M(A)) = 2Z(A) + h(h−1). `papers/mirror-sedenions/INCREMENT-THEOREM.md`, `check23`. | — | done |
 | 2.3 | Der = g₂ at every node — computational; Schafer covers the CD spine only | **Medium** | High |
 | 2.4 | split S ≇ split mirror — computational (GL(4,2) search). The χ non-cocycle argument should port verbatim to ε = −1 | **Easy** | Medium |
 | 2.5 | Split permanence — signature is an isomorphism invariant and is inherited; essentially proved, needs writing | **Easy** | High |
 | 2.6 | 8-dim subalgebra census (50/105 vs 64/91) and its dependence on the outermost operation only — computational | **Medium** | Medium |
-| **2.7** | **Content risk: paper 2 is all counts.** There is no structural result about M(S) analogous to Thm 5.1/5.5 — no zero-divisor manifold, no Aut, no annihilator description. | **Hard** | **High — this is what makes it a paper rather than a table** |
+| 2.7 | ~~Content risk: all counts.~~ **Substantially addressed.** The increment theorem is a structural result about annihilators, not a count: it gives an exact duality dim Ann_M = (h−2) − dim Ann_CD valid at every level, recovers Prop. 5.4 and the 2/6 stratification of Thm 5.2 as the case A = O, and exposes an asymmetry (M is uniform, CD is not). A zero-divisor *manifold* for M(S) is still absent, but is no longer needed to carry the paper. | Medium | Medium |
 | 2.8 | Aut of higher nodes unknown (Aut(T): 80 graded σ's computed, full Aut not) | **Hard** | Low |
 
-**Paper 2 is not ready.** Two blocking gaps (2.1/2.2, which are one problem) and
-one content risk (2.7). The honest position: paper 2 is a good paper *if* the
-increment theorem goes through, and a table *if* it does not.
+**Paper 2 is now ready to draft.** The increment theorem went through, so both
+blocking gaps are closed and the content risk is substantially answered. The
+decision is therefore **two papers**, not one.
 
 ---
 
-## Recommended order of work
+## Status 2026-09-12
 
-1. **Prove the increment theorem for b = 0 → 1** — M(A) = CD(A)'s zero divisors
-   plus {(i, i+h)} ∪ {(i, h)}. The set is explicit and the pattern is exact at
-   four dimensions; this is the most likely thing to fall.
-2. **Try to extend to general b.** If it works, 2.1, 2.2 and most of §5 close at
-   once and paper 2 has a spine.
-3. **Prove the incidence decomposition (1.1)** — needed by paper 1 and probably
-   reusable in paper 2's §6.
-4. Write **paper 1** (it is ready modulo 1.1 and 1.6).
-5. Attack **2.7** — find one structural statement about M(S), or accept that
-   paper 2 is a classification paper and frame it that way honestly.
-6. Write **paper 2**.
+Steps 1 and 2 are **done**: the increment theorem is proved in full, with every
+lemma machine-verified on six bases, and sharpness follows as a corollary. The
+remaining work is step 3 (the incidence decomposition, optional for paper 1) and
+the drafting itself.
 
-## What would change my mind about the split
-
-If the increment theorem does **not** generalise, paper 2 as scoped is thin, and
-the better move is a single longer paper: paper 1 plus a final section giving the
-erasure theorem, the normal form, and the tower counts as a coda, with sharpness
-stated as verified-to-k=4. That is an honest and still-substantial paper, and
-avoids publishing a classification whose main theorem is empirical.
+**Decision: two papers.**

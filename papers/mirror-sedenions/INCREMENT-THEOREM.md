@@ -99,6 +99,23 @@ can never be equal. For j = h (so q = 0, d = p + h): for u ∉ {0,p},
 (P2) and antisymmetry give w(p⊕u, p) = w(p,u), so Q_i(u) = w(p,u)² = 1, while
 Q_j(u) = −s(u)s(u⊕p) = −1; the cases u ∈ {0,p} are Lemma 3. ∎
 
+## Lemma 5 (halves reproduce A)
+
+*For an α or β pair, dim Ann in CD(A) and in M(A) both equal 2·dim Ann_A(e_i ± e_j).*
+
+*Proof.* Take an α pair, d < h. On a coset with u < h, Q_i(u) = w(i,u) w(i,u⊕d),
+which is A's own criterion. On a coset with u = v + h, the block table gives
+Q_i(u) = w(v,i) w(v⊕d, i), and antisymmetry converts this to
+w(i,v) w(i,v⊕d)·τ_i(v) with the same τ_i as in Lemma 2. Since τ_i = τ_j there,
+the upper coset contributes exactly when the corresponding lower one does, so the
+two halves contribute equally and the total is 2·dim Ann_A. For a β pair the
+factors s(u)s(u⊕d) (lower) and s(v)s(v⊕d) (upper) are common to i and j and
+cancel, leaving the same two conditions. Lemma 2 gives the same value in M(A). ∎
+
+**Corollary.** The α zero-divisor pairs and the β zero-divisor pairs of CD(A) and
+of M(A) each biject with the zero-divisor pairs of A; in particular each set has
+Z(A) elements.
+
 ## Theorem (the increment)
 
 **(a)** For α and β pairs, dim Ann is the same in CD(A) and in M(A).
@@ -119,14 +136,12 @@ cosets contributes in CD (nor therefore in M), so every contributing coset of CD
 is a non-contributing coset of M among the other h − 2 and conversely, giving
 dim Ann_M = (h−2) − dim Ann_CD. For (c): if q ≠ 0 and p ≠ q the Corollary gives
 dim Ann_CD ≤ h − 4, so dim Ann_M ≥ 2; in the two degenerate cases Lemma 4 gives
-dim Ann_CD = 0, so dim Ann_M = h − 2 ≥ 2 for h ≥ 4. For (d): by (a) the α and β
-zero-divisor pairs are the same in CD(A) and M(A) and number Z(A) each
-(verified — see below), and by (c) all h(h−1) mixed pairs contribute. ∎
+dim Ann_CD = 0, so dim Ann_M = h − 2 ≥ 2 for h ≥ 4. For (d): by Lemma 5 the α and the β
+zero-divisor pairs each number Z(A), and by (c) all h(h−1) mixed pairs
+contribute. ∎
 
-<!-- UNVERIFIED: the count "alpha pairs = beta pairs = Z(A)" in (d) is confirmed
-     computationally for A = H, O, S, S', T, M(S) but is not proved here. It is
-     the statement that a two-term pair inside either half is a zero divisor of
-     the double exactly when it is one of A. Proving it would complete (d). -->
+Every step is proved; `check23_increment_theorem.py` verifies each lemma
+independently for A = H, O, S, S′, T and M(S).
 
 ## Consequences
 

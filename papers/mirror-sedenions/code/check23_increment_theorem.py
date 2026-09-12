@@ -58,13 +58,17 @@ def run(w,label):
        all(not contrib(B,p,q+h,u) for p in range(1,h) for q in range(h) for u in (0,p)))
     ok("L4  mixed duality  dim Ann_M = (h-2) - dim Ann_CD",
        all(anndim(B,p,q+h)==(h-2)-anndim(A,p,q+h) for p in range(1,h) for q in range(h)))
-    ok("L5  degenerate families have dim Ann_CD = 0  (j = i+h and j = h)",
+    ok("L4  degenerate families have dim Ann_CD = 0  (j = i+h and j = h)",
        all(anndim(A,p,p+h)==0 for p in range(1,h)) and
        all(anndim(A,p,h)==0   for p in range(1,h)))
-    ok("L6  dim Ann_CD(mixed) <= h - |{0,p,q,t}|",
+    ok("L3c dim Ann_CD(mixed) <= h - |{0,p,q,t}|",
        all(anndim(A,p,q+h) <= h-len({0,p,q,p^q}) for p in range(1,h) for q in range(h)))
     ok("T1  EVERY mixed pair is a two-term zero divisor of M(A)",
        all(anndim(B,p,q+h)>0 for p in range(1,h) for q in range(h)))
+    ok("L5  alpha/beta: dim Ann of the double = 2 * dim Ann_A",
+       all(anndim(A,i,j)==2*anndim(w,i,j) and anndim(B,i,j)==2*anndim(w,i,j) and
+           anndim(A,i+h,j+h)==2*anndim(w,i,j) and anndim(B,i+h,j+h)==2*anndim(w,i,j)
+           for i in range(1,h) for j in range(i+1,h)))
     ZA=zpairs(w); ZB=zpairs(B); ZC=zpairs(A)
     al=lambda P:sum(1 for i,j in P if i<h and j<h); be=lambda P:sum(1 for i,j in P if i>=h and j>=h)
     ok(f"T2  alpha count = beta count = Z(A) = {len(ZA)}  (in both CD and M)",

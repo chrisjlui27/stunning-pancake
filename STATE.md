@@ -4,7 +4,7 @@
 > Keep it short — if a section is growing past a screen, the detail belongs in
 > `synthesis/` and this file should link to it instead.
 
-**Last updated:** 2026-09-12 — erasure relation PROVED from Theorem 3.3; tower and Wilmot incidence results in `synthesis/mirror-tower.md`.
+**Last updated:** 2026-09-12 — increment theorem PROVED; all gaps closed; two papers drafted.
 
 ## Subject
 
@@ -55,6 +55,15 @@ next: the contribution depends on it, though the mathematics does not.
   both discrepancies found were script bugs that a reading pass would have missed,
   and one of them (`check7`'s τ) was invisible at every sample point check6 used.
 
+## Papers
+
+- **Paper 1** `papers/mirror-sedenions/` — v1 plus `REVISION-v2.md` (six revisions
+  R1–R6) and `v2-insertions.tex` (the erasure theorem and the incidence
+  proposition, LaTeX-ready). No theorem of v1 changes.
+- **Paper 2** `papers/mirror-tower/mirror-tower.tex` — complete draft.
+  Erasure, normal form, increment theorem, sharpness, split permanence,
+  invariants, three questions.
+
 ## New results this session (2026-09-12)
 
 - **Theorem (erasure): CD(M(A)) ≅ CD(CD(A)) for every ∗-algebra A.** Proved from
@@ -66,6 +75,18 @@ next: the contribution depends on it, though the mathematics does not.
   the split is canonical — the 42 assessors versus the 14 new pairs.
 - **Split is permanent**: the norm signature is inherited by every descendant, so
   no doubling repairs ε = −1. The two parameters are independent.
+- **Theorem (increment): for A of dimension h with proper twist,
+  dim Ann_{M(A)} = (h−2) − dim Ann_{CD(A)} on mixed basis pairs and agrees with
+  CD(A) elsewhere; every mixed pair is a zero divisor of M(A); and
+  Z(M(A)) = 2Z(A) + h(h−1).** Recovers Prop. 5.4 and the 2/6 stratification of
+  Thm 5.2 as the case A = O. `INCREMENT-THEOREM.md`, `check23`.
+- **Sharpness (corollary): the class count at level k is exactly k+1**, since Z
+  is strictly increasing in the number of leading mirrors.
+- **The incidence decomposition is proved** by a count in F₂³ (`check24`), closing
+  the last paper-1 gap.
+- **Asymmetry:** Z(M(A)) = 2Z(A) + h(h−1) holds universally; the CD analogue
+  Z(CD(A)) = 2Z(A) + (h−1)(h−2) holds on the CD spine but fails for mirror bases
+  (58 exceptions rather than 30 for A = S′).
 
 ## Known gaps
 

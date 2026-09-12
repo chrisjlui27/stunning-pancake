@@ -1,0 +1,550 @@
+\documentclass[11pt]{amsart}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=1.15in]{geometry}
+\usepackage{hyperref}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{question}[theorem]{Question}
+
+\newcommand{\CD}{\mathrm{CD}}
+\newcommand{\MM}{\mathrm{M}}
+\newcommand{\Ann}{\operatorname{Ann}}
+\newcommand{\Der}{\operatorname{Der}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\Sed}{\mathbb{S}}
+\newcommand{\Trig}{\mathbb{T}}
+
+\begin{document}
+
+\title{The mirror tower: iterating a second Cayley--Dickson doubling}
+\author{Lui}
+\address{Quitman, Texas}
+\date{September 2026}
+
+\begin{abstract}
+The mirror double $\MM(A)=A\oplus A\ell$ of a $*$-algebra, with
+$(a+b\ell)(c+d\ell)=(ca-\bar d b)+(da+b\bar c)\ell$, differs from the
+Cayley--Dickson double $\CD(A)$ in a single slot and yields, over the octonions,
+an algebra $\MM(\OO)=\Sed'$ not isomorphic to the sedenions. We study the
+iteration of the two operations. Our first result is that a standard doubling
+annihilates an inner mirror: $\CD(\MM(A))\cong\CD(\CD(A))$ for every
+$*$-algebra $A$, so that every word in $\{\CD,\MM\}$ reduces to the normal form
+$\MM^{b}\circ\CD^{a}$ and at most $k+1$ algebras occur at level $k$ rather than
+$2^{k}$. Our second result determines the two-term zero divisors of a mirror
+double completely: writing $h=\dim A$, the annihilator dimensions satisfy
+$\dim\Ann_{\MM(A)}=(h-2)-\dim\Ann_{\CD(A)}$ on mixed basis pairs and agree with
+those of $\CD(A)$ on the others, every mixed pair is a zero divisor of $\MM(A)$,
+and $Z(\MM(A))=2Z(A)+h(h-1)$. The count is strictly increasing in the number of
+leading mirrors, so the $k+1$ normal forms are pairwise non-isomorphic and the
+classification at level $k$ is exact. We show that the split parameter behaves
+oppositely: it is inherited by every descendant and is never annihilated. All
+numerical assertions are machine-verified; the scripts are described in
+Appendix~\ref{app:ver}.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+
+Let $A$ be a $*$-algebra over $\RR$: a unital algebra with a linear involution
+$x\mapsto\bar x$ satisfying $\overline{xy}=\bar y\bar x$ and $\bar 1=1$. Its
+Cayley--Dickson double is $\CD(A)=A\oplus Ae$ with
+\begin{equation}\label{eq:cd}
+  (a+be)(c+de)=(ac-\bar d b)+(da+b\bar c)e,\qquad \overline{a+be}=\bar a-be .
+\end{equation}
+Replacing the product $ac$ of the two elements of the founding copy by $ca$
+gives the \emph{mirror double}
+\begin{equation}\label{eq:m}
+  (a+b\ell)(c+d\ell)=(ca-\bar d b)+(da+b\bar c)\ell ,
+\end{equation}
+denoted $\MM(A)$. For commutative $A$ the two coincide; over $\HH$ the mirror
+double is the quasi-octonion algebra rather than $\OO$; over $\OO$ it is a
+$16$-dimensional algebra $\Sed'=\MM(\OO)$, the \emph{mirror sedenions}, which is
+flexible, quadratic, carries the diagonal action of $G_2$, and is not isomorphic
+to the sedenions $\Sed=\CD(\OO)$. The structure of $\Sed'$ is determined in
+\cite{LuiI}; the present paper concerns what happens when the two operations are
+iterated.
+
+Write $\Sed=\CD(\OO)$, $\Trig=\CD(\Sed)$. A word of length $k$ in
+$\{\CD,\MM\}$ applied to $\OO$ produces an algebra of dimension $2^{k+3}$; there
+are $2^{k}$ words. Our results are the following.
+
+\begin{itemize}
+\item \textbf{Erasure} (Theorem~\ref{thm:erasure}). For every $*$-algebra $A$,
+  $\CD(\MM(A))\cong\CD(\CD(A))$ as $*$-algebras. The proof uses only the
+  doubling formula and the involution axioms; no associativity, alternativity,
+  composition property or positivity is required, and the statement is
+  insensitive to the split parameter.
+\item \textbf{Normal form} (Corollary~\ref{cor:normal}). Every length-$k$ word
+  $w$ satisfies $w(A)\cong\MM^{b}(\CD^{k-b}(A))$, where $b$ is the length of the
+  maximal leading run of $\MM$'s in $w$. Hence at most $k+1$ isomorphism classes
+  occur at level~$k$.
+\item \textbf{The increment} (Theorem~\ref{thm:increment}). For $A$ of dimension
+  $h$ with proper twist, the two-term basis zero divisors of $\MM(A)$ are
+  governed by an exact duality with those of $\CD(A)$, every mixed pair is a
+  zero divisor of $\MM(A)$, and $Z(\MM(A))=2Z(A)+h(h-1)$.
+\item \textbf{Sharpness} (Corollary~\ref{cor:sharp}). The $k+1$ normal forms are
+  pairwise non-isomorphic, so the number of isomorphism classes at level $k$ is
+  \emph{exactly} $k+1$.
+\item \textbf{The split parameter} (Proposition~\ref{prop:split}). The signature
+  of the norm form is an isomorphism invariant and is inherited by every
+  descendant under both operations. A split algebra is therefore never
+  isomorphic to a definite one at any level: unlike the mirror bit, the split
+  bit is permanent.
+\end{itemize}
+
+The contrast in the last two items is the organising fact. The mirror bit is a
+genuine invariant of one doubling and is destroyed by the next standard one; the
+split bit is permanent. The two are independent, and the erasure theorem holds
+in the split branch verbatim.
+
+\subsection*{Relation to the literature}
+The eight admissible doubling products are classified by Bales
+\cite{Bales2016,Bales2011cat}; formula~\eqref{eq:m} is his $P_1^{\top}$, and the
+$32$-candidate enumeration with $24$ rejected by the quaternion condition is
+\cite{Bales2011cat}. Twisted-group-algebra methods, including the notion of a
+proper twist used in \S\ref{sec:incr}, are from \cite{Bales2011tw}. The
+subalgebra census of $\Trig$ is due to Cawagas et al.\ \cite{Cawagas2009}, whose
+counts we reproduce independently in \S\ref{sec:inv}. Zero divisors of $\Sed$ and
+of higher Cayley--Dickson algebras are studied in
+\cite{Moreno1998,Moreno2005,BDI2008,BCDI2009}, the derivation algebra in
+\cite{Schafer1954}, and the graded structure in \cite{Wilmot2025}.
+
+\section{Preliminaries}\label{sec:prelim}
+
+Throughout, $\CD^{2}(A)=\CD(\CD(A))$, with $e$ the inner and $e'$ the outer
+doubling unit, so that elements of $\CD^{2}(A)$ are pairs $(p,q)=p+qe'$ with
+$p,q\in\CD(A)$ and
+\begin{equation}\label{eq:cd2}
+  (p,q)(r,s)=(pr-\bar s q,\; sp+q\bar r).
+\end{equation}
+
+We use the following from \cite{LuiI}.
+
+\begin{theorem}[Embedding; {\cite[Thm.~3.3]{LuiI}}]\label{thm:embed}
+Let $A$ be a $*$-algebra. The subspace $A\oplus(Ae)e'$ is a subalgebra of
+$\CD^{2}(A)$, and
+\[
+  \Phi\colon \MM(A)\longrightarrow \CD^{2}(A),\qquad
+  \Phi(a+b\ell)=\bar a+(be)e'
+\]
+is an isomorphism of $*$-algebras onto it. Moreover $(be)e'=\bar b\,(ee')$, so
+the image is $A+A\,j$ with $j=ee'$.
+\end{theorem}
+
+For $\S\ref{sec:incr}$ we work with sign-monomial bases. Suppose $A$ has
+dimension $h=2^{m}$ and a basis $\{e_g\}_{g\in\FF_2^{m}}$ with
+$e_pe_q=w(p,q)e_{p\oplus q}$, $w(p,q)\in\{\pm1\}$. Following \cite{Bales2011tw},
+the twist $w$ is \emph{proper} if for all $p,q$
+\begin{equation}\label{eq:proper}
+  w(p,q)\,w(q,q)=w(p\oplus q,q),
+  \qquad
+  w(p,p)\,w(p,q)=w(p,p\oplus q).
+\end{equation}
+Every algebra of the $\{\CD,\MM\}$-tower over $\OO$, split nodes included, has a
+proper twist. Write $s(q)=1$ for $q=0$ and $s(q)=-1$ otherwise, so
+$\bar e_q=s(q)e_q$; recall $w(p,0)=w(0,p)=1$, $w(p,p)=-1$ for $p\neq0$, and
+$w(q,p)=-w(p,q)$ for $p\neq q$ both nonzero.
+
+\section{The erasure relation}\label{sec:erasure}
+
+\begin{lemma}[Doubling-unit criterion]\label{lem:du}
+Let $B$ be a $*$-algebra, $N\subseteq B$ a $*$-subalgebra and $u\in B$ with
+$B=N\oplus Nu$ as vector spaces. Suppose that for all $n,m,m_1,m_2\in N$
+\begin{enumerate}
+\item[(i)] $N$ is closed under the product and the involution;
+\item[(ii)] $n(mu)=(mn)u$;
+\item[(iii)] $(mu)n=(m\bar n)u$;
+\item[(iv)] $(m_1u)(m_2u)=-\bar m_2 m_1$;
+\item[(v)] $u^{2}=-1$, $\bar u=-u$ and $u\bar m=mu$.
+\end{enumerate}
+Then $\Psi\colon\CD(N)\to B$, $\Psi(n,m)=n+mu$, is an isomorphism of
+$*$-algebras.
+\end{lemma}
+
+\begin{proof}
+$\Psi$ is a linear bijection since $B=N\oplus Nu$. Expanding and applying
+(ii)--(iv),
+\[
+  (n_1+m_1u)(n_2+m_2u)
+  =(n_1n_2-\bar m_2m_1)+(m_2n_1+m_1\bar n_2)u,
+\]
+which is the product~\eqref{eq:cd} of $(n_1,m_1)$ and $(n_2,m_2)$. By (v),
+$\overline{mu}=\bar u\bar m=-u\bar m=-mu$, so
+$\overline{n+mu}=\bar n-mu$, the involution of $\CD(N)$.
+\end{proof}
+
+\begin{theorem}[Erasure]\label{thm:erasure}
+For every $*$-algebra $A$, $\CD(\MM(A))\cong\CD(\CD(A))$ as $*$-algebras.
+\end{theorem}
+
+\begin{proof}
+Work in $B=\CD^{2}(A)$ and write $\langle a,b\rangle:=a+(be)e'$, so that
+$N:=\{\langle a,b\rangle: a,b\in A\}=A+A(ee')$ is the image of
+Theorem~\ref{thm:embed}; in particular $N$ is a $*$-subalgebra isomorphic to
+$\MM(A)$, giving (i). From~\eqref{eq:cd2},
+\begin{align}
+  \langle a_1,b_1\rangle\langle a_2,b_2\rangle
+    &=\langle a_1a_2-\bar b_1b_2,\; b_2\bar a_1+b_1a_2\rangle,
+      \label{eq:Nprod}\\
+  \overline{\langle a,b\rangle}&=\langle \bar a,-b\rangle. \label{eq:Nconj}
+\end{align}
+Set $u:=e'$. A direct computation from~\eqref{eq:cd2} gives
+$\langle a,b\rangle e'=\big((0,-b),(a,0)\big)$, which we abbreviate $[a,b]$;
+in particular
+\begin{equation}\label{eq:eee}
+  (ee')e'=-e .
+\end{equation}
+Hence $N$ occupies the summands $A\oplus(Ae)e'$ and $Nu$ the summands
+$Ae\oplus Ae'$, so $B=N\oplus Nu$.
+
+It remains to verify (ii)--(v). With $n=\langle a,b\rangle$, $m=\langle c,d\rangle$
+and $m_i=\langle c_i,d_i\rangle$, \eqref{eq:cd2} gives
+\begin{align*}
+  n(mu)&=[\,ca-\bar d b,\; da+b\bar c\,], &
+  (mn)u&=[\,ca-\bar d b,\; b\bar c+da\,],\\
+  (mu)n&=[\,c\bar a+\bar d b,\; d\bar a-b\bar c\,], &
+  (m\bar n)u&=[\,c\bar a+\bar d b,\; d\bar a-b\bar c\,],\\
+  (m_1u)(m_2u)&=\langle -\bar c_2c_1-\bar d_2d_1,\; d_2c_1-d_1c_2\rangle, &
+  -\bar m_2m_1&=\langle -\bar c_2c_1-\bar d_2d_1,\; d_2c_1-d_1c_2\rangle,
+\end{align*}
+using~\eqref{eq:Nprod} and~\eqref{eq:Nconj} on the right-hand sides; and
+$e'^{2}=-1$, $\bar e'=-e'$, $e'\bar m=me'$ follow from~\eqref{eq:cd2}. Lemma
+\ref{lem:du} now gives $\CD(N)\cong B$, and $N\cong\MM(A)$ by
+Theorem~\ref{thm:embed}.
+\end{proof}
+
+\begin{remark}
+The isomorphism is explicit: $\Psi(n,m)=\Phi(n)+\Phi(m)e'$. It fixes $A$ and
+$e'$ pointwise and sends the inner doubling unit $\ell$ to $ee'$. Identity
+\eqref{eq:eee} is the mechanism: $\CD^{2}(A)$ contains both $A+Ae$ and
+$A+A(ee')$, which differ only in the choice of doubling unit, and one further
+doubling makes the two choices conjugate. No property of $A$ beyond the
+$*$-algebra axioms is used, so the theorem applies verbatim when $\CD$ carries
+the split sign.
+\end{remark}
+
+\begin{corollary}[Normal form]\label{cor:normal}
+Let $w=x_1\cdots x_k$ be a word in $\{\CD,\MM\}$, read outermost first, and let
+$b$ be the length of its maximal leading run of $\MM$'s. Then
+$w(A)\cong\MM^{b}(\CD^{k-b}(A))$. Consequently at most $k+1$ isomorphism classes
+occur among the $2^{k}$ words of length $k$.
+\end{corollary}
+
+\begin{proof}
+If $x_i=\CD$ and $x_{i+1}=\MM$ for some $i$, then the subword
+$x_i x_{i+1}$ applied to $Y:=x_{i+2}\cdots x_k(A)$ is $\CD(\MM(Y))$, which
+Theorem~\ref{thm:erasure} replaces by $\CD(\CD(Y))$; this strictly decreases the
+number of $\MM$'s outside the leading run and does not touch that run, since no
+letter precedes it. Iterating terminates at $\MM^{b}\CD^{k-b}$.
+\end{proof}
+
+\section{Two-term zero divisors}\label{sec:incr}
+
+Throughout this section $A$ has dimension $h=2^{m}$ and proper twist $w$. Index
+$\CD(A)$ and $\MM(A)$ by $\FF_2^{m+1}$, with $g<h$ denoting $A$ and $g+h$
+denoting $Ae$. From~\eqref{eq:cd} and~\eqref{eq:m},
+\[
+\begin{array}{l|cc}
+ & \CD(A) & \MM(A)\\\hline
+ W(p,q),\ p,q<h & w(p,q) & w(q,p)\\
+ W(p,q+h) & w(q,p) & w(q,p)\\
+ W(p+h,q) & w(p,q)s(q) & w(p,q)s(q)\\
+ W(p+h,q+h) & -s(q)w(q,p) & -s(q)w(q,p)
+\end{array}
+\]
+
+\begin{lemma}\label{lem:L1}
+$W_{\MM}=W_{\CD}$ except on the block $p,q<h$, where
+$W_{\MM}(p,q)=W_{\CD}(p,q)\,\sigma(p,q)$ with $\sigma(p,q)=-1$ if $p\neq q$ and
+$p,q\neq0$, and $\sigma(p,q)=+1$ otherwise.
+\end{lemma}
+
+\begin{proof}
+Immediate from the table together with $w(q,p)=-w(p,q)$ for $p\neq q$ both
+nonzero and $w(p,0)=w(0,p)=1$.
+\end{proof}
+
+The function $\sigma$ is the sign function $\chi$ of \cite[\S7]{LuiI}.
+
+For $x=e_i\pm e_j$ with $d=i\oplus j\neq 0$, the equation $xy=0$ decouples over
+the cosets of $\{0,d\}$. Writing $Q_i(u)=W(i,u)W(i,u\oplus d)$, which is
+constant on each coset,
+\begin{equation}\label{eq:coset}
+  \dim\Ann(e_i\pm e_j)=\#\{\text{cosets }\{u,u\oplus d\}: Q_i(u)=Q_j(u)\}.
+\end{equation}
+In particular the condition is independent of the sign. Call a pair
+\emph{$\alpha$} if $i,j<h$, \emph{$\beta$} if $i,j\geq h$, and \emph{mixed} if
+$i<h\leq j$; for a mixed pair write $i=p$, $j=q+h$, $t=p\oplus q$.
+
+\begin{lemma}\label{lem:L2}
+For $\alpha$ and $\beta$ pairs, $\dim\Ann$ is the same in $\CD(A)$ and $\MM(A)$.
+\end{lemma}
+
+\begin{proof}
+For $\beta$ pairs neither index meets the block of Lemma~\ref{lem:L1}. For an
+$\alpha$ pair, $d<h$; on cosets with $u\geq h$ both $u$ and $u\oplus d$ exceed
+$h$, so $Q$ is unchanged. For $u<h$, Lemma~\ref{lem:L1} gives
+$Q_{\MM,i}(u)=Q_{\CD,i}(u)\tau_i(u)$ with
+$\tau_i(u)=\sigma(i,u)\sigma(i,u\oplus d)$. Now $\sigma(i,u)=+1$ iff
+$u\in\{0,i\}$ and $\sigma(i,u\oplus d)=+1$ iff $u\in\{d,j\}$, so $\tau_i=-1$
+exactly on $\{0,i\}\bigtriangleup\{d,j\}$; symmetrically $\tau_j=-1$ exactly on
+$\{0,j\}\bigtriangleup\{d,i\}$. Since $0,i,d,j$ are pairwise distinct
+($d\neq0$, $i\neq j$, and $d=i$ would force $j=0$), both symmetric differences
+equal $\{0,i,d,j\}$. Hence $\tau_i=\tau_j$ and the condition $Q_i=Q_j$ is
+unaffected.
+\end{proof}
+
+\begin{lemma}\label{lem:L3}
+For a mixed pair, the cosets with lower representative $u\in\{0,p,q,t\}$ never
+contribute in $\CD(A)$.
+\end{lemma}
+
+\begin{proof}
+Four computations from the block table.
+For $u=0$: $Q_i=w(t,p)$ and $Q_j=-s(t)w(t,q)$. If $t=0$ this reads $1=-1$; if
+$t\neq0$ it reads $w(t,p)=w(t,q)$, while the second relation of
+\eqref{eq:proper} gives $w(t,q)=w(t,t\oplus p)=w(t,t)w(t,p)=-w(t,p)$.
+For $u=p$: $Q_i=w(p,p)w(q,p)$ and $Q_j=w(q,p)s(p)\cdot(-s(q)w(q,q))$, and for
+$p\neq0$ this reads $-1=+1$ whether or not $q=0$.
+For $u=q$ with $q\neq0$: $Q_i=w(p,q)w(p,p)=-w(p,q)$ and
+$Q_j=w(q,q)s(q)\cdot(-s(p)w(p,q))=w(p,q)$.
+For $u=t$ with $t\neq0$: $Q_i=w(p,t)$ and $Q_j=-s(t)w(q,t)=w(q,t)$; by
+\eqref{eq:proper}, $w(t,q)=-w(t,p)$, and antisymmetry then gives
+$w(q,t)=w(t,p)$ and $w(p,t)=-w(t,p)$.
+\end{proof}
+
+\begin{corollary}\label{cor:bound}
+$\dim\Ann_{\CD(A)}(\text{mixed})\leq h-\lvert\{0,p,q,t\}\rvert$; in particular
+$\leq h-4$ whenever $q\neq0$ and $p\neq q$.
+\end{corollary}
+
+\begin{lemma}\label{lem:L4}
+In $\CD(A)$, $\dim\Ann(e_i\pm e_{i+h})=0$ and $\dim\Ann(e_i\pm e_h)=0$ for
+$1\leq i<h$.
+\end{lemma}
+
+\begin{proof}
+For $j=p+h$ one has $d=h$, and on the coset of $u<h$,
+$Q_i(u)=w(p,u)w(u,p)$ while
+$Q_j(u)=w(p,u)s(u)\cdot(-s(u)w(u,p))=-Q_i(u)$.
+For $j=h$ one has $q=0$, $t=p$, $d=p+h$; for $u\notin\{0,p\}$, \eqref{eq:proper}
+and antisymmetry give $w(p\oplus u,p)=w(p,u)$, so $Q_i(u)=w(p,u)^2=1$ while
+$Q_j(u)=-s(u)s(u\oplus p)=-1$. The cases $u\in\{0,p\}$ are Lemma~\ref{lem:L3}.
+\end{proof}
+
+\begin{lemma}\label{lem:L5}
+For an $\alpha$ or $\beta$ pair, $\dim\Ann$ in $\CD(A)$ and in $\MM(A)$ both
+equal $2\dim\Ann_{A}(e_i\pm e_j)$.
+\end{lemma}
+
+\begin{proof}
+For an $\alpha$ pair, the cosets with $u<h$ give $Q_i(u)=w(i,u)w(i,u\oplus d)$,
+which is the criterion~\eqref{eq:coset} in $A$. For $u=v+h$ the table gives
+$Q_i(u)=w(v,i)w(v\oplus d,i)$, and antisymmetry rewrites this as
+$w(i,v)w(i,v\oplus d)\tau_i(v)$ with $\tau_i$ as in Lemma~\ref{lem:L2}; since
+$\tau_i=\tau_j$, the upper coset contributes exactly when the corresponding
+lower one does. For a $\beta$ pair the factors $s(u)s(u\oplus d)$ and
+$s(v)s(v\oplus d)$ are common to $i$ and $j$ and cancel, leaving the same two
+conditions. Lemma~\ref{lem:L2} gives the same values in $\MM(A)$.
+\end{proof}
+
+Write $Z(X)$ for the number of two-term zero-divisor index pairs of $X$.
+
+\begin{theorem}[Increment]\label{thm:increment}
+Let $A$ be a $*$-algebra of dimension $h\geq4$ with proper twist. Then
+\begin{enumerate}
+\item[(a)] for $\alpha$ and $\beta$ pairs, $\dim\Ann$ agrees in $\CD(A)$ and
+  $\MM(A)$, and equals twice the corresponding value in $A$;
+\item[(b)] for mixed pairs,
+  $\displaystyle \dim\Ann_{\MM(A)}=(h-2)-\dim\Ann_{\CD(A)}$;
+\item[(c)] every mixed pair is a two-term zero divisor of $\MM(A)$;
+\item[(d)] $Z(\MM(A))=2Z(A)+h(h-1)$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) is Lemmas~\ref{lem:L2} and~\ref{lem:L5}. For (b), on a mixed pair
+$Q_{\MM,j}=Q_{\CD,j}$, while $Q_{\MM,i}=Q_{\CD,i}\sigma(p,u)$ by
+Lemma~\ref{lem:L1}; since $\sigma(p,u)=+1$ exactly for $u\in\{0,p\}$, the two
+algebras agree on those two cosets and are complementary on the remaining
+$h-2$. By Lemma~\ref{lem:L3} neither agreeing coset contributes in $\CD(A)$, and
+hence neither contributes in $\MM(A)$; so the contributing cosets of $\MM(A)$
+are exactly the non-contributing cosets of $\CD(A)$ among the other $h-2$,
+which gives (b). For (c): if $q\neq0$ and $p\neq q$, Corollary~\ref{cor:bound}
+gives $\dim\Ann_{\CD}\leq h-4$, whence $\dim\Ann_{\MM}\geq2$; in the two
+remaining cases Lemma~\ref{lem:L4} gives $\dim\Ann_{\CD}=0$, whence
+$\dim\Ann_{\MM}=h-2\geq2$. For (d): by (a) the $\alpha$ and the $\beta$
+zero-divisor pairs each number $Z(A)$, and by (c) all $h(h-1)$ mixed pairs
+occur.
+\end{proof}
+
+\begin{corollary}\label{cor:props}
+For $A=\OO$, $h=8$: all $56$ mixed pairs are zero divisors of $\Sed'$, the $14$
+that fail to be zero divisors of $\Sed$ are exactly $(i,i+8)$ and $(i,8)$, their
+annihilators have dimension $h-2=6$, and the remaining $42$ have dimension
+$(h-2)-4=2$. This recovers \cite[Prop.~5.4]{LuiI} and the $2/6$ stratification of
+\cite[Thm.~5.2]{LuiI}.
+\end{corollary}
+
+\begin{remark}\label{rem:asym}
+The analogue of (c) fails for $\CD$. Along the $\CD$ spine the mixed pairs that
+fail to be zero divisors of $\CD(A)$ are exactly the two families of
+Lemma~\ref{lem:L4}, so that $Z(\CD(A))=2Z(A)+(h-1)(h-2)$; but for $A=\Sed'$
+there are $58$ such pairs rather than $30$, and for $A=\MM(\Sed)$ there are
+$122$ rather than $62$. The mirror double is the uniform operation here and the
+standard double is not.
+\end{remark}
+
+\begin{corollary}[Counts]\label{cor:counts}
+Let $Z(k,b)$ denote the number of two-term zero-divisor index pairs of
+$\MM^{b}(\CD^{k-b}(\OO))$ and put $h_0=2^{k-b+3}$. Then
+\[
+  Z(k,b)=2^{b}Z\big(\CD^{k-b}(\OO)\big)
+        +2^{b-1}h_0\big[h_0(2^{b}-1)-b\big],
+\]
+where $Z(\CD^{j}(\OO))$ is given by $Z_0=0$ and
+$Z_{j+1}=2Z_j+(2^{j+3}-1)(2^{j+3}-2)$.
+\end{corollary}
+
+\begin{proof}
+Iterate Theorem~\ref{thm:increment}(d) from the base $\CD^{k-b}(\OO)$, whose
+dimensions double at each step, and sum the geometric series; the spine values
+come from Remark~\ref{rem:asym}.
+\end{proof}
+
+\begin{corollary}[Sharpness]\label{cor:sharp}
+At each level $k$ the values $Z(k,0)<Z(k,1)<\cdots<Z(k,k)$ are strictly
+increasing. Since $Z$ is an isomorphism invariant, the $k+1$ algebras
+$\MM^{b}(\CD^{k-b}(\OO))$ are pairwise non-isomorphic, and together with
+Corollary~\ref{cor:normal} the number of isomorphism classes at level $k$ is
+exactly $k+1$.
+\end{corollary}
+
+\begin{proof}
+By Theorem~\ref{thm:increment}(d) and Remark~\ref{rem:asym}, passing from $b$ to
+$b+1$ at fixed $k$ replaces a contribution $(h-1)(h-2)$ by $h(h-1)$ at the
+outermost step, an increase of $2(h-1)>0$, while the inner contributions are
+unchanged.
+\end{proof}
+
+\section{The split parameter}\label{sec:split}
+
+Let $\CD_{\varepsilon}$ and $\MM_{\varepsilon}$ denote the operations with
+$-\bar d b$ replaced by $-\varepsilon\bar d b$, $\varepsilon=\pm1$; the split
+case is $\varepsilon=-1$.
+
+\begin{proposition}\label{prop:split}
+Let $A$ be a quadratic $*$-algebra with norm form $N$. The signature of $N$ is
+determined by the algebra, and for a sign-monomial basis equals
+$(\#\{g: e_g^{2}=-1\}+1,\ \#\{g\neq0: e_g^{2}=+1\})$. It is inherited by
+$\CD_{\varepsilon}(A)$ and $\MM_{\varepsilon}(A)$ in the sense that a definite
+base yields a definite double for $\varepsilon=+1$ and an indefinite one for
+$\varepsilon=-1$, and an indefinite base yields an indefinite double for either
+sign. Consequently no iterate of $\CD$ or $\MM$ applied to a split algebra is
+isomorphic to one obtained from a definite base.
+\end{proposition}
+
+\begin{proof}
+$N$ is determined by the quadratic identity $x^{2}-2t(x)x+N(x)=0$, hence is an
+isomorphism invariant, as is its signature. The displayed formula follows from
+$e_g\bar e_g=-e_g^{2}$ for $g\neq0$. The inheritance statement is the
+observation that the norm of the double is $N(a)+\varepsilon' N(b)$ with
+$\varepsilon'$ determined by $\varepsilon$, so a base taking negative values
+continues to do so.
+\end{proof}
+
+Computationally the signatures are $(16,0)$ and $(32,0)$ for the definite branch
+at dimensions $16$ and $32$, and $(8,8)$ and $(16,16)$ for the split branch,
+under both operations. By contrast Theorem~\ref{thm:erasure} is insensitive to
+$\varepsilon$, and indeed $\CD(\MM_{-1}(\OO))\cong\CD(\CD_{-1}(\OO))$ while
+$\MM(\MM_{-1}(\OO))\not\cong\MM(\CD_{-1}(\OO))$; the mirror bit is erased in the
+split branch exactly as in the definite one.
+
+\section{Invariants along the tower}\label{sec:inv}
+
+We record invariants computed for the length-$2$ words; see
+Appendix~\ref{app:ver}.
+
+\emph{Derivations.} $\Der=\mathfrak g_2$ at every node of the tree, split nodes
+included, so the derivation algebra does not separate any two of them. For the
+$\CD$ spine this is \cite{Schafer1954}.
+
+\emph{Eight-dimensional subalgebras.} The $155$ three-dimensional
+$\FF_2$-subspaces of $\FF_2^{5}$ span $8$-dimensional subalgebras, each either an
+octonion or a quasi-octonion algebra. For $\Trig$ and $\CD(\Sed')$ the split is
+$50/105$, reproducing \cite{Cawagas2009}; for $\MM(\Sed)$ and $\MM(\Sed')$ it is
+$64/91$. (Sixteen-dimensional subalgebras are never composition algebras, by
+Hurwitz, so the corresponding hyperplane count carries no information.)
+
+\emph{Sixteen-dimensional basis hyperplanes.} Classifying the $31$ hyperplanes by
+graded isomorphism gives, for $\Trig$ and $\CD(\Sed')$, sixteen copies of $\Sed$
+and one of $\Sed'$ --- the latter being the algebra $\Sed_\gamma$ of
+\cite{Cawagas2009} --- and, for $\MM(\Sed')$, no copy of $\Sed$ and twenty-four
+of $\Sed'$.
+
+\section{Questions}
+
+\begin{question}
+Is the uniformity of Theorem~\ref{thm:increment}(c) --- every mixed pair is a
+zero divisor of $\MM(A)$ --- reflected in a description of the zero-divisor
+variety of $\MM(A)$ for $\dim A>8$, analogous to \cite[Thm.~5.1]{LuiI}?
+\end{question}
+
+\begin{question}
+Determine $\Aut(\MM^{b}(\CD^{a}(\OO)))$. The graded automorphism group of
+$\Trig$ has $80$ admissible $\sigma\in GL(5,2)$; the full group is not known to
+us beyond $\Aut(\Sed)=G_2\times S^{3}$ \cite{Brown1967} and
+$\Aut(\Sed')=G_2\times\mathbb Z/2$ \cite{LuiI}.
+\end{question}
+
+\begin{question}
+Characterise the $*$-algebras $A$ for which the mixed exceptions of $\CD(A)$
+reduce to the two families of Lemma~\ref{lem:L4}, i.e.\ for which
+$Z(\CD(A))=2Z(A)+(h-1)(h-2)$. Remark~\ref{rem:asym} shows this holds on the
+$\CD$ spine and fails for mirror bases.
+\end{question}
+
+\appendix
+\section{Verification}\label{app:ver}
+
+Every numerical assertion was recomputed in Python with NumPy. The sign table of
+a double is built from that of its base in $O(n^{2})$ operations, and
+annihilator dimensions from the coset criterion~\eqref{eq:coset}; dimension $128$
+is then routine. The scripts, with the assertions each verifies, are:
+\texttt{check19} (Theorem~\ref{thm:erasure}, each intermediate identity, for
+$A=\HH,\OO,\Sed,\Sed'$ and a split base);
+\texttt{check20} (the tower counts to dimension $128$);
+\texttt{check23} (Lemmas~\ref{lem:L1}--\ref{lem:L5} and
+Theorem~\ref{thm:increment}, for $A=\HH,\OO,\Sed,\Sed',\Trig,\MM(\Sed)$);
+\texttt{check16} (graded isomorphism searches at dimension $32$);
+\texttt{check22} (the $8$-dimensional subalgebra census);
+\texttt{check15} (derivation algebras, signatures, hyperplane censuses).
+
+\begin{thebibliography}{99}
+\bibitem{Bales2011cat} J.~W. Bales, \emph{A catalog of Cayley--Dickson-like products}, arXiv:1107.1301.
+\bibitem{Bales2011tw} J.~W. Bales, \emph{Cayley--Dickson and Clifford algebras as twisted group algebras}, arXiv:1107.1375.
+\bibitem{Bales2016} J.~W. Bales, \emph{The eight Cayley--Dickson doubling products}, Adv. Appl. Clifford Algebras \textbf{26} (2016), 529--551.
+\bibitem{BDI2008} D.~K. Biss, D. Dugger and D.~C. Isaksen, \emph{Large annihilators in Cayley--Dickson algebras}, Comm. Algebra \textbf{36} (2008), 632--664.
+\bibitem{BCDI2009} D.~K. Biss, J.~D. Christensen, D. Dugger and D.~C. Isaksen, \emph{Eigentheory of Cayley--Dickson algebras}, Forum Math. \textbf{21} (2009), 833--851.
+\bibitem{Brown1967} R.~B. Brown, \emph{On generalized Cayley--Dickson algebras}, Pacific J. Math. \textbf{20} (1967), 415--422.
+\bibitem{Cawagas2009} R.~E. Cawagas et al., \emph{The basic subalgebra structure of the Cayley--Dickson algebra of dimension 32}, arXiv:0907.2047.
+\bibitem{LuiI} Lui, \emph{The mirror sedenions: a second $G_2$-symmetric doubling of the octonions and the geometry of its zero divisors}, companion paper.
+\bibitem{Moreno1998} G. Moreno, \emph{The zero divisors of the Cayley--Dickson algebras over the real numbers}, Bol. Soc. Mat. Mexicana (3) \textbf{4} (1998), 13--28.
+\bibitem{Moreno2005} G. Moreno, \emph{Constructing zero divisors in the higher dimensional Cayley--Dickson algebras}, arXiv:math/0512517.
+\bibitem{Schafer1954} R.~D. Schafer, \emph{On the algebras formed by the Cayley--Dickson process}, Amer. J. Math. \textbf{76} (1954), 435--446.
+\bibitem{Wilmot2025} G.~P. Wilmot, \emph{Structure of the Cayley--Dickson algebras}, arXiv:2505.11747.
+\end{thebibliography}
+
+\end{document}
