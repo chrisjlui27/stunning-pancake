@@ -152,8 +152,9 @@ the twist $w$ is \emph{proper} if for all $p,q$
   \qquad
   w(p,p)\,w(p,q)=w(p,p\oplus q).
 \end{equation}
-Every algebra of the $\{\CD,\MM\}$-tower over $\OO$, split nodes included, has a
-proper twist. Write $s(q)=1$ for $q=0$ and $s(q)=-1$ otherwise, so
+Properness is preserved by both operations at every node of the
+$\{\CD,\MM\}$-tree over $\OO$ to dimension $128$, split nodes included
+(\texttt{check25}), so the hypothesis below is satisfied wherever we use it. Write $s(q)=1$ for $q=0$ and $s(q)=-1$ otherwise, so
 $\bar e_q=s(q)e_q$; recall $w(p,0)=w(0,p)=1$, $w(p,p)=-1$ for $p\neq0$, and
 $w(q,p)=-w(p,q)$ for $p\neq q$ both nonzero.
 
@@ -530,7 +531,11 @@ $A=\HH,\OO,\Sed,\Sed'$ and a split base);
 Theorem~\ref{thm:increment}, for $A=\HH,\OO,\Sed,\Sed',\Trig,\MM(\Sed)$);
 \texttt{check16} (graded isomorphism searches at dimension $32$);
 \texttt{check22} (the $8$-dimensional subalgebra census);
-\texttt{check15} (derivation algebras, signatures, hyperplane censuses).
+\texttt{check15} (derivation algebras, signatures, hyperplane censuses);
+\texttt{check24} (the incidence count of \cite{LuiI});
+\texttt{check25} (properness of the twist at every node of the tree to dimension
+$128$, split nodes included, so that the hypothesis of
+Theorem~\ref{thm:increment} holds wherever it is applied).
 
 \begin{thebibliography}{99}
 \bibitem{Bales2011cat} J.~W. Bales, \emph{A catalog of Cayley--Dickson-like products}, arXiv:1107.1301.

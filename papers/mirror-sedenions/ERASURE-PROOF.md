@@ -18,8 +18,8 @@ p, q ∈ CD(A) and
 
     (p,q)(r,s) = (pr − s̄q,  sp + q r̄).                                    (∗)
 
-**No associativity, alternativity or composition property of A is used anywhere
-below.** Everything is formal manipulation of (∗) and the involution axioms.
+No associativity, alternativity or composition property of A is used below; all
+steps are formal consequences of (∗) and the involution axioms.
 
 ---
 
@@ -83,7 +83,7 @@ A ⊕ (Ae)e′ and Nu occupies Ae ⊕ Ae′, so
     N ⊕ Nu = A ⊕ Ae ⊕ Ae′ ⊕ (Ae)e′ = CD²(A).                               ✔
 
 Note in particular **(ee′)e′ = −e**: the composite unit, doubled again, returns
-the original doubling unit. This is the whole mechanism in one line.
+the original doubling unit. This identity is what makes the two decompositions interchangeable.
 
 ### 2.2 The four identities
 
@@ -148,23 +148,21 @@ leading run untouched (nothing stands outside it). Iterate. ∎
 
 ## 4. Remarks
 
-**Why it is not surprising, in hindsight.** M(A) is not a competitor to CD(A) but
-a *second copy of the same kind of object inside the same ambient algebra*:
+**Interpretation.** M(A) is a second half-dimensional subalgebra of the same
+ambient algebra as CD(A):
 CD²(A) contains both A + Ae and A + A(ee′), and the two differ only in which unit
 is called the doubling unit. Doubling again produces an algebra containing both
-choices, and (ee′)e′ = −e converts one into the other. The mirror bit is genuine
-exactly at the level where only one of the two units is present.
+choices, and (ee′)e′ = −e converts one into the other. The distinction is therefore visible only at the level at which just one of the
+two units is available.
 
-**What is *not* absorbed.** M itself does not erase: M(S) ≇ M(S′), machine-checked
-at dimension 32. Lemma 1 needs u to be a doubling unit for N *in the standard
-sense*; the mirror product is not of that form, so the argument gives nothing
-for M(M(A)) — correctly.
+**Scope of the argument.** The corresponding statement for M is false:
+M(S) ≇ M(S′), verified at dimension 32. Lemma 1 needs u to be a doubling unit for N *in the standard
+sense*; the mirror product is not of that form, so the argument does not apply to M(M(A)).
 
-**The split parameter is untouched by all of this.** The norm signature is an
+**Independence of the split parameter.** The norm signature is an
 isomorphism invariant and is inherited by every descendant, so no amount of
 doubling repairs ε = −1. The proof above is indifferent to ε: it goes through
-verbatim for the split CD, which is why CD(split S) ≅ CD(split mirror) was found
-computationally.
+verbatim for the split CD, consistent with the computed isomorphism CD(split S) ≅ CD(split mirror).
 
 **Scope.** The proof uses only (∗) and the involution axioms. A need not be
 associative, alternative, or a composition algebra, and no positivity is used.

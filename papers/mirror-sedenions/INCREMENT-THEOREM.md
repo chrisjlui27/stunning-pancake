@@ -145,12 +145,11 @@ independently for A = H, O, S, S′, T and M(S).
 
 ## Consequences
 
-**Corollary 1 (the mirror octonion case).** For A = O, h = 8: the mixed pairs
+**Corollary 1 (the case A = O).** For A = O, h = 8: the mixed pairs
 number 56, all are zero divisors of M(O) = S′, and the 14 exceptions of CD(O) = S
 are exactly (i, i+8) and (i, 8) — which is Prop. 5.4 of the mirror-sedenions
 paper. Their annihilators have dimension h − 2 = **6**, and the other 42 have
-dimension (h−2) − 4 = **2**: this is exactly the 2/6 stratification of
-Theorem 5.2, recovered from the duality.
+dimension (h−2) − 4 = **2**: this reproduces the 2/6 stratification of Theorem 5.2.
 
 **Corollary 2 (the tower counts).** Along the CD spine one has likewise
 Z(CD(A)) = 2Z(A) + (h−1)(h−2), since there the mixed exceptions are precisely
@@ -167,12 +166,11 @@ pairwise non-isomorphic, since Z is an isomorphism invariant and is strictly
 increasing in b. With the erasure theorem's normal form this makes the count of
 isomorphism classes at level k **exactly k + 1**.
 
-## A caution: CD is not uniform
+## The corresponding statement for CD
 
 The analogue of (c) fails for CD: the mixed exceptions of CD(A) are the two
 degenerate families when A lies on the CD spine, but **not** in general. For
 A = S′ (h = 16) there are 58 exceptions rather than 30, and for A = M(S)
 (h = 32) there are 122 rather than 62. Hence Z(CD(A)) = 2Z(A) + (h−1)(h−2) holds
 along the spine but not universally, whereas **Z(M(A)) = 2Z(A) + h(h−1) holds for
-every A tested**. The mirror double is the uniform operation here; the standard
-one is not.
+every A tested**. The identity of Theorem (d) is therefore uniform in A for M, and not for CD.
