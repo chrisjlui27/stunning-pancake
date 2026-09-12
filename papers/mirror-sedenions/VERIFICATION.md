@@ -231,3 +231,53 @@ One substantive note for v2, under check5/check12: eight octaves together with
 dim Der = 14 does **not** characterise S and S′ among the Bales products; four
 others share both invariants. The quaternionic-line condition is what excludes
 them, and Open Question 2's phrasing should keep that qualifier explicit.
+
+---
+
+# Verification run — 2026-09-12 (degenerate subalgebras)
+
+Environment: Linux 6.18 x86_64, Python 3.11, numpy 2.4.6. All scripts in `code/`,
+run from that directory. New library `landscape.py`; new scripts `check21`–`check25`.
+Full logs of the long runs are in the session scratchpad and summarised here.
+
+### landscape.py — self-tests ✅
+`dbl` reproduces the sign tables of S, T, S′ and M(H) from `cd.py` bit for bit. The
+associator-pattern isomorphism search agrees with `f2iso.py`: graded automorphism σ-counts
+168 (S), 168 (S′), 0 (S → S′); 60/60 random pairs of Bales products on O agree.
+Quaternion property holds for S, S′, T.
+
+### check21 — basis-subalgebra census by graded isomorphism ✅
+| A_n | dim 4 | dim 8 | dim 16 | dim 32 |
+|---|---|---|---|---|
+| A_4 | H 35 | O 8, P4 7 | | |
+| A_5 | H 155 | O 50, P4 105 | S 16, S′ 1, X16.2 7, X16.3 7 | |
+| A_6 | H 651 | O 310, P4 1085 | S 186, S′ 31, X16.2 217, X16.3 217 | T 32, M(S) 1, M(S′) 1, X32.4 1, X32.3 7, X32.5 7, X32.6 7, X32.7 7 |
+| A_7 | | | S 2046, S′ 651, X16.2 4557, X16.3 4557 (11 811 subgroups, 442 s) | see below |
+
+Cawagas et al.'s 16/7/7/1 for T reproduced; Wilmot's Theorem 8 counts (105 = 7·15,
+1085 = 7·155) reproduced.
+
+### check22 — class invariants, absorption, Wilmot triads ✅
+Invariant table as in `synthesis/degenerate-subalgebras.md` (nonassociative ordered
+triples, two-term zero divisors with annihilator profile, Der, σ-count, alternative /
+composition flags, codim-1 census). Absorption: A_5 — 15 hyperplanes through the top unit
+all ≅ S; A_6 — 31 through the top all ≅ T. Wilmot's triads (e₁,e₁₀,e₂₈) ⊂ A_5 and
+(e₉,e₁₈,e₃₆) ⊂ A_6 both classify as P4, with explicit σ.
+
+### check23 — relative mirrors, Lemma-1 identities, words, Bales products ✅
+Relative-mirror table as in the synthesis. Lemma-1 identities (ii)–(v) hold on all basis
+pairs of N = K + K(e_c e), for every hyperplane K, with A = O, P4, S, S′, X16.2, X16.3, T,
+X32.7 and the Bales-rejected P(1,3)(H) (anticommutative, no quaternion property).
+Words: CC(H) = CM(H) = S, MC(H) = S′, MM(H) = X16.3; all 16 length-4 words on R give
+S / S′ / X16.3 by leading-M count 0 / 1 / ≥ 2. Bales's 32 products: on every base tested
+(H, O, P4, S, S′, X16.2, X16.3) 24 fail the quaternion property and the 8 others give
+4 × standard + 4 × mirror: H → O, P4; O → S, S′; P4 → S, X16.3; S → T, M(S);
+S′ → T, M(S′); X16.2 → T, X32.6; X16.3 → T, X32.7.
+
+### check24 — incidence and Der structure ✅
+Every P4 hyperplane of S, S′, X16.2, X16.3 carries 12 internal zero-divisor pairs;
+(dim Ann, multiplicity) ∈ {(2,1), (4,2), (6,3)} throughout. Der(P4), Der(X16.2),
+Der(X16.3): dimension 6, perfect, negative-definite Killing form — compact semisimple, so(4).
+
+### check25 — the 64-dimensional landscape
+<!-- PENDING: fill from check25.log -->

@@ -8,6 +8,12 @@ verification: papers/mirror-sedenions/code/check19_erasure_proof.py
 
 # CD(M(A)) ≅ CD(CD(A))
 
+> **Superseded (2026-09-12).** `RELATIVE-ERASURE-PROOF.md` proves the same statement for
+> N = K + K(e_c e) with K *any* basis hyperplane of *any* anticommutative sign-monomial A,
+> by the same Lemma 1; the founding-copy case below is what it specialises to. The
+> corollaries there (absorption, stability of the subalgebra landscape) are the reason to
+> prefer the general form.
+
 Notation is the paper's. A ∗-algebra is a unital real algebra with a linear
 involution x ↦ x̄ satisfying (xy)‾ = ȳx̄ and 1̄ = 1. Write
 

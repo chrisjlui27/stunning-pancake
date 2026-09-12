@@ -4,7 +4,9 @@
 > Keep it short — if a section is growing past a screen, the detail belongs in
 > `synthesis/` and this file should link to it instead.
 
-**Last updated:** 2026-09-12 — erasure relation PROVED from Theorem 3.3; tower and Wilmot incidence results in `synthesis/mirror-tower.md`.
+**Last updated:** 2026-09-12 (second session) — **relative erasure theorem** proved; the
+basis-subalgebra landscape of the CD tower classified through dimension 128; the degenerate
+subalgebras identified as relative mirrors. `synthesis/degenerate-subalgebras.md`.
 
 ## Subject
 
@@ -13,76 +15,59 @@ zero-divisor geometry, automorphism and derivation theory.
 
 ## Current focus
 
-`papers/mirror-sedenions/` — *The mirror sedenions: a second G2-symmetric
-doubling of the octonions and the geometry of its zero divisors*, working draft
-v1 (September 2026). Result summary and comparison table in
-`synthesis/mirror-sedenions.md`.
+`papers/mirror-sedenions/` — *The mirror sedenions*, working draft v1. Result summary in
+`synthesis/mirror-sedenions.md`; the {CD,M} tower in `synthesis/mirror-tower.md`; the
+subalgebra landscape and the degenerate classes in `synthesis/degenerate-subalgebras.md`.
 
-The mathematics is machine-verified — all twelve checks re-executed 2026-09-11,
-every claim reproduced, **no mathematical error found**
-(`papers/mirror-sedenions/VERIFICATION.md`). Two check-script bugs found and
-fixed; the scripts now run clean.
-
-**The literature position is not verified.** That asymmetry is the thing to fix
-next: the contribution depends on it, though the mathematics does not.
+The mathematics of v1 is machine-verified (`papers/mirror-sedenions/VERIFICATION.md`,
+2026-09-11 and 2026-09-12 runs). The literature position holds on ten papers read.
 
 ## Open threads
 
 | Thread | Status | Next step |
 |---|---|---|
-| **Apply the v2 additions** | ready | `papers/mirror-sedenions/ERRATA.md`. **No corrections to the paper** — E1 was retracted after reading Bales v3, which prints all eight products and matches §3.2 label for label. Four citation additions plus one qualifier to keep explicit. |
-| ~~Aryapoor–Bäck–Pautrel~~ | **closed** | Read. No threat — they vary the scalar µ, not the product, and their isomorphisms extend the identity where Theorem 3.6's extend conjugation. |
-| ~~Bales 2011 catalog~~ | **closed, with an action** | Read. No threat to novelty, but it *is* the source of the 32/24/8 census the paper presents as its own. Must cite. |
-| ~~Wilmot gap~~ | **closed** | Read. Uses the standard product throughout. Split sedenions also ruled out computationally. Cite for the 8+7 subalgebra split and the 84→7 reduction. |
-| **Own notes not in vault** | open | Import JS-1–41 and JS-LANDSCAPE-II, plus the sign-function census code. Reference [16] is load-bearing and currently unreachable. `sources/lui-js-notes.md` |
-| ~~Cawagas priority check~~ | **PASSES** | Read. Their Table 6 records Sγ's existence, its [8+7] composition, and its non-isomorphism to S from a computer test — and nothing else. "Noticed but not studied" is accurate. Class sizes 16/7/7/1 match our check6 run exactly. |
-| **84 / 112 remark** | new, promising | Wilmot reduces S's 84 zero divisors to 7 primary pairs via the seven power-associative subalgebras. S′ has 112 = 16×7 and seven quasi-octonion hyperplanes. Mechanism should carry over with 16 modes. Checkable. |
-| Read Bales twisted + periodicity | open, low | In `papers/library/`, not yet opened. Background for §7. |
-| **Bibliography is second-hand** | open, ongoing | All 23 `sources/` files are `read: not-read` — claims are what the paper cites them for, not what the sources say. Promote as read. |
-| **v2 fix: Q2 qualifier** | ready to apply | Eight octaves + dim Der = 14 does *not* characterise S and S′ — four other Bales products share both. The quaternionic-line qualifier is load-bearing and must stay explicit when Q2 is restated. Verified. |
-| Open Question 2 (orientation tree) | open | Most tractable of the four: a finite classification, not a geometry problem. Needs the census code from [16]. |
+| **64-dim landscape count** | running at session end | `check25` groups the 63 relative mirrors R_{A_6}(K) by fingerprint then associator search; bound |L_5| ≤ 16. Read `scratchpad/check25.log` if the container survived, else rerun (`python3 check25_L5_fingerprints.py`, ~20 min). Fill the PENDING slots in `synthesis/degenerate-subalgebras.md` and `VERIFICATION.md`. |
+| **32-dim stability in A_7** | running at session end | `check21_landscape.py 7 5`, 2667 subgroups, ~1 h. First 1000 gave only the 8 known classes. Fill the A_7 row. |
+| **Conjecture \|L_k\| = 2^{k−2}** | new | 1, 2, 4, 8 at dims 4–32. Equivalent to: Aut(A_k) has 2^{k−2} − 1 orbits on hyperplanes with pairwise non-isomorphic relative mirrors. A proof needs the orbit structure of the graded automorphism group on hyperplanes. |
+| **Apply the v2 additions** | ready | `ERRATA.md`, plus: replace the erasure theorem by relative erasure; name the [2+13] / [0+15] hyperplanes (X16.2 = R_S(O_L), X16.3 = M²(H)); the dim Ann = 2 × (#quasi-octonions) rule; Wilmot's P12/P14 ≅ P4 remark. |
+| **Own notes not in vault** | open | Import JS-1–41 and JS-LANDSCAPE-II. Reference [16] is load-bearing and unreachable. |
+| Read Bales twisted + periodicity | open, low | Background for §7. Proper-twist framing already used. |
+| **Bibliography is second-hand** | open, ongoing | Twenty of 23 `sources/` files still `read: not-read`. |
 | Open Question 1 (metric on P(S′)) | open | Reggiani's treatment of P(S) is the template. |
+| ~~Open Question 2 (orientation tree)~~ | **answered, strengthened** | Normal form M^b CD^a (erasure) and now the full landscape: at dimension 16 the four words give S, S′, X16.3; the fourth class X16.2 is reachable only as a relative mirror. |
 
 ## Decisions made
 
-- **2026-09-10** — Vault lives in git rather than in assistant memory, so it is
-  readable from Claude Code, Cowork, and chat alike, and is versioned.
-- **2026-09-11** — `sources/` files carry a **`read:`** field. A claim recorded
-  from a citation is not a claim from the source. Nothing gets promoted to
-  settled without an actual reading.
-- **2026-09-11** — Computed claims get **run**, not trusted. Verification output
-  is committed with the date and environment. This paid for itself immediately:
-  both discrepancies found were script bugs that a reading pass would have missed,
-  and one of them (`check7`'s τ) was invisible at every sample point check6 used.
+- **2026-09-10** — Vault in git, not assistant memory.
+- **2026-09-11** — `sources/` files carry `read:`; nothing promoted without a reading.
+- **2026-09-11** — Computed claims get **run**; output committed with date and environment.
+- **2026-09-12** — Graded isomorphism is decided by the **associator pattern**
+  (`code/landscape.py`), not by enumerating GL(n,2): it is a proved complete invariant for
+  anticommutative sign-monomial algebras and it reaches dimension 64. Class labels live in
+  `code/landscape_registry.pkl`; regenerate with `check21_landscape.py 4; 5; 6` (~2 min).
 
-## New results this session (2026-09-12)
+## New results (2026-09-12, second session)
 
-- **Theorem (erasure): CD(M(A)) ≅ CD(CD(A)) for every ∗-algebra A.** Proved from
-  Theorem 3.3; `papers/mirror-sedenions/ERASURE-PROOF.md`, machine-verified
-  step by step. Corollary: every {CD, M} word reduces to M^b ∘ CD^a, so at most
-  k + 1 algebras at level k. Generalises Theorem 3.6 (k=1) and Remark 3.8 (k=2).
-- **Wilmot's 12-per-quasi-octonion count holds verbatim in S′**; the 84 vs 112
-  difference is purely incidence multiplicity (uniform 2 vs {1: 84, 3: 28}), and
-  the split is canonical — the 42 assessors versus the 14 new pairs.
-- **Split is permanent**: the norm signature is inherited by every descendant, so
-  no doubling repairs ε = −1. The two parameters are independent.
+- **Relative erasure:** CD(K + K(e_c e)) ≅ CD(A) for every basis hyperplane K of every
+  anticommutative sign-monomial A. `RELATIVE-ERASURE-PROOF.md`. Uses only anticommutativity.
+- **Absorption:** CD(B) ≅ A_k for every 2^{k−1}-dim basis subalgebra B of any A_n.
+- **Stability + generation:** the 2^k-dim basis subalgebras of A_n (n ≥ k+1) are exactly the
+  hyperplanes of A_{k+1} = {A_k} ∪ {relative mirrors of A_k}. Classes: 1, 2, 4, 8 at dims 4–32.
+- Cawagas's [2+13] hyperplane is R_S(O_L) — not any Bales double of any hyperplane; his
+  [0+15] is M(M(H)). Both have Der = so(4), 24 graded automorphisms, 148 / 160 zero divisors.
+- Bales's 24 rejected products fail the quaternion property on every base; never subalgebras.
+- Wilmot's P12 and P14 generating triads span algebras ≅ P4. His Theorem 8 counts reproduced.
+- dim Ann(e_i ± e_j) = 2 × (number of quasi-octonion hyperplanes it is a zero divisor of),
+  in all four 16-dim classes.
 
 ## Known gaps
 
-- **The novelty claim now holds**, on ten papers read (2026-09-11). Both threads
-  closed; no prior description of S′'s structure found. **No errors have been
-  found in the paper.** The one claimed erratum was retracted — it came from my
-  own bad PDF extraction, not from the paper.
 - Reference [16] (own working notes) is outside the vault.
-- **Twenty of the 23 original bibliography entries remain `read: not-read`** —
-  they record what the paper says about the literature, not what the literature
-  says. The nine newly-read papers carry dated `read:` fields and verdicts.
+- The 64-dim class count and the A_7 32-dim census were still running at session end.
+- |L_k| = 2^{k−2} is a conjecture from four data points.
 
 ## Environment constraint
 
-Claude Code sessions here **cannot reach scholarly hosts** — arxiv.org,
-semanticscholar, crossref, doi.org, mdpi, openalex are all blocked by the egress
-policy, for WebFetch and curl alike. Only WebSearch gets out, and it returns
-search summaries rather than documents. **PDFs must be uploaded by hand.** Plan
-literature work around that: this environment can search, verify computations,
-and organise, but it cannot fetch papers.
+Claude Code sessions here **cannot reach scholarly hosts** — arxiv, semanticscholar,
+crossref, doi.org, mdpi, openalex are blocked. Only WebSearch gets out. PDFs must be
+uploaded by hand. `pip install numpy sympy pymupdf` at session start.

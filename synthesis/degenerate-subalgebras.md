@@ -97,6 +97,16 @@ R_A(K) as K runs over the hyperplanes of A, grouped by class of K and by orbit:
 | T | X16.2 | 7 | X32.6 |
 | T | X16.3 | 7 | X32.7 |
 
+At dimension 32 the same split recurs. `check23` §3 applies Bales's eight true products
+to each 16-dimensional class and finds only its standard and its mirror double:
+CD(·) = T for all four (absorption), and M(S), M(S′), **M(X16.2) = X32.6**,
+**M(X16.3) = X32.7 = M³(H)**. So X32.6 and X32.7 are "uniform" (mirrors of a degenerate
+class), while **X32.3, X32.4, X32.5** — the relative mirrors of T with respect to its three
+orbits of *non-founding* copies of S — are, like X16.2, not any doubling product applied to
+any of their hyperplanes. They share the hyperplane census (2 S, 1 S′, 21 X16.2, 7 X16.3) and
+are separated by zero-divisor count (748, 676, 772) and by Der (6, **14**, 6): X32.4, the
+mirror of T with respect to CD(O) ⊂ S ⊕ Sℓ′, keeps a full g₂.
+
 Two things to read off. **The mirror of a mirror is the standard double**: R_{P4}(H) = O and
 R_{S′}(O) = S on the founding copies — mirroring is an involution on the founding hyperplane,
 which is why the paper's S′ ⊂ T ⊃ S picture is symmetric. And **the 32-dimensional classes are
