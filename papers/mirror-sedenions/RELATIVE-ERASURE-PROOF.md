@@ -3,7 +3,7 @@ type: proof
 title: Relative erasure — every basis hyperplane, not just the founding copy, is erased by a standard doubling
 date: 2026-09-12
 status: complete — hand derivation on basis elements, machine-verified for A = O, P4, S, S′, X16.2, X16.3, T, X32.7 and a Bales-rejected base
-verification: papers/mirror-sedenions/code/check23_relative_mirror.py (§2), check22_classes.py (absorption)
+verification: papers/mirror-sedenions/code/check23_relative_mirror.py (§2), check22_classes.py (absorption), check26_split_relative_erasure.py (split cases)
 generalises: papers/mirror-sedenions/ERASURE-PROOF.md
 ---
 
@@ -101,10 +101,13 @@ Lemma 1 now gives Ψ: CD(N) → B, Ψ(n, m) = n + me, an isomorphism of ∗-alge
 **What was used.** Only (F1), (F2) and the outer doubling formula. (F2) is anticommutativity
 between K and its complementary coset; (F1) says the coset carries no real part. Neither the
 quaternion property (associativity of 2-generated subalgebras) nor any identity inside K
-enters. So the theorem holds verbatim for Bales's 24 rejected products used as the base A
-(machine-checked for P(1,3) on H), and for the split Cayley–Dickson algebras (ε = −1), since
-the three sign rules hold there too. <!-- UNVERIFIED: the eps=-1 case is asserted from the
-proof, which is indifferent to eps; it has not been run separately. -->
+enters — and neither does w(p,p) = −1. So the theorem holds verbatim for Bales's 24 rejected
+products used as the base A (machine-checked for P(1,3) on H), and for the **split**
+Cayley–Dickson algebras: with the inner A split (some e_p² = +1) and/or the outer doubling
+split (CD_ε with ε = −1, identities (iv) and (v) read (nu)(mu) = −ε m̄n and u² = −ε), the
+identities hold for every hyperplane of S, split S, split M(O) and split O
+(`check26_split_relative_erasure.py`). The minimal hypothesis is therefore: basis units
+anticommute off the diagonal and the involution negates every non-identity basis unit.
 
 ## Corollaries
 

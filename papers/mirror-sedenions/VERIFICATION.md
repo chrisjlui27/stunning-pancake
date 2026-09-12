@@ -288,6 +288,11 @@ K = T founding (138840, 3160) = M(T); K = M(S) (149592, 3280) = M²(S); K = M(S�
 3468, 3476, 3524); K = X32.3 / X32.5 / X32.4 (117336; 3480, 3528, 3336); K = X32.6
 (112728, 3536); K = X32.7 (100440, 3584). Run time under a minute with the pruned search.
 
+### check26 — split relative erasure ✅
+Lemma-1 identities for N = K + K(e_c e) hold for all hyperplanes K with inner algebra S,
+split S, split M(O), split O and outer ε = ±1 (all 15/15 resp. 7/7). Neither e_p² = −1 nor
+positivity is needed.
+
 ### Tool note
 `iso_search_pruned` (vertex/pair invariants of the associator pattern, rarest-first source
 basis) replaced the plain backtracking midway; it agrees with the plain search and with
