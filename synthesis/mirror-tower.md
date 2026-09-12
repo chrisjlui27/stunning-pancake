@@ -63,18 +63,50 @@ Three distinct values = k + 1. CD(S′) matches T on **every** invariant compute
 identical basis-hyperplane census (16 S, 1 S′, 14 other), identical associator
 census (2184 / 2156 of 4340 independent triples), Der = g₂.
 
-### Level 3 — dimension 64
+### Level 3 — dimension 64 — all eight words, complete
 
-| word | 2-term ZD | predicted class |
+| leading M's (b) | words | 2-term ZD |
 |---|---|---|
-| CD·CD·CD | **3036** | CD³ |
-| CD·M·CD | **3036** | **= CD³ ✓** |
-| CD·CD·M | **3036** | **= CD³ ✓** |
-| M·CD·CD | **3160** | M·CD² |
-| M·M·CD | **3280** | M²·CD |
+| **0** | CD·CD·CD, CD·M·CD, CD·CD·M, CD·M·M | **3036** |
+| **1** | M·CD·CD, M·CD·M | **3160** |
+| **2** | M·M·CD | **3280** |
+| **3** | M·M·M | **3392** |
 
-Every word with an outer CD adjacent to an M collapsed to the predicted class,
-on both the count and the full annihilator profile. Four classes expected.
+**Eight words, exactly four classes** — k + 1 = 4, as predicted. Every collapse
+agreed on the full annihilator-dimension profile, not merely the count.
+
+And the invariant has a clean description: **the class is determined by the
+length of the leading (outermost) run of M's**, which is exactly what the normal
+form M^b ∘ CD^a says. The word counts per class — 4, 2, 1, 1 — are the numbers of
+length-3 words with exactly b leading M's.
+
+The same pattern at the lower levels:
+
+| level | classes | counts |
+|---|---|---|
+| k = 1 (dim 16) | 2 | 84, 112 |
+| k = 2 (dim 32) | 3 | 588, 648, 704 |
+| k = 3 (dim 64) | 4 | 3036, 3160, 3280, 3392 |
+
+Successive differences within a level: 28 at k = 1; 60, 56 at k = 2;
+124, 120, 112 at k = 3.
+
+## Bales's proper twists
+
+Every algebra in the tower — O, H, M(H), S, S′, T, M(S), M(S′), **and both split
+nodes** — has a **proper twist** in the sense of Bales's Definition 4.1
+(arXiv:1107.1375): on F₂ⁿ, where every element is its own inverse,
+
+    w(p,q) w(q,q) = w(p⊕q, q)        and        w(p,p) w(p,q) = w(p, p⊕q).
+
+Verified for all of them. By Bales's Theorems 4.3–4.5 and Corollary 4.11 a proper
+twist already gives the unit, positivity, (xy)\* = y\*x\*, and the adjoint identity
+⟨xy, z⟩ = ⟨x, z y\*⟩ = ⟨x\* z, y⟩.
+
+**So Proposition 3.2 is a corollary of existing general theory**, not something
+needing direct substitution — and the same for the adjoint identity used
+throughout §2.2 and §2.4. Worth a citation and a shortened proof; it also makes
+clear that none of those properties is where S′ differs from S.
 
 ## What does *not* vary
 
