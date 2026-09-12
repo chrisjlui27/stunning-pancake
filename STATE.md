@@ -88,6 +88,15 @@ next: the contribution depends on it, though the mathematics does not.
   Z(CD(A)) = 2Z(A) + (h−1)(h−2) holds on the CD spine but fails for mirror bases
   (58 exceptions rather than 30 for A = S′).
 
+## Verification status
+
+All 26 scripts exit 0 with no failures. **Note on what that means:** thirteen of
+`check2, 4, 5, 8, 10–12, 14–18, 20–22` and `sym_spectrum` print data without
+asserting anything, so a clean exit from those establishes only that they ran.
+`check26_paper_claims.py` was written to close this: it re-derives and asserts
+every numerical claim appearing in either paper (28 assertions) and exits nonzero
+on any failure. **Run `check26` first.**
+
 ## Known gaps
 
 - **The novelty claim now holds**, on ten papers read (2026-09-11). Both threads

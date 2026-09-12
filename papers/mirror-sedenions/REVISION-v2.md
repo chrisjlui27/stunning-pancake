@@ -123,7 +123,10 @@ Add to the list of verified assertions:
 - the $8$-dimensional subalgebra census of $\Trig$, reproducing Cawagas et al.'s
   $50/105$ (`check22`);
 - the erasure theorem and each intermediate identity (`check19`);
-- the corrections to `check7_misc.py` and `check9_final.py`.
+- the corrections to `check7_misc.py` and `check9_final.py`;
+- `check26`, an assertion gate covering every numerical claim of both papers.
+  Thirteen of the original scripts print data without asserting anything, so
+  running them cannot detect a regression; `check26` is the script that can.
 
 **The two script corrections should be stated**, since Appendix A asserts the
 scripts verify the paper:

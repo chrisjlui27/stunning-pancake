@@ -535,7 +535,13 @@ Theorem~\ref{thm:increment}, for $A=\HH,\OO,\Sed,\Sed',\Trig,\MM(\Sed)$);
 \texttt{check24} (the incidence count of \cite{LuiI});
 \texttt{check25} (properness of the twist at every node of the tree to dimension
 $128$, split nodes included, so that the hypothesis of
-Theorem~\ref{thm:increment} holds wherever it is applied).
+Theorem~\ref{thm:increment} holds wherever it is applied);
+\texttt{check26} (an assertion gate re-deriving and asserting every numerical
+claim made in this paper and in \cite{LuiI}).
+
+Several of the earlier scripts report data rather than assertions, so running
+them cannot detect a regression; \texttt{check26} exists to close that gap and
+is the script to run first.
 
 \begin{thebibliography}{99}
 \bibitem{Bales2011cat} J.~W. Bales, \emph{A catalog of Cayley--Dickson-like products}, arXiv:1107.1301.
