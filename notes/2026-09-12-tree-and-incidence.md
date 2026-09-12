@@ -92,9 +92,12 @@ M(S′) has 704.
 derivation algebra is blind to the whole tree — which is why the zero-divisor
 geometry and Aut have to do all the separating work, exactly as in Table 1.
 
-**No basis hyperplane of any 32-dimensional node is a composition algebra
-(0/31).** The "eight octaves" phenomenon is specific to dimension 16. Whatever
-the M-tower does higher up, it is not more of Theorem 6.1.
+**The 8-dimensional subalgebra census is the right analogue of Theorem 6.1 at
+dimension 32** (the 16-dimensional hyperplanes are never composition algebras, by
+Hurwitz — that observation was trivial and I earlier mis-reported it as a
+finding). Of the 155 three-dimensional F₂-subspaces of F₂⁵: T and CD(S′) give
+**50 octonion / 105 quasi-octonion**, matching Cawagas et al. exactly; M(S) and
+M(S′) give **64 / 91**.
 
 ## 3. The framing question — what is the paper contributing?
 

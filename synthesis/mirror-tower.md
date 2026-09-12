@@ -165,9 +165,18 @@ clear that none of those properties is where S′ differs from S.
 - **Der = g₂ (dimension 14) at every node**, at every dimension, including the
   split nodes. The derivation algebra is blind to the entire tree. The title's
   "G₂-symmetric" is accurate but is not what distinguishes S′ — it is automatic.
-- **No basis hyperplane of any 32-dimensional node is a composition algebra
-  (0 / 31).** Theorem 6.1's eight octaves are a **dimension-16 phenomenon**. The
-  tower does not generalise them.
+- **The 8-dimensional subalgebra census** *does* vary, and is the right
+  dimension-32 analogue of Theorem 6.1. Of the 155 three-dimensional F₂-subspaces
+  of F₂⁵: **T and CD(S′) give 50 octonion / 105 quasi-octonion** — exactly
+  Cawagas et al.'s published counts, independently reproduced — while **M(S) and
+  M(S′) give 64 / 91**. Like the associator census this sees only the outermost
+  operation, so it does not separate M(S) from M(S′).
+
+  <!-- CORRECTION 2026-09-12: I previously reported "no basis hyperplane of any
+       32-dimensional node is a composition algebra (0/31)" as a finding about the
+       tower. That is trivial -- by Hurwitz, unital composition algebras over R
+       have dimension 1, 2, 4 or 8, so a 16-dimensional hyperplane is never one,
+       for any algebra. It was not evidence about anything. -->
 
 These two facts matter for the framing question below: the *sharp* results about
 S′ are exactly the ones that do not survive going up.
