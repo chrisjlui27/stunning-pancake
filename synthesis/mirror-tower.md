@@ -111,6 +111,81 @@ The same pattern at the lower levels:
 Successive differences within a level: 28 at k = 1; 60, 56 at k = 2;
 124, 120, 112 at k = 3.
 
+## The split construction — a different kind of parameter
+
+**Split is permanent; the mirror is not.** The two bits behave in opposite ways,
+and the reason is that they live in different places.
+
+### Signature is inherited forever
+
+The norm N(x) = x x̄ has signature determined by the squares of the basis units,
+and it is an isomorphism invariant (N is fixed by the quadratic identity
+x² − 2t(x)x + N(x) = 0). Computed up the tower:
+
+| base | level 1 | level 2 |
+|---|---|---|
+| definite (S, S′) | **(16, 0)** | **(32, 0)** — CD and M alike |
+| split (CD₋(O), M₋(O)) | **(8, 8)** | **(16, 16)** — CD and M alike |
+
+A split algebra is never isomorphic to a definite one, at any level, on an
+invariant that needs no search. **CD cannot repair a split**, and neither can M.
+Once ε = −1 is used, every descendant is split.
+
+### But the mirror is erased in the split branch too
+
+| dimension 16 | |
+|---|---|
+| split S vs split mirror | **not graded-isomorphic** |
+
+| dimension 32 | |
+|---|---|
+| CD(split S) → CD(split mirror) | **GRADED-ISOMORPHIC** |
+| M(split S) → M(split mirror) | **not graded-isomorphic** |
+
+Exactly the definite-branch pattern. The mirror bit is genuine at level 1 in both
+branches, and erased by the next CD in both branches. **So the two parameters are
+independent:** ε is permanent and inherited; the mirror survives only as the
+length of the leading run of M's.
+
+Note the counts are *not* a sufficient invariant here — split S and split mirror
+both have 112 two-term zero divisors and signature (8, 8), yet are not
+isomorphic. The search was needed.
+
+## Why the mirror is erased — it is Theorem 3.3, read one level up
+
+The erasure looks surprising until you extract the isomorphism. For
+CD(S′) → T the search returns
+
+    e₁ → e₁,   e₂ → e₂,   e₄ → e₄          (the founding O, fixed)
+    e₈ → e₂₄ = e₈ ⊕ e₁₆                    (ℓ ↦ ℓe′)
+    e₁₆ → e₁₆                              (the outer doubling unit, fixed)
+
+It fixes O and the outer unit e′, and sends the **inner doubling unit ℓ to the
+composite ℓe′**. That is precisely the content of **Theorem 3.3**:
+
+> M(A) ≅ A + A(ee′) ⊂ CD²(A)
+
+The mirror double is *already* a subalgebra of the double double — the one
+spanned by A and the composite unit ee′ rather than by A and e. So CD(M(A)) and
+CD(CD(A)) differ only in **which unit is called the doubling unit**, and once you
+double again the ambient algebra contains both, related by a relabelling.
+
+**The paper's own embedding theorem explains the erasure.** This should convert
+into a proof of the relation with modest work, rather than needing a new idea —
+which is the strongest argument for adding it to v1 rather than deferring it.
+
+Two cautions from the computation:
+
+- The erasure is **not** a pure sign relabelling. Tested directly: for every pair
+  above — S vs S′, CD(S) vs CD(S′), M(S) vs M(S′), split S vs split mirror — the
+  ratio of the two sign functions is **not a coboundary** with σ = identity. A
+  genuine σ ∈ GL(5,2) is required. The obstruction is not killed by sign freedom;
+  it is killed by the larger linear group (|GL(5,2)| = 9999360 against
+  |GL(4,2)| = 20160, and the exhaustive GL(4,2) search finds no S → S′).
+- Remark 3.8's dimension-16 case behaves the same: CD(M(H)) ≅ S via 168 σ's, and
+  **not** with σ = identity. So "signed relabelling" there must be read as
+  permutation-plus-signs.
+
 ## Bales's proper twists
 
 Every algebra in the tower — O, H, M(H), S, S′, T, M(S), M(S′), **and both split
