@@ -279,5 +279,17 @@ Every P4 hyperplane of S, S′, X16.2, X16.3 carries 12 internal zero-divisor pa
 (dim Ann, multiplicity) ∈ {(2,1), (4,2), (6,3)} throughout. Der(P4), Der(X16.2),
 Der(X16.3): dimension 6, perfect, negative-definite Killing form — compact semisimple, so(4).
 
-### check25 — the 64-dimensional landscape
-<!-- PENDING: fill from check25.log -->
+### check25 — the 64-dimensional landscape ✅
+The 63 relative mirrors R_{A_6}(K) fall into 15 fingerprint groups (sizes 1,1,1,1,1,1,1 and
+7,7,7,7,7,7,7,7), each a single graded-isomorphism class by the associator search at k = 6;
+|L_5| = 16. The fingerprints (nonassociative ordered triples, two-term ZD count):
+K = T founding (138840, 3160) = M(T); K = M(S) (149592, 3280) = M²(S); K = M(S′) (149592,
+3392) = M³(O); K = T f=8,16,24 (118680; 3276, 3220, 3332); K = T 7-orbits (118680; 3420,
+3468, 3476, 3524); K = X32.3 / X32.5 / X32.4 (117336; 3480, 3528, 3336); K = X32.6
+(112728, 3536); K = X32.7 (100440, 3584). Run time under a minute with the pruned search.
+
+### Tool note
+`iso_search_pruned` (vertex/pair invariants of the associator pattern, rarest-first source
+basis) replaced the plain backtracking midway; it agrees with the plain search and with
+`f2iso.py` on every test (168 / 168 / 0; T: 168) and is 100–500× faster at dimension 32.
+`graded_iso` and `sigma_count` now use it.

@@ -13,7 +13,7 @@ byk = {k: {c['label']: c['w'] for c in lst} for k, lst in classes.items()}
 def classify(w):
     k = w.shape[0].bit_length() - 1; A = assoc_pattern(w)
     for lab, rep in byk[k].items():
-        if iso_search(assoc_pattern(rep), A) is not None: return lab
+        if iso_search_pruned(assoc_pattern(rep), A) is not None: return lab
     return '?'
 def hyperplane_basis(N, f):
     H = [g for g in range(N) if bin(f & g).count('1') % 2 == 0]
@@ -50,7 +50,7 @@ for key, mem in groups.items():
     for f, K in mem:
         R = relative_mirror(w6, f); A = assoc_pattern(R); placed = False
         for i, (rf, rA) in enumerate(reps):
-            t1 = time.time(); s = iso_search(rA, A)
+            t1 = time.time(); s = iso_search_pruned(rA, A)
             if s is not None: placed = True; break
         if not placed: reps.append((f, A))
     tot_classes += len(reps)

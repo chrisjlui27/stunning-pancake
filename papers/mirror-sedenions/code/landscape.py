@@ -154,11 +154,11 @@ def iso_search(A1, A2, count=False, limit=None):
 def graded_iso(w1, w2):
     """True iff w1 and w2 are graded-isomorphic (anticommutative tables assumed)."""
     if w1.shape != w2.shape: return False
-    return iso_search(assoc_pattern(w1), assoc_pattern(w2)) is not None
+    return iso_search_pruned(assoc_pattern(w1), assoc_pattern(w2)) is not None
 
 def sigma_count(w):
     A = assoc_pattern(w)
-    return iso_search(A, A, count=True)
+    return iso_search_pruned(A, A, count=True)
 
 # --------------------------------------------------------------------------- invariants
 def zd(w):
@@ -244,3 +244,56 @@ def hyperplane_types(w, classify):
                 basis.append(g); sp |= {s ^ g for s in sp}
         out.append(classify(restrict(w, tuple(basis))))
     return Counter(out)
+
+# --------------------------------------------------------------------------- pruned search (2026-09-12)
+def _invariants(A):
+    """vertex and pair statistics of an associator pattern, invariant under sigma."""
+    neg = (A < 0)
+    V = np.stack([neg.sum(axis=(1, 2)), neg.sum(axis=(0, 2)), neg.sum(axis=(0, 1))], axis=1)          # (N,3)
+    P = np.stack([neg.sum(axis=2), neg.sum(axis=1), neg.sum(axis=0)], axis=2)                          # (N,N,3)
+    return V, P
+
+def _reorder_source(A1):
+    """choose a basis of F_2^n for the source so that rare vertices come first; return (A1', tau)."""
+    N = A1.shape[0]; n = N.bit_length() - 1
+    V, P = _invariants(A1)
+    keys = [tuple(V[p]) for p in range(N)]
+    from collections import Counter as _C
+    freq = _C(keys[1:])
+    basis = []; sp = {0}
+    while len(basis) < n:
+        cands = [p for p in range(1, N) if p not in sp]
+        # rarest vertex class, tie-break by rarest pair profile against chosen basis
+        def score(p):
+            return (freq[keys[p]], tuple(sorted(_C(tuple(P[b, p]) for b in basis).items())), p)
+        b = min(cands, key=score)
+        basis.append(b); sp |= {s ^ b for s in sp}
+    tau = span(tuple(basis))
+    return np.ascontiguousarray(A1[np.ix_(tau, tau, tau)]), basis
+
+def iso_search_pruned(A1, A2, count=False):
+    """Same contract as iso_search, with vertex/pair-invariant pruning and rarest-first source order."""
+    N = A1.shape[0]; n = N.bit_length() - 1
+    A1r, _ = _reorder_source(A1)
+    V1, P1 = _invariants(A1r); V2, P2 = _invariants(A2)
+    if sorted(map(tuple, V1)) != sorted(map(tuple, V2)): return 0 if count else None
+    found = [0]; first = [None]
+    def rec(sig, imgs):
+        m = len(sig)
+        if m == N:
+            found[0] += 1
+            if first[0] is None: first[0] = list(imgs)
+            return not count
+        i = len(imgs); b = 1 << i                      # source basis vector for this level
+        used = set(sig.tolist())
+        sub1 = A1r[:2 * m, :2 * m, :2 * m]
+        for v in range(1, N):
+            if v in used or not np.array_equal(V2[v], V1[b]): continue
+            # pair invariants against everything already mapped
+            if not np.array_equal(P2[sig, v], P1[:m, b]): continue
+            new = np.concatenate([sig, sig ^ v])
+            if np.array_equal(A2[np.ix_(new, new, new)], sub1):
+                if rec(new, imgs + [v]): return True
+        return False
+    rec(np.array([0], dtype=np.int64), [])
+    return found[0] if count else first[0]

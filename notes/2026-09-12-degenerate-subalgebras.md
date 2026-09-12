@@ -41,7 +41,7 @@ that give genuinely messed-up subalgebras, and what do they teach?
 
 ## Loose ends
 
-- |L_5| (64-dim classes) — `check25` running at session end; bound ≤ 16.
+- ~~|L_5|~~ = 16, done once the pruned search landed (15 orbits of hyperplanes of A_6).
 - Stability of the 8 classes at 32-dim inside A_7 — `check21 7 5` running at session end.
 - Conjecture |L_k| = 2^{k−2}.
 - Closed forms for the counts of each class in A_n beyond dimension 16.

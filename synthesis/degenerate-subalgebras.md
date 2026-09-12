@@ -55,10 +55,17 @@ criterion below, which reaches dimension 32 and 64 where the paper's GL(4,2) enu
 | A_6 | 64 | H: 651 | O 310, P4 1085 | S 186, S′ 31, X16.2 217, X16.3 217 | T 32, M(S) 1, M(S′) 1, X32.4 1, X32.3 7, X32.5 7, X32.6 7, X32.7 7 |
 | A_7 | 128 | — | — | S 2046, S′ 651, X16.2 4557, X16.3 4557 | <!-- PENDING: check21 n=7 k=5 --> |
 
-**Number of classes: 1, 2, 4, 8 at dimensions 4, 8, 16, 32**, and the list at each dimension
-is complete one level up and never grows again (Theorem 3; checked through A_7 at dimension
-16 over 11 811 subgroups). The 64-dimensional count is bounded by 1 + #orbits of Aut(A_6) on
-its 63 hyperplanes, i.e. ≤ 16. <!-- PENDING: check25 result -->
+**Number of classes: 1, 2, 4, 8, 16 at dimensions 4, 8, 16, 32, 64**, and the list at each
+dimension is complete one level up and never grows again (Theorem 3; checked through A_7 at
+dimension 16 over 11 811 subgroups). The 64-dimensional count comes from Theorem 3 directly
+(`check25`): the 63 hyperplanes of A_6 fall into **15 orbits** (7 singletons, 8 orbits of
+seven) and their relative mirrors are **15 pairwise non-isomorphic** algebras (distinct
+already on the fingerprint (non-associative triples, zero-divisor count), confirmed by the
+associator search), so |L_5| = 1 + 15 = 16. The three singletons f = 32, 48, 56 are the mirror
+tower M(T), M²(S), M³(O) with zero-divisor counts 3160, 3280, 3392 — the b = 1, 2, 3 column
+of the tower table in `mirror-tower.md`; the other twelve are relative mirrors with respect
+to non-founding copies (four more singletons, eight orbits of seven), with counts from 3220
+to 3584.
 
 The counts are not free either. Writing G(n,k) for the Gaussian binomial (number of k-dim
 subspaces of F₂ⁿ), the 16-dimensional census satisfies, for every n ≥ 5 computed,
@@ -238,7 +245,13 @@ erases all of it in one step.** The relative-erasure theorem is two lines longer
 erasure theorem and strictly more general; it should replace it.
 
 For the tower sequel: the landscape L_k is the natural object, its generation by
-R_{A_k}(·) and its stability are theorems, and the class count 1, 2, 4, 8 (and the bound
-≤ 16 at dimension 64) is the number to explain. The conjecture on the table is
-**|L_k| = 2^{k−2}**, equivalently that Aut(A_k) has exactly 2^{k−2} − 1 orbits on the
-hyperplanes of A_k, each with a distinct relative mirror.
+R_{A_k}(·) and its stability are theorems, and the class count **1, 2, 4, 8, 16** at
+dimensions 4 … 64 is the number to explain. The conjecture on the table is
+**|L_k| = 2^{k−2}**, equivalently that the graded automorphism group of A_k has exactly
+2^{k−2} − 1 orbits on the hyperplanes of A_k, each with a distinct relative mirror. The orbit
+data so far: 1 (O); 1 + 1 + 1 (S: founding, 7 through ℓ, 7 quasi — but the two 7-orbits give
+X16.2 and X16.3, so 3 orbits); 7 orbits of sizes 1,1,1,7,7,7,7 (T); 15 orbits of sizes
+1⁷, 7⁸ (A_6). Hyperplanes of A_k are the points of PG(k−1, 2) (2^k − 1 of them), so the
+conjecture says the graded automorphisms of A_k act on that projective space with
+2^{k−2} − 1 orbits — a statement about a finite group action that should be provable
+from the recursive structure of the twist.

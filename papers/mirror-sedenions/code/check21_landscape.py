@@ -7,7 +7,7 @@ of each dimension.  Each is classified by (a) a cheap fingerprint and (b) a prun
 backtracking search on the associator pattern (landscape.iso_search).  Labels persist in
 a registry across levels so the same class has the same name in every A_n.
 
-usage: python3 check21_landscape.py N [KMAX]      (results appended to landscape_registry.pkl)
+usage: python3 check21_landscape.py N [KMAX] [KMIN]      (results appended to landscape_registry.pkl)
 """
 import sys, time, pickle, os
 import numpy as np
@@ -60,9 +60,10 @@ def seed():
 seed()
 
 n = int(sys.argv[1]); kmax = int(sys.argv[2]) if len(sys.argv) > 2 else n - 1
+kmin = int(sys.argv[3]) if len(sys.argv) > 3 else 2
 w = cd_tower(n)
 print(f'=== A_{n}, dimension {2**n} ===')
-for k in range(2, kmax + 1):
+for k in range(kmin, kmax + 1):
     t0 = time.time(); cnt = Counter()
     subs = subspaces(n, k)
     for i, B in enumerate(subs):
