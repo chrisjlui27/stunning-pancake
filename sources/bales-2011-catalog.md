@@ -37,6 +37,17 @@ third independent numbering. The catalog never applies a variant once on top of
 standard O, nor observes that the eight give two non-isomorphic 16-dimensional
 algebras, so the **construction** claim is untouched.
 
+## Addendum 2026-09-12 — the 24 rejected products never occur as subalgebras
+
+`check23` applies all 32 products once to H, O, P4 = M(H), S, S′ and the two degenerate
+16-dimensional classes. In every case the 24 rejected products fail the quaternion property
+and the 8 accepted ones give exactly the standard and the mirror double of the base (4 + 4).
+Since the quaternion property passes to basis subalgebras and every basis subalgebra of a
+Cayley–Dickson algebra has it (all 4-dimensional ones are H, through A_6), **no algebra built
+with a rejected product is ever a basis subalgebra of a Cayley–Dickson algebra**. The degenerate
+subalgebras of `synthesis/degenerate-subalgebras.md` are therefore not Bales-degenerate: X16.2
+in particular is not any of the 32 products applied to any of its hyperplanes.
+
 ## Why this source matters
 
 Sets out to enumerate **all** variants of the doubling product. The mirror double is a variant of the doubling product. Those two sentences need to be reconciled.
