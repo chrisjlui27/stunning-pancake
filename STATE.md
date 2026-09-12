@@ -27,7 +27,7 @@ The mathematics of v1 is machine-verified (`papers/mirror-sedenions/VERIFICATION
 | Thread | Status | Next step |
 |---|---|---|
 | ~~64-dim landscape count~~ | **done** | \|L_5\| = 16: 15 hyperplane orbits of A_6, 15 distinct relative mirrors. `check25`, under a minute. |
-| **32-dim stability in A_7** | running at session end | `check21_landscape.py 7 5`, 2667 subgroups, ~1 h. First 1000 gave only the 8 known classes. Fill the A_7 row. |
+| ~~32-dim stability in A_7~~ | **done** | Only the 8 known classes among 2667 subgroups; the 127 64-dim subgroups give the same 16 classes as `check25`. |
 | **Conjecture \|L_k\| = 2^{k−2}** | new | 1, 2, 4, 8, 16 at dims 4–64. Equivalent to: Aut(A_k) has 2^{k−2} − 1 orbits on hyperplanes with pairwise non-isomorphic relative mirrors. A proof needs the orbit structure of the graded automorphism group on hyperplanes. |
 | **Apply the v2 additions** | ready | `ERRATA.md`, plus: replace the erasure theorem by relative erasure; name the [2+13] / [0+15] hyperplanes (X16.2 = R_S(O_L), X16.3 = M²(H)); the dim Ann = 2 × (#quasi-octonions) rule; Wilmot's P12/P14 ≅ P4 remark. |
 | **Own notes not in vault** | open | Import JS-1–41 and JS-LANDSCAPE-II. Reference [16] is load-bearing and unreachable. |
@@ -64,7 +64,6 @@ The mathematics of v1 is machine-verified (`papers/mirror-sedenions/VERIFICATION
 ## Known gaps
 
 - Reference [16] (own working notes) is outside the vault.
-- The 64-dim class count and the A_7 32-dim census were still running at session end.
 - |L_k| = 2^{k−2} is a conjecture from five data points (dims 4–64).
 
 ## Environment constraint

@@ -53,7 +53,14 @@ criterion below, which reaches dimension 32 and 64 where the paper's GL(4,2) enu
 | A_4 = S | 16 | H: 35 | O 8, P4 7 | — | — |
 | A_5 = T | 32 | H: 155 | O 50, P4 105 | S 16, S′ 1, X16.2 7, X16.3 7 | — |
 | A_6 | 64 | H: 651 | O 310, P4 1085 | S 186, S′ 31, X16.2 217, X16.3 217 | T 32, M(S) 1, M(S′) 1, X32.4 1, X32.3 7, X32.5 7, X32.6 7, X32.7 7 |
-| A_7 | 128 | — | — | S 2046, S′ 651, X16.2 4557, X16.3 4557 | <!-- PENDING: check21 n=7 k=5 --> |
+| A_7 | 128 | — | — | S 2046, S′ 651, X16.2 4557, X16.3 4557 | T 714, M(S) 63, M(S′) 63, X32.4 63, X32.3 441, X32.5 441, X32.6 441, X32.7 441 |
+
+The 64-dimensional basis subalgebras of A_7 (127 subgroups) were also classified directly:
+16 classes with multiplicities 64 (= A_6, the founding copy plus the 63 through the top unit,
+as absorption requires), seven singletons and eight orbits of seven — exactly the 15 relative
+mirrors of `check25`, obtained there by the generation theorem instead. At dimension 32 the
+counts in A_7 repeat the dimension-16 pattern one level up: singleton classes G(6,5) = 63,
+seven-orbit classes 7 · 63, and T = G(7,5) − 31 · G(6,5).
 
 **Number of classes: 1, 2, 4, 8, 16 at dimensions 4, 8, 16, 32, 64**, and the list at each
 dimension is complete one level up and never grows again (Theorem 3; checked through A_7 at

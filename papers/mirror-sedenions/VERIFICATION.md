@@ -252,7 +252,7 @@ Quaternion property holds for S, S′, T.
 | A_4 | H 35 | O 8, P4 7 | | |
 | A_5 | H 155 | O 50, P4 105 | S 16, S′ 1, X16.2 7, X16.3 7 | |
 | A_6 | H 651 | O 310, P4 1085 | S 186, S′ 31, X16.2 217, X16.3 217 | T 32, M(S) 1, M(S′) 1, X32.4 1, X32.3 7, X32.5 7, X32.6 7, X32.7 7 |
-| A_7 | | | S 2046, S′ 651, X16.2 4557, X16.3 4557 (11 811 subgroups, 442 s) | see below |
+| A_7 | | | S 2046, S′ 651, X16.2 4557, X16.3 4557 (11 811 subgroups, 442 s) | T 714, M(S) 63, M(S′) 63, X32.4 63, X32.3/5/6/7 441 each (2667 subgroups, 11 s with the pruned search); dim 64: 16 classes, multiplicities 64, 1⁷, 7⁸ (127 subgroups, 2 s; X64.0 = A_6) |
 
 Cawagas et al.'s 16/7/7/1 for T reproduced; Wilmot's Theorem 8 counts (105 = 7·15,
 1085 = 7·155) reproduced.

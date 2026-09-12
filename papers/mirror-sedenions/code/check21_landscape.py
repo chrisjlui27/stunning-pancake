@@ -20,11 +20,15 @@ classes = reg['classes']      # k -> list of dict(label, w, fp, inv)
 census  = reg['census']       # (n,k) -> Counter(label)
 
 def fingerprint(w, k):
+    """cheap graded-isomorphism invariants; the associator search decides the rest.
+    (An earlier version also included the codim-1 hyperplane census, which is a complete
+    invariant in practice but costs a recursive classification per subalgebra.)"""
     A = assoc_pattern(w)
     nonassoc = int((A[1:, 1:, 1:] < 0).sum())
     c, dims = zd(w)
-    hp = tuple(sorted(hyperplane_types(w, lambda s: classify(s, k - 1)).items())) if k >= 3 else ()
-    return (nonassoc, c, tuple(dims.items()), hp)
+    return (nonassoc, c, tuple(dims.items()))
+for _k, _lst in classes.items():
+    for _c in _lst: _c['fp'] = fingerprint(_c['w'], _k)          # refresh stored fingerprints
 
 def new_label(k, w, fp):
     lst = classes.setdefault(k, [])
