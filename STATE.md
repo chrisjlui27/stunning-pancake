@@ -4,7 +4,7 @@
 > Keep it short — if a section is growing past a screen, the detail belongs in
 > `synthesis/` and this file should link to it instead.
 
-**Last updated:** 2026-09-11 — ten papers read; both threads closed; errata pass complete, E1 retracted, no errors found in the paper.
+**Last updated:** 2026-09-12 — erasure relation PROVED from Theorem 3.3; tower and Wilmot incidence results in `synthesis/mirror-tower.md`.
 
 ## Subject
 
@@ -54,6 +54,18 @@ next: the contribution depends on it, though the mathematics does not.
   is committed with the date and environment. This paid for itself immediately:
   both discrepancies found were script bugs that a reading pass would have missed,
   and one of them (`check7`'s τ) was invisible at every sample point check6 used.
+
+## New results this session (2026-09-12)
+
+- **Theorem (erasure): CD(M(A)) ≅ CD(CD(A)) for every ∗-algebra A.** Proved from
+  Theorem 3.3; `papers/mirror-sedenions/ERASURE-PROOF.md`, machine-verified
+  step by step. Corollary: every {CD, M} word reduces to M^b ∘ CD^a, so at most
+  k + 1 algebras at level k. Generalises Theorem 3.6 (k=1) and Remark 3.8 (k=2).
+- **Wilmot's 12-per-quasi-octonion count holds verbatim in S′**; the 84 vs 112
+  difference is purely incidence multiplicity (uniform 2 vs {1: 84, 3: 28}), and
+  the split is canonical — the 42 assessors versus the 14 new pairs.
+- **Split is permanent**: the norm signature is inherited by every descendant, so
+  no doubling repairs ε = −1. The two parameters are independent.
 
 ## Known gaps
 

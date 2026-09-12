@@ -13,17 +13,26 @@ evidence: papers/mirror-sedenions/code/check13_wilmot_incidence.py, check14_tree
 
 **The mirror double is erased by a subsequent standard doubling:**
 
-> **The erasure relation.** For every ∗-algebra A in the tower,
-> CD(M(A)) ≅ CD(CD(A)).
+> **Theorem (erasure).** For every ∗-algebra A, CD(M(A)) ≅ CD(CD(A)) as
+> ∗-algebras.
 
-**Status: verified at level 2 by explicit isomorphism; conjectural in general.**
+**Status: PROVED.** Full proof at `papers/mirror-sedenions/ERASURE-PROOF.md`,
+derived from Theorem 3.3 and machine-verified step by step
+(`check19_erasure_proof.py`) for A = H, O, S, S′ and a split base.
 
-| case | status |
-|---|---|
-| CD(M(H)) ≅ CD(CD(H)) = S | **proved in the paper** — Remark 3.8's signed relabelling |
-| CD(M(O)) ≅ CD(CD(O)) = T | **verified 2026-09-12** — explicit graded isomorphism found by backtracking search over GL(5,2) |
-| level 3 (dimension 64) | invariants only — count and full annihilator profile |
-| general A | **conjecture** |
+The proof is short. Inside B = CD²(A) take N = A + A(ee′) = Φ(M(A)) and u = e′.
+Then (ee′)e′ = −e gives B = N ⊕ Nu, and the four Cayley–Dickson component
+identities — n(mu) = (mn)u, (mu)n = (mn̄)u, (m₁u)(m₂u) = −m̄₂m₁, u² = −1 — hold by
+direct computation from the doubling formula. Hence CD(N) ≅ B, and N ≅ M(A) by
+Theorem 3.3.
+
+**It uses no associativity, alternativity, composition property or positivity** —
+only the doubling formula and the involution axioms. In particular it is
+indifferent to ε, which is why it holds in the split branch too.
+
+Consequently the **normal form corollary is a theorem**: every length-k word
+reduces to M^b ∘ CD^(k−b) with b the length of the maximal leading run of M's, so
+there are at most k + 1 algebras at level k rather than 2^k.
 
 The level-2 search also settles the negative direction, which matters just as much:
 
@@ -303,12 +312,14 @@ norm), so they are a parallel branch rather than a complication.
 
 ## What would change my mind
 
-- **The erasure relation failing at some level.** It is now confirmed by explicit
-  graded isomorphism at k = 2 (over O) and proved in the paper at k = 2 (over H),
-  but k = 3 rests on invariants alone — a word that collapses on counts and
-  annihilator profiles while being genuinely non-isomorphic would break the normal
-  form. The k = 3 search needs GL(6,2), which the current backtracking code will
-  not reach without better pruning.
+- ~~The erasure relation failing at some level.~~ **Settled** — it is now a
+  theorem for every ∗-algebra, so the normal form holds at every level. The
+  level-3 invariant agreement is a consequence, not evidence.
+- **The *sharpness* of the normal form.** The theorem gives *at most* k + 1
+  classes; it does not prove the k + 1 representatives are pairwise
+  non-isomorphic. That direction is checked only at k ≤ 3 (by counts, and at
+  k = 2 by explicit search: M(S) ≇ M(S′), T ≇ M(S)). A collapse among the
+  M^b CD^a for large b would shrink the count further.
 - **A composition subalgebra appearing somewhere above dimension 16.** That would
   mean Theorem 6.1 does generalise and the tower is richer than the counts
   suggest.
