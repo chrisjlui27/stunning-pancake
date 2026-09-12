@@ -24,9 +24,12 @@ Each entry names the misconception if one was found.
 What to open the next session with, oldest first. Remove an item once it
 has been checked and moved to Solid.
 
-- None yet.
+- **Placement, before phase 1.** Ten minutes: dot product and what it
+  measures, what a matrix does to a vector, whether "linearly independent"
+  and "spans" are already usable. Sets where in Axler to start.
 
 ## Sessions
 
-- 2026-09-12 — Tutor set up. No teaching yet. First session: ask about goals
-  and current level, fill in `LEARNER.md`.
+- 2026-09-12 — Tutor set up. Background and goals gathered; plan written to
+  `LEARNER.md`. No teaching yet. Next session: the placement check above,
+  then Axler ch. 1 from wherever it lands.
