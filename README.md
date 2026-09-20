@@ -21,9 +21,18 @@ notes/         raw capture, dated, append-only
 sources/       one file per source, with the claims drawn from it
 synthesis/     the output: argued, structured documents
 templates/     starting points for the three above
+papers/        own papers: PDF, verification code, run logs
+tutor/         the maths tutor's learner record — see tutor/README.md
 ```
 
 ## Working in it
 
 Start a session and say what you're after. The session reads `STATE.md`, works,
 commits, and updates `STATE.md` on the way out.
+
+## The tutor
+
+The repo also houses a mathematics tutor. Run `/tutor` in any session opened on
+this repo, or just ask a mathematics question. It reads its learner record from
+`tutor/`, teaches rather than answers, and runs every computation before
+asserting it. See `tutor/README.md`.
