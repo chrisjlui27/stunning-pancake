@@ -10,7 +10,11 @@
 Concepts the learner has shown they can use in a new setting, not only
 recall.
 
-- None recorded yet.
+- **Dot product: computing it and reading 0 as "orthogonal"** (2026-09-23).
+  Computed u . v = 0 unaided after being given the definition. Variation
+  passed: found w = (0,-1,1), orthogonal to (1,2,2) and not a multiple of v, by
+  setting up a + 2b + 2c = 0 and choosing terms to cancel. That is a method,
+  not a guess.
 
 ## Shaky
 
@@ -32,13 +36,22 @@ Each entry names the misconception if one was found.
   rotation by 90 degrees and does not scale (|A(3,1)| = |(3,1)| = sqrt(10)). No
   method yet for reading a matrix off its columns.
 - Correct: a vector can be treated as an n x 1 matrix.
+- **Writing proofs.** First proof: the structure is right, but it skips the
+  step that carries the argument ("skipping a bit"). It calls factoring out c
+  "associative", when that step is distributivity (plus commutativity).
+  It opens with "therefore" before stating the hypothesis, and ends by calling
+  the conclusion "the premise".
 
 ## Review queue
 
 What to open the next session with, oldest first. Remove an item once it
 has been checked and moved to Solid.
 
-- Dot product: compute u . v for u = (1,2,2), v = (2,-1,0) and say what 0 means.
+- Proof rewrite: u . (c v) = 0 given u . v = 0, with a named law on every
+  line (definition, commutativity + associativity of multiplication,
+  distributivity, hypothesis). Say "hypothesis" and "conclusion" correctly.
+- Orthogonal vectors to (1,2,2): the learner found (0,-1,1), and v = (2,-1,0)
+  is another. Show that together they give a whole plane, and connect this to span.
 - Columns of a matrix = where (1,0) and (0,1) go; use this to read off
   [[0,-1],[1,0]].
 - Independence vs orthogonality: explain why (1,0), (1,1) are independent.
@@ -53,3 +66,6 @@ has been checked and moved to Solid.
   with concrete R^2/R^3 computation, because Axler puts dot products late.
   Three misconceptions found; see Shaky. The learner's comment: "I feel like
   I did not do good". Framed placement as finding the start, not a test.
+  Later in the session: dot product taught and landed (see Solid). First
+  proof written, u . (cv) = 0 given u . v = 0: correct idea, gaps in
+  justification (see Shaky). Next: rewrite that proof, then start Axler 1A.
