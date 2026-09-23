@@ -23,6 +23,7 @@ the session ends, even for work in progress.
 | `synthesis/` | The actual output — argued, structured documents | Revised over time |
 | `templates/` | Starting points for the three above | Stable |
 | `papers/` | Own papers: PDF, sources, verification code, run logs | Per-paper dir |
+| `tutor/` | The maths tutor's learner record and exercises | See `tutor/README.md` |
 
 Rule of thumb: `notes/` is input, `sources/` is evidence, `synthesis/` is the
 product. Never let a synthesis document assert something without a source file
@@ -77,6 +78,18 @@ result in `synthesis/`, execute the code and record the output under
 At the end of any session that changed something meaningful, update `STATE.md`:
 what moved, what is now open, what the next session should pick up. This is the
 handoff. Treat it as the most important file in the repo.
+
+## The tutor
+
+This repo also houses a mathematics tutor: `/tutor` puts a session into
+teaching mode, and `tutor` is available as a subagent. It is defined in
+`.claude/agents/tutor.md` and keeps its learner record in `tutor/`.
+
+The boundary matters. The tutor **writes only inside `tutor/`**. It may read
+`papers/`, `synthesis/`, and `sources/` for context — the learner's goals are
+stated in terms of this paper — but the vault directories and `STATE.md`
+belong to the vault workflow above, not to a tutoring session. Equally, a
+vault session should not edit `tutor/LEARNER.md` or `tutor/PROGRESS.md`.
 
 ## Connectors
 
